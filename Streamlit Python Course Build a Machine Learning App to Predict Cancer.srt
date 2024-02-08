@@ -1,0 +1,11148 @@
+﻿1
+00:00:00,190 --> 00:00:05,960
+[Music]
+
+2
+00:00:05,960 --> 00:00:08,960
+thank you
+
+3
+00:00:09,120 --> 00:00:11,040
+good morning everyone how's it going
+
+4
+00:00:11,040 --> 00:00:13,380
+today welcome to this week's new video
+
+5
+00:00:13,380 --> 00:00:15,480
+tutorial on software development and
+
+6
+00:00:15,480 --> 00:00:18,119
+artificial intelligence in this video
+
+7
+00:00:18,119 --> 00:00:20,400
+we're going to be building a complete
+
+8
+00:00:20,400 --> 00:00:22,320
+application with a graphical user
+
+9
+00:00:22,320 --> 00:00:25,380
+interface all of it coded in Python okay
+
+10
+00:00:25,380 --> 00:00:28,199
+the application deals with some with the
+
+11
+00:00:28,199 --> 00:00:31,199
+data set then trains a machine learning
+
+12
+00:00:31,199 --> 00:00:34,680
+algorithm and displays some predictions
+
+13
+00:00:34,680 --> 00:00:37,020
+based on the input data as well as some
+
+14
+00:00:37,020 --> 00:00:41,120
+chart to visualize the data as well okay
+
+15
+00:00:41,120 --> 00:00:43,800
+so by the end of this video you will
+
+16
+00:00:43,800 --> 00:00:45,540
+have this application that you will be
+
+17
+00:00:45,540 --> 00:00:48,420
+able to put in your portfolio and show
+
+18
+00:00:48,420 --> 00:00:50,520
+it to potential employers and to your
+
+19
+00:00:50,520 --> 00:00:51,899
+friends as well
+
+20
+00:00:51,899 --> 00:00:54,360
+so let me show you just real quick how
+
+21
+00:00:54,360 --> 00:00:57,719
+this works you have a you have a sidebar
+
+22
+00:00:57,719 --> 00:01:00,360
+right here with a lot of inputs and the
+
+23
+00:01:00,360 --> 00:01:03,600
+inputs are are represented in a chart
+
+24
+00:01:03,600 --> 00:01:05,519
+right here so if I change something like
+
+25
+00:01:05,519 --> 00:01:07,920
+here you will see that my chart changes
+
+26
+00:01:07,920 --> 00:01:11,640
+okay and also in real time we are making
+
+27
+00:01:11,640 --> 00:01:13,740
+a prediction using the logistic
+
+28
+00:01:13,740 --> 00:01:16,140
+regression model that we're going to
+
+29
+00:01:16,140 --> 00:01:19,020
+train in scikitlearn so if I move
+
+30
+00:01:19,020 --> 00:01:22,380
+something like here you can see that the
+
+31
+00:01:22,380 --> 00:01:25,159
+prediction changes from benign to
+
+32
+00:01:25,159 --> 00:01:28,860
+malignant for example there you go
+
+33
+00:01:28,860 --> 00:01:31,740
+um so I mean the objective of this I
+
+34
+00:01:31,740 --> 00:01:33,780
+mean the real world use case of an
+
+35
+00:01:33,780 --> 00:01:35,880
+application like this would be to plug
+
+36
+00:01:35,880 --> 00:01:38,460
+it to a cytology lab a cancer in a
+
+37
+00:01:38,460 --> 00:01:41,579
+Cancer Research Institute where you can
+
+38
+00:01:41,579 --> 00:01:46,560
+take some tissue from a breast and then
+
+39
+00:01:46,560 --> 00:01:49,560
+take some measurements from it login I
+
+40
+00:01:49,560 --> 00:01:51,299
+mean input the measurements here like
+
+41
+00:01:51,299 --> 00:01:53,579
+either automatically from the machine or
+
+42
+00:01:53,579 --> 00:01:57,299
+by hand visualize this measurements to
+
+43
+00:01:57,299 --> 00:02:00,540
+have an idea of what the cell cluster
+
+44
+00:02:00,540 --> 00:02:02,399
+looks like and then make a prediction
+
+45
+00:02:02,399 --> 00:02:04,920
+based on these measurements to see
+
+46
+00:02:04,920 --> 00:02:07,560
+whether the cell cluster is malignant or
+
+47
+00:02:07,560 --> 00:02:09,419
+not
+
+48
+00:02:09,419 --> 00:02:12,420
+um and yeah I mean it's pretty cool uses
+
+49
+00:02:12,420 --> 00:02:15,440
+data visualization machine learning
+
+50
+00:02:15,440 --> 00:02:19,200
+and and a web application that you can
+
+51
+00:02:19,200 --> 00:02:20,700
+deploy yeah by the end of the video
+
+52
+00:02:20,700 --> 00:02:23,340
+we're also going to deploy it so there
+
+53
+00:02:23,340 --> 00:02:25,560
+you go I am assuming that you know a
+
+54
+00:02:25,560 --> 00:02:27,599
+little bit about how machine learning
+
+55
+00:02:27,599 --> 00:02:29,819
+works and a little bit of familiarity
+
+56
+00:02:29,819 --> 00:02:33,000
+with the logistic regression model I am
+
+57
+00:02:33,000 --> 00:02:34,739
+also assuming that you have the basics
+
+58
+00:02:34,739 --> 00:02:38,459
+of python and I am going to use very
+
+59
+00:02:38,459 --> 00:02:42,540
+very little CSS and it is not essential
+
+60
+00:02:42,540 --> 00:02:44,519
+um so don't worry if you don't have a
+
+61
+00:02:44,519 --> 00:02:46,680
+CSS background
+
+62
+00:02:46,680 --> 00:02:49,019
+um and yeah so make sure to stick to the
+
+63
+00:02:49,019 --> 00:02:50,580
+end of the video to so that you have
+
+64
+00:02:50,580 --> 00:02:52,560
+this awesome
+
+65
+00:02:52,560 --> 00:02:54,720
+um project in your portfolio all right
+
+66
+00:02:54,720 --> 00:02:57,680
+there we go
+
+67
+00:02:57,900 --> 00:03:00,180
+all right so the first thing that we're
+
+68
+00:03:00,180 --> 00:03:01,379
+going to do
+
+69
+00:03:01,379 --> 00:03:03,780
+um in order to build this application is
+
+70
+00:03:03,780 --> 00:03:07,860
+to to train the model okay but before we
+
+71
+00:03:07,860 --> 00:03:09,239
+do that actually I just wanted to
+
+72
+00:03:09,239 --> 00:03:11,340
+mention that if you want a written
+
+73
+00:03:11,340 --> 00:03:13,319
+version of what we are doing right here
+
+74
+00:03:13,319 --> 00:03:15,540
+all with the Snippets of code that I'm
+
+75
+00:03:15,540 --> 00:03:17,400
+going to be using and the written
+
+76
+00:03:17,400 --> 00:03:19,920
+explanation of everything it is in my
+
+77
+00:03:19,920 --> 00:03:21,480
+you can find it in my blog everything
+
+78
+00:03:21,480 --> 00:03:23,879
+that you that you will find in this
+
+79
+00:03:23,879 --> 00:03:26,300
+video is also written in this blog post
+
+80
+00:03:26,300 --> 00:03:29,519
+I mean including the the code Snippets
+
+81
+00:03:29,519 --> 00:03:31,680
+and also be sure to check it out if you
+
+82
+00:03:31,680 --> 00:03:33,599
+want
+
+83
+00:03:33,599 --> 00:03:37,140
+um all right so back to this data set
+
+84
+00:03:37,140 --> 00:03:40,140
+um of course we need a data set to train
+
+85
+00:03:40,140 --> 00:03:42,000
+our model in order to be able to make a
+
+86
+00:03:42,000 --> 00:03:44,459
+prediction okay as you can see we are
+
+87
+00:03:44,459 --> 00:03:47,040
+trying to predict whether I'm cell
+
+88
+00:03:47,040 --> 00:03:50,220
+cluster is benign or malicious given
+
+89
+00:03:50,220 --> 00:03:52,019
+certain measurements that we're going to
+
+90
+00:03:52,019 --> 00:03:55,200
+take from it and that is exactly what we
+
+91
+00:03:55,200 --> 00:03:57,299
+have in this data set right here from
+
+92
+00:03:57,299 --> 00:04:00,299
+the University of Wisconsin it's a free
+
+93
+00:04:00,299 --> 00:04:02,640
+data set I will also put the link in the
+
+94
+00:04:02,640 --> 00:04:05,340
+description and the data set contains a
+
+95
+00:04:05,340 --> 00:04:07,200
+lot of variables of a lot of
+
+96
+00:04:07,200 --> 00:04:10,140
+measurements made to many different cell
+
+97
+00:04:10,140 --> 00:04:12,840
+clusters the measurements include for
+
+98
+00:04:12,840 --> 00:04:15,900
+example the radius mean of the cells the
+
+99
+00:04:15,900 --> 00:04:19,399
+texture mean perimeter mean Etc
+
+100
+00:04:19,399 --> 00:04:23,220
+and then it also contains a column with
+
+101
+00:04:23,220 --> 00:04:26,220
+the diagnosis of the cell cluster so if
+
+102
+00:04:26,220 --> 00:04:28,199
+it is M that means that the cell cluster
+
+103
+00:04:28,199 --> 00:04:30,660
+turned out to be a malicious cell
+
+104
+00:04:30,660 --> 00:04:33,600
+cluster and if it is B that means that
+
+105
+00:04:33,600 --> 00:04:35,759
+the cell cluster turned out to be a
+
+106
+00:04:35,759 --> 00:04:38,940
+benign so cluster this means that we can
+
+107
+00:04:38,940 --> 00:04:41,400
+train a machine learning model that is
+
+108
+00:04:41,400 --> 00:04:43,560
+going to take all of these variables as
+
+109
+00:04:43,560 --> 00:04:45,660
+predictors and it is going to predict
+
+110
+00:04:45,660 --> 00:04:50,460
+whether or not the the cell cluster is
+
+111
+00:04:50,460 --> 00:04:52,440
+benign or malignant
+
+112
+00:04:52,440 --> 00:04:54,600
+so in order to build this machine
+
+113
+00:04:54,600 --> 00:04:56,160
+learning model we're going to download
+
+114
+00:04:56,160 --> 00:04:58,440
+this data set
+
+115
+00:04:58,440 --> 00:05:01,320
+I have only it already downloaded it and
+
+116
+00:05:01,320 --> 00:05:03,360
+I included it right here in my project
+
+117
+00:05:03,360 --> 00:05:07,380
+but be sure to unzip the file and then I
+
+118
+00:05:07,380 --> 00:05:10,259
+just rename the file data.csv and then
+
+119
+00:05:10,259 --> 00:05:12,000
+put it right here
+
+120
+00:05:12,000 --> 00:05:14,520
+and then once that is done we are able
+
+121
+00:05:14,520 --> 00:05:17,240
+to start training our model
+
+122
+00:05:17,240 --> 00:05:21,000
+in order first in order to if you want
+
+123
+00:05:21,000 --> 00:05:22,500
+to better understand how machine
+
+124
+00:05:22,500 --> 00:05:24,900
+learning works and how especially
+
+125
+00:05:24,900 --> 00:05:27,479
+logistic regression works I invite you
+
+126
+00:05:27,479 --> 00:05:30,300
+to watch the video that I made about
+
+127
+00:05:30,300 --> 00:05:33,560
+that specifically because I use this
+
+128
+00:05:33,560 --> 00:05:36,000
+this same data set
+
+129
+00:05:36,000 --> 00:05:39,360
+in that video and
+
+130
+00:05:39,360 --> 00:05:42,020
+and I mean here we're just going to be
+
+131
+00:05:42,020 --> 00:05:44,759
+going through the cleaning and the model
+
+132
+00:05:44,759 --> 00:05:46,560
+building super fast I'm not going to be
+
+133
+00:05:46,560 --> 00:05:48,240
+explaining a lot of the logistic
+
+134
+00:05:48,240 --> 00:05:50,160
+regression part so be sure to check that
+
+135
+00:05:50,160 --> 00:05:54,919
+one if you if you have some
+
+136
+00:05:54,919 --> 00:05:57,900
+questions about that
+
+137
+00:05:57,900 --> 00:05:59,639
+um all right so now it's time to
+
+138
+00:05:59,639 --> 00:06:03,000
+actually start training our model the
+
+139
+00:06:03,000 --> 00:06:05,340
+data that we included right here
+
+140
+00:06:05,340 --> 00:06:08,280
+actually comes by itself already pretty
+
+141
+00:06:08,280 --> 00:06:10,580
+clean so we're not going to be doing
+
+142
+00:06:10,580 --> 00:06:12,500
+a lot of
+
+143
+00:06:12,500 --> 00:06:15,120
+exploratory data analysis either also
+
+144
+00:06:15,120 --> 00:06:17,340
+that's in the other video so I'm just
+
+145
+00:06:17,340 --> 00:06:18,960
+going to go through the cleaning super
+
+146
+00:06:18,960 --> 00:06:23,060
+quick so let's get right into that
+
+147
+00:06:24,180 --> 00:06:26,819
+all right so let's get right into it
+
+148
+00:06:26,819 --> 00:06:28,080
+um the first thing that we're going to
+
+149
+00:06:28,080 --> 00:06:30,360
+be doing is we're going to create our
+
+150
+00:06:30,360 --> 00:06:32,580
+project folder the project folder is
+
+151
+00:06:32,580 --> 00:06:34,979
+called streamlit app
+
+152
+00:06:34,979 --> 00:06:37,259
+um that cancer in my case but uh
+
+153
+00:06:37,259 --> 00:06:39,539
+extremely adapt cancer sorry and inside
+
+154
+00:06:39,539 --> 00:06:42,900
+of it we have a model folder and another
+
+155
+00:06:42,900 --> 00:06:44,940
+folder called date as I mentioned
+
+156
+00:06:44,940 --> 00:06:47,940
+already I already imported the data CSV
+
+157
+00:06:47,940 --> 00:06:51,120
+that I downloaded from kaggle right here
+
+158
+00:06:51,120 --> 00:06:54,180
+and this one right here is the model
+
+159
+00:06:54,180 --> 00:06:56,460
+this is the file where we're going to
+
+160
+00:06:56,460 --> 00:06:59,100
+train the model and this is also the
+
+161
+00:06:59,100 --> 00:07:01,860
+place where we're going to to clean the
+
+162
+00:07:01,860 --> 00:07:04,500
+data and to test that the model is
+
+163
+00:07:04,500 --> 00:07:06,300
+working correctly before exporting it
+
+164
+00:07:06,300 --> 00:07:08,580
+once we export it we're going to be able
+
+165
+00:07:08,580 --> 00:07:10,740
+to create a new folder right here which
+
+166
+00:07:10,740 --> 00:07:13,740
+is going to be the app folder and this
+
+167
+00:07:13,740 --> 00:07:15,900
+in it is in that folder where we're
+
+168
+00:07:15,900 --> 00:07:17,819
+going to be creating our streamlit
+
+169
+00:07:17,819 --> 00:07:19,740
+application but for now we'll have to
+
+170
+00:07:19,740 --> 00:07:22,139
+first create a model that we're going to
+
+171
+00:07:22,139 --> 00:07:25,560
+feed to our streamlit application
+
+172
+00:07:25,560 --> 00:07:27,240
+so that's what we're going to do in this
+
+173
+00:07:27,240 --> 00:07:29,220
+file right here
+
+174
+00:07:29,220 --> 00:07:31,440
+um right here as you can see I have this
+
+175
+00:07:31,440 --> 00:07:32,840
+basic condition
+
+176
+00:07:32,840 --> 00:07:37,740
+what this does is it tests that this
+
+177
+00:07:37,740 --> 00:07:41,340
+file is I mean it only executes what's
+
+178
+00:07:41,340 --> 00:07:44,460
+inside of it if the file is being
+
+179
+00:07:44,460 --> 00:07:46,740
+executed directly and not being imported
+
+180
+00:07:46,740 --> 00:07:49,380
+this is basically just
+
+181
+00:07:49,380 --> 00:07:52,500
+um standard convention convention thing
+
+182
+00:07:52,500 --> 00:07:54,240
+to do in order to make your code a
+
+183
+00:07:54,240 --> 00:07:56,639
+little bit more robust that way you can
+
+184
+00:07:56,639 --> 00:07:58,919
+be sure that the main content of your
+
+185
+00:07:58,919 --> 00:08:01,979
+application is not being run
+
+186
+00:08:01,979 --> 00:08:04,259
+accidentally when you import the file
+
+187
+00:08:04,259 --> 00:08:06,360
+somewhere else and it's only executed
+
+188
+00:08:06,360 --> 00:08:09,300
+when you actually want to execute this
+
+189
+00:08:09,300 --> 00:08:10,139
+file
+
+190
+00:08:10,139 --> 00:08:13,220
+so there you go and now let's just start
+
+191
+00:08:13,220 --> 00:08:17,580
+adding our data cleaning right here and
+
+192
+00:08:17,580 --> 00:08:19,740
+our model building and all so there we
+
+193
+00:08:19,740 --> 00:08:21,860
+go
+
+194
+00:08:22,199 --> 00:08:24,720
+all right so let's get right into it the
+
+195
+00:08:24,720 --> 00:08:26,460
+first thing that we're going to do is to
+
+196
+00:08:26,460 --> 00:08:30,419
+import pandas SPD that's basic in case
+
+197
+00:08:30,419 --> 00:08:32,159
+you don't have pandas installed you're
+
+198
+00:08:32,159 --> 00:08:34,940
+going to want to pip install
+
+199
+00:08:34,940 --> 00:08:38,099
+pandas in your terminal and once that's
+
+200
+00:08:38,099 --> 00:08:39,899
+done you should be able to use it like
+
+201
+00:08:39,899 --> 00:08:41,279
+this
+
+202
+00:08:41,279 --> 00:08:44,300
+now let's just import
+
+203
+00:08:44,300 --> 00:08:46,260
+actually what I'm going to do is I'm
+
+204
+00:08:46,260 --> 00:08:47,580
+going to create a new function right
+
+205
+00:08:47,580 --> 00:08:49,320
+here that is going to be called get
+
+206
+00:08:49,320 --> 00:08:52,220
+clean data
+
+207
+00:08:52,220 --> 00:08:54,420
+and then I'm just going to Define it
+
+208
+00:08:54,420 --> 00:08:55,980
+right here
+
+209
+00:08:55,980 --> 00:08:57,320
+Define
+
+210
+00:08:57,320 --> 00:09:00,360
+get clean
+
+211
+00:09:00,360 --> 00:09:04,019
+data there you go and this one first is
+
+212
+00:09:04,019 --> 00:09:06,120
+going to read the data file that we have
+
+213
+00:09:06,120 --> 00:09:09,120
+right here so we're going to do my data
+
+214
+00:09:09,120 --> 00:09:11,399
+is going to be equal to
+
+215
+00:09:11,399 --> 00:09:15,360
+PD dot read CSV
+
+216
+00:09:15,360 --> 00:09:18,600
+and we're going to read inside of data
+
+217
+00:09:18,600 --> 00:09:22,560
+and we're going to read data.csv there
+
+218
+00:09:22,560 --> 00:09:24,300
+is something strange going here I mean
+
+219
+00:09:24,300 --> 00:09:27,140
+like I'm not like super
+
+220
+00:09:27,140 --> 00:09:29,880
+I don't have a lot like super long
+
+221
+00:09:29,880 --> 00:09:32,839
+experience in Python so I I mean like
+
+222
+00:09:32,839 --> 00:09:35,700
+my intuition would be to actually go up
+
+223
+00:09:35,700 --> 00:09:39,060
+the model like the model folder and into
+
+224
+00:09:39,060 --> 00:09:41,760
+Data but actually it seems to I mean in
+
+225
+00:09:41,760 --> 00:09:44,279
+Python you just have to run it from the
+
+226
+00:09:44,279 --> 00:09:46,440
+root folder where the where you're
+
+227
+00:09:46,440 --> 00:09:49,440
+running the application so I mean all
+
+228
+00:09:49,440 --> 00:09:52,680
+right let's do it like that and then
+
+229
+00:09:52,680 --> 00:09:55,500
+we're going to be doing
+
+230
+00:09:55,500 --> 00:09:57,300
+we're going to be printing the head of
+
+231
+00:09:57,300 --> 00:10:01,500
+the data right so it's a data.head
+
+232
+00:10:01,500 --> 00:10:03,600
+to visualize it and we're just going to
+
+233
+00:10:03,600 --> 00:10:08,040
+return the data to see how it works so
+
+234
+00:10:08,040 --> 00:10:10,560
+there we go now if we click on enter on
+
+235
+00:10:10,560 --> 00:10:14,580
+read we should have our head right here
+
+236
+00:10:14,580 --> 00:10:17,940
+and now it's actually time to clean it
+
+237
+00:10:17,940 --> 00:10:20,640
+and to clean the data I mean you can do
+
+238
+00:10:20,640 --> 00:10:23,640
+it by hand like actually do an
+
+239
+00:10:23,640 --> 00:10:26,100
+exploratory analysis on the data and
+
+240
+00:10:26,100 --> 00:10:27,779
+that is what you should do if this is a
+
+241
+00:10:27,779 --> 00:10:30,740
+new data set but that I have already
+
+242
+00:10:30,740 --> 00:10:33,240
+worked with this data set and I know how
+
+243
+00:10:33,240 --> 00:10:36,180
+it looks like so I'm just going to clean
+
+244
+00:10:36,180 --> 00:10:39,480
+it super fast so that we go so that we
+
+245
+00:10:39,480 --> 00:10:40,920
+can go faster into building the
+
+246
+00:10:40,920 --> 00:10:44,720
+application okay so for example I know
+
+247
+00:10:44,720 --> 00:10:48,320
+that in my data
+
+248
+00:10:48,320 --> 00:10:50,940
+I have this column right here called
+
+249
+00:10:50,940 --> 00:10:54,720
+unnamed 32. and I know that I'm going to
+
+250
+00:10:54,720 --> 00:10:56,339
+want to drop it because I know that it
+
+251
+00:10:56,339 --> 00:10:59,459
+is all completely in the ends okay
+
+252
+00:10:59,459 --> 00:11:02,040
+so let's first do that
+
+253
+00:11:02,040 --> 00:11:06,019
+I'm going to the data dot drop
+
+254
+00:11:06,540 --> 00:11:08,040
+and oops
+
+255
+00:11:08,040 --> 00:11:10,680
+updated the drop and I'm going to drop
+
+256
+00:11:10,680 --> 00:11:13,200
+this one right here which is called
+
+257
+00:11:13,200 --> 00:11:18,120
+unnamed 32 like that and then I'm going
+
+258
+00:11:18,120 --> 00:11:20,880
+to say that it has to be dropped from
+
+259
+00:11:20,880 --> 00:11:22,380
+axis 1.
+
+260
+00:11:22,380 --> 00:11:25,680
+and then I am also going to drop the ID
+
+261
+00:11:25,680 --> 00:11:29,399
+column which I don't need either and
+
+262
+00:11:29,399 --> 00:11:31,560
+but um
+
+263
+00:11:31,560 --> 00:11:35,339
+I'm actually going to drop it from here
+
+264
+00:11:35,339 --> 00:11:39,540
+ID like that there you go and now the
+
+265
+00:11:39,540 --> 00:11:41,160
+diagnosis variable we have it that it
+
+266
+00:11:41,160 --> 00:11:43,740
+uses amps and B's and we're going to
+
+267
+00:11:43,740 --> 00:11:46,440
+encode it so that malicious I mean like
+
+268
+00:11:46,440 --> 00:11:50,399
+ends become zero and benign becomes uh
+
+269
+00:11:50,399 --> 00:11:51,959
+one now benign becomes zero and
+
+270
+00:11:51,959 --> 00:11:53,579
+malicious becomes one because we want to
+
+271
+00:11:53,579 --> 00:11:55,560
+test four malicious one
+
+272
+00:11:55,560 --> 00:11:58,740
+Malaysian cells so let's do that
+
+273
+00:11:58,740 --> 00:12:01,140
+so in order to do that we're going to be
+
+274
+00:12:01,140 --> 00:12:04,320
+using the map function and we're going
+
+275
+00:12:04,320 --> 00:12:07,860
+to be targeting the diagnosis
+
+276
+00:12:07,860 --> 00:12:10,980
+um the diagnosis column right here
+
+277
+00:12:10,980 --> 00:12:13,860
+and this one is going to be
+
+278
+00:12:13,860 --> 00:12:16,860
+diagnosis
+
+279
+00:12:17,360 --> 00:12:21,720
+diagnosis dot map and the map takes a
+
+280
+00:12:21,720 --> 00:12:24,720
+dictionary and in this dictionary I mean
+
+281
+00:12:24,720 --> 00:12:27,060
+of course it takes key value Pairs and
+
+282
+00:12:27,060 --> 00:12:28,680
+in the key you have the actual value
+
+283
+00:12:28,680 --> 00:12:31,200
+that you have currently and in the pair
+
+284
+00:12:31,200 --> 00:12:34,019
+you want to have the value that you want
+
+285
+00:12:34,019 --> 00:12:36,360
+it replaced with so malicious is going
+
+286
+00:12:36,360 --> 00:12:39,959
+to be one and benign is going to be
+
+287
+00:12:39,959 --> 00:12:44,519
+zero there you go now we can print now
+
+288
+00:12:44,519 --> 00:12:46,380
+we can
+
+289
+00:12:46,380 --> 00:12:48,899
+um I suppose that is the clean data
+
+290
+00:12:48,899 --> 00:12:51,480
+let's just check that out right here
+
+291
+00:12:51,480 --> 00:12:53,639
+print
+
+292
+00:12:53,639 --> 00:12:56,760
+um data dot head
+
+293
+00:12:56,760 --> 00:13:00,420
+there we go we save it we run it and now
+
+294
+00:13:00,420 --> 00:13:02,760
+we have the data that is being run and I
+
+295
+00:13:02,760 --> 00:13:04,380
+mean the head of the data we have the
+
+296
+00:13:04,380 --> 00:13:08,040
+diagnosis a lot of diagnosis of one and
+
+297
+00:13:08,040 --> 00:13:10,079
+we have the factor I mean like
+
+298
+00:13:10,079 --> 00:13:13,320
+I mean we don't seem to have the unnamed
+
+299
+00:13:13,320 --> 00:13:15,240
+column I'm just going to check it real
+
+300
+00:13:15,240 --> 00:13:17,940
+quick using the info
+
+301
+00:13:17,940 --> 00:13:20,160
+right here so as you can see we don't
+
+302
+00:13:20,160 --> 00:13:23,940
+have an unnamed column and we don't have
+
+303
+00:13:23,940 --> 00:13:26,279
+um we don't have the ID column anymore
+
+304
+00:13:26,279 --> 00:13:30,839
+and the diagnosis column is now once and
+
+305
+00:13:30,839 --> 00:13:33,540
+zeros so this is exactly what we wanted
+
+306
+00:13:33,540 --> 00:13:35,399
+so now as you can see we already have
+
+307
+00:13:35,399 --> 00:13:37,620
+the clean data and now we can actually
+
+308
+00:13:37,620 --> 00:13:40,940
+train our model from this data
+
+309
+00:13:40,940 --> 00:13:43,680
+so what I'm going to do is I'm going to
+
+310
+00:13:43,680 --> 00:13:45,300
+do
+
+311
+00:13:45,300 --> 00:13:46,100
+um
+
+312
+00:13:46,100 --> 00:13:49,680
+create model
+
+313
+00:13:49,680 --> 00:13:53,399
+there you go and I'm going to Define
+
+314
+00:13:53,399 --> 00:13:55,200
+create
+
+315
+00:13:55,200 --> 00:13:57,740
+model
+
+316
+00:13:58,079 --> 00:14:01,740
+up here so let's do that right now
+
+317
+00:14:01,740 --> 00:14:03,360
+all right there we go so in order to
+
+318
+00:14:03,360 --> 00:14:05,459
+actually create our model we're going to
+
+319
+00:14:05,459 --> 00:14:08,220
+first have to pass in the data right
+
+320
+00:14:08,220 --> 00:14:10,500
+here that's something that I forgot the
+
+321
+00:14:10,500 --> 00:14:13,200
+data that we just got from our clean
+
+322
+00:14:13,200 --> 00:14:15,600
+data function right here we're going to
+
+323
+00:14:15,600 --> 00:14:17,040
+pass it right here
+
+324
+00:14:17,040 --> 00:14:19,440
+and inside of this function what we're
+
+325
+00:14:19,440 --> 00:14:21,060
+going to do first is we're going to
+
+326
+00:14:21,060 --> 00:14:25,019
+divide the data into
+
+327
+00:14:25,019 --> 00:14:28,440
+into the predictors and the target
+
+328
+00:14:28,440 --> 00:14:31,800
+variable okay so my predictors is going
+
+329
+00:14:31,800 --> 00:14:33,899
+are going to be called X
+
+330
+00:14:33,899 --> 00:14:37,920
+and I'm going to say data dot drop
+
+331
+00:14:37,920 --> 00:14:40,519
+and I'm just going to drop my diagnosis
+
+332
+00:14:40,519 --> 00:14:44,699
+right here I'm going to do axis 1 to be
+
+333
+00:14:44,699 --> 00:14:49,019
+sure that it's dropping the right part
+
+334
+00:14:49,019 --> 00:14:50,040
+um
+
+335
+00:14:50,040 --> 00:14:51,800
+there you go like that
+
+336
+00:14:51,800 --> 00:14:55,260
+and for y this one is basically just a
+
+337
+00:14:55,260 --> 00:14:58,260
+diagnosis column
+
+338
+00:14:58,260 --> 00:15:00,360
+there you go
+
+339
+00:15:00,360 --> 00:15:02,100
+um and now what we're going to want to
+
+340
+00:15:02,100 --> 00:15:04,560
+do is we're going to scale the data
+
+341
+00:15:04,560 --> 00:15:07,880
+first because as you can see on this
+
+342
+00:15:07,880 --> 00:15:10,920
+information from the data that we have
+
+343
+00:15:10,920 --> 00:15:14,399
+some variables are much larger than the
+
+344
+00:15:14,399 --> 00:15:15,899
+others like for example this one's in
+
+345
+00:15:15,899 --> 00:15:17,220
+the thousands and this one is just
+
+346
+00:15:17,220 --> 00:15:19,680
+decimals this one's in the hundreds so
+
+347
+00:15:19,680 --> 00:15:22,220
+in order for our model to actually
+
+348
+00:15:22,220 --> 00:15:25,560
+have uniform data it all has to be on
+
+349
+00:15:25,560 --> 00:15:26,940
+the same scale so that's what we're
+
+350
+00:15:26,940 --> 00:15:29,279
+going to do now and in order to do that
+
+351
+00:15:29,279 --> 00:15:33,420
+we're going to have to import the
+
+352
+00:15:34,320 --> 00:15:37,500
+the standard scalar from scikit-learn
+
+353
+00:15:37,500 --> 00:15:42,300
+okay so I'm going to do from sklearn
+
+354
+00:15:42,300 --> 00:15:45,360
+dot pre-processing I'm going to import
+
+355
+00:15:45,360 --> 00:15:47,459
+standard
+
+356
+00:15:47,459 --> 00:15:50,699
+scalar there you go and now I'm going to
+
+357
+00:15:50,699 --> 00:15:52,740
+be able to use it right here
+
+358
+00:15:52,740 --> 00:15:56,100
+so I'm going to say that my scalar is
+
+359
+00:15:56,100 --> 00:15:58,860
+going to be equal to standard scalar
+
+360
+00:15:58,860 --> 00:16:01,199
+like that and then we're going to
+
+361
+00:16:01,199 --> 00:16:04,040
+basically just scale all of my training
+
+362
+00:16:04,040 --> 00:16:06,600
+predictors okay because of course the
+
+363
+00:16:06,600 --> 00:16:08,820
+diagnosis prediction the diagnosis
+
+364
+00:16:08,820 --> 00:16:10,260
+doesn't need to be scaled because it's
+
+365
+00:16:10,260 --> 00:16:13,380
+already either zeros or ones okay
+
+366
+00:16:13,380 --> 00:16:16,880
+so my X is going to be
+
+367
+00:16:16,880 --> 00:16:21,959
+my X is going to be equal to scalar and
+
+368
+00:16:21,959 --> 00:16:23,880
+the Scala that I just created I'm going
+
+369
+00:16:23,880 --> 00:16:27,240
+to say fit transform
+
+370
+00:16:27,240 --> 00:16:32,339
+X to scale my X predictors there you go
+
+371
+00:16:32,339 --> 00:16:37,920
+so now we should have our our scaled
+
+372
+00:16:37,920 --> 00:16:39,600
+um
+
+373
+00:16:39,600 --> 00:16:42,480
+and we should have our scaled scalar
+
+374
+00:16:42,480 --> 00:16:45,300
+there you go and our scale data and now
+
+375
+00:16:45,300 --> 00:16:46,560
+what we're going to want to do is we're
+
+376
+00:16:46,560 --> 00:16:50,220
+going to split the data into testing and
+
+377
+00:16:50,220 --> 00:16:53,579
+training set okay here scale the data
+
+378
+00:16:53,579 --> 00:16:55,980
+I'm just going to comment it real quick
+
+379
+00:16:55,980 --> 00:16:59,600
+and then we're going to split
+
+380
+00:17:00,120 --> 00:17:03,959
+split the data super quick there we go
+
+381
+00:17:03,959 --> 00:17:08,280
+and and there we go now in order to
+
+382
+00:17:08,280 --> 00:17:09,839
+split it we're going to be using another
+
+383
+00:17:09,839 --> 00:17:12,359
+Library it's going to come also from
+
+384
+00:17:12,359 --> 00:17:15,140
+scikitlearn but this library is called
+
+385
+00:17:15,140 --> 00:17:18,000
+train test split I suppose you already
+
+386
+00:17:18,000 --> 00:17:20,579
+know it but I'm going to import it like
+
+387
+00:17:20,579 --> 00:17:23,699
+this right here model selection import
+
+388
+00:17:23,699 --> 00:17:26,339
+train
+
+389
+00:17:26,339 --> 00:17:30,840
+oops import train test split there you
+
+390
+00:17:30,840 --> 00:17:33,780
+go and now we can actually test and
+
+391
+00:17:33,780 --> 00:17:37,140
+import split our data into training and
+
+392
+00:17:37,140 --> 00:17:43,820
+testing set so my X train my X test
+
+393
+00:17:44,400 --> 00:17:47,280
+and then we have my y train then we have
+
+394
+00:17:47,280 --> 00:17:50,059
+my y test
+
+395
+00:17:50,160 --> 00:17:53,280
+there you go like that and this is going
+
+396
+00:17:53,280 --> 00:17:56,880
+to be equal to my train test split
+
+397
+00:17:56,880 --> 00:18:00,179
+and this one is going to take first it's
+
+398
+00:18:00,179 --> 00:18:04,200
+going to take my my predictors then my
+
+399
+00:18:04,200 --> 00:18:06,240
+my target variable
+
+400
+00:18:06,240 --> 00:18:08,700
+then I'm going to say that the test size
+
+401
+00:18:08,700 --> 00:18:11,340
+is going to be 20 percent
+
+402
+00:18:11,340 --> 00:18:13,740
+and I'm going to set a random state of
+
+403
+00:18:13,740 --> 00:18:16,620
+42 because that's the best number
+
+404
+00:18:16,620 --> 00:18:20,160
+and now that our data is split we can
+
+405
+00:18:20,160 --> 00:18:23,280
+actually train it now as you can now as
+
+406
+00:18:23,280 --> 00:18:26,160
+you can see we already have this train
+
+407
+00:18:26,160 --> 00:18:29,100
+which is 80 of our training predictors
+
+408
+00:18:29,100 --> 00:18:33,080
+and this test which is 20 of our
+
+409
+00:18:33,080 --> 00:18:34,760
+predictors
+
+410
+00:18:34,760 --> 00:18:38,340
+and same with the diagnosis the target
+
+411
+00:18:38,340 --> 00:18:40,020
+variable okay
+
+412
+00:18:40,020 --> 00:18:42,480
+so now for the train model we're going
+
+413
+00:18:42,480 --> 00:18:45,240
+to do auto equals logistic regression
+
+414
+00:18:45,240 --> 00:18:47,760
+but we have to first import logistic
+
+415
+00:18:47,760 --> 00:18:51,980
+regression from Psychic learn as well
+
+416
+00:18:52,100 --> 00:18:58,020
+and from sklearn dot linear model we're
+
+417
+00:18:58,020 --> 00:18:59,280
+going to
+
+418
+00:18:59,280 --> 00:19:01,280
+import
+
+419
+00:19:01,280 --> 00:19:04,799
+logistic regression like that then we're
+
+420
+00:19:04,799 --> 00:19:07,020
+going to use it right here there you go
+
+421
+00:19:07,020 --> 00:19:09,000
+and this is the model that we're going
+
+422
+00:19:09,000 --> 00:19:12,539
+to export to use it in the streamlit
+
+423
+00:19:12,539 --> 00:19:16,260
+application later okay so we're in order
+
+424
+00:19:16,260 --> 00:19:17,760
+to be able to actually use it we're
+
+425
+00:19:17,760 --> 00:19:20,460
+going to have to fit it to our data so
+
+426
+00:19:20,460 --> 00:19:24,299
+we have xtrain and Y train there you go
+
+427
+00:19:24,299 --> 00:19:26,820
+I'm going a little bit fast with this
+
+428
+00:19:26,820 --> 00:19:29,580
+training model part because I mean I'm
+
+429
+00:19:29,580 --> 00:19:31,260
+assuming that you already have a little
+
+430
+00:19:31,260 --> 00:19:32,940
+bit of knowledge on that but if you
+
+431
+00:19:32,940 --> 00:19:35,640
+don't all remember to check the other
+
+432
+00:19:35,640 --> 00:19:37,559
+video where I explain the logistic
+
+433
+00:19:37,559 --> 00:19:38,900
+regression
+
+434
+00:19:38,900 --> 00:19:42,179
+model and how it what is the intuition
+
+435
+00:19:42,179 --> 00:19:44,940
+behind it okay I go through this but in
+
+436
+00:19:44,940 --> 00:19:47,340
+much more detail
+
+437
+00:19:47,340 --> 00:19:49,500
+um so there we go and then finally once
+
+438
+00:19:49,500 --> 00:19:50,940
+we have it tested what we have it
+
+439
+00:19:50,940 --> 00:19:53,039
+trained we're just going to return it
+
+440
+00:19:53,039 --> 00:19:55,559
+and we're going to return the model and
+
+441
+00:19:55,559 --> 00:19:57,480
+we're also very important we're going to
+
+442
+00:19:57,480 --> 00:20:00,120
+return the scalar right here this is
+
+443
+00:20:00,120 --> 00:20:01,440
+going to be super important later
+
+444
+00:20:01,440 --> 00:20:04,020
+because we're going to be using it to
+
+445
+00:20:04,020 --> 00:20:08,100
+make our predictions later okay so here
+
+446
+00:20:08,100 --> 00:20:09,840
+that basically means that I'm exporting
+
+447
+00:20:09,840 --> 00:20:12,840
+the model and also the scalar
+
+448
+00:20:12,840 --> 00:20:15,020
+there you go
+
+449
+00:20:15,020 --> 00:20:17,580
+now that we have the model and the
+
+450
+00:20:17,580 --> 00:20:21,179
+scalar we can actually test the the data
+
+451
+00:20:21,179 --> 00:20:25,380
+so let's see we're going to test
+
+452
+00:20:25,380 --> 00:20:28,160
+our model
+
+453
+00:20:28,620 --> 00:20:30,480
+and that also means that I'm going to
+
+454
+00:20:30,480 --> 00:20:32,580
+have to create a new function right here
+
+455
+00:20:32,580 --> 00:20:35,880
+for testing okay
+
+456
+00:20:35,880 --> 00:20:39,080
+test D model
+
+457
+00:20:39,080 --> 00:20:42,559
+so Define
+
+458
+00:20:42,620 --> 00:20:47,220
+test model we're going to test the model
+
+459
+00:20:47,220 --> 00:20:49,260
+there you go
+
+460
+00:20:49,260 --> 00:20:52,320
+um all right so first of all wait just
+
+461
+00:20:52,320 --> 00:20:55,200
+let me be sure that this is actually
+
+462
+00:20:55,200 --> 00:20:58,740
+that this is actually working
+
+463
+00:20:58,740 --> 00:21:01,140
+does it run
+
+464
+00:21:01,140 --> 00:21:03,419
+seems to be running correctly okay we're
+
+465
+00:21:03,419 --> 00:21:04,620
+going to be testing it in a moment
+
+466
+00:21:04,620 --> 00:21:07,140
+anyways so there we go
+
+467
+00:21:07,140 --> 00:21:09,120
+ahead there we go so now it is time to
+
+468
+00:21:09,120 --> 00:21:11,220
+actually test the model to make sure
+
+469
+00:21:11,220 --> 00:21:13,220
+that it's working correctly
+
+470
+00:21:13,220 --> 00:21:16,380
+and to do that as I mentioned before we
+
+471
+00:21:16,380 --> 00:21:18,360
+have this test model function that we
+
+472
+00:21:18,360 --> 00:21:19,980
+are creating right here
+
+473
+00:21:19,980 --> 00:21:23,880
+and let's just create the test in order
+
+474
+00:21:23,880 --> 00:21:25,919
+to actually run the tests we're going to
+
+475
+00:21:25,919 --> 00:21:28,500
+be using also another library from
+
+476
+00:21:28,500 --> 00:21:29,760
+scikit-learn
+
+477
+00:21:29,760 --> 00:21:32,640
+I just wanted to mention that of course
+
+478
+00:21:32,640 --> 00:21:34,500
+here we're using scikit-learn to build
+
+479
+00:21:34,500 --> 00:21:36,840
+our machine learning model because we're
+
+480
+00:21:36,840 --> 00:21:39,840
+making a very simple prediction based of
+
+481
+00:21:39,840 --> 00:21:41,600
+a very simple
+
+482
+00:21:41,600 --> 00:21:45,299
+list of variables but this actually
+
+483
+00:21:45,299 --> 00:21:49,020
+works pretty much with any R2 which any
+
+484
+00:21:49,020 --> 00:21:51,600
+AI model all right so whether it be
+
+485
+00:21:51,600 --> 00:21:54,000
+machine learning or deep learning I mean
+
+486
+00:21:54,000 --> 00:21:56,520
+you can be running tensorflow here and
+
+487
+00:21:56,520 --> 00:21:58,080
+then build an application that makes
+
+488
+00:21:58,080 --> 00:22:00,780
+prediction it's based on tensorflow so I
+
+489
+00:22:00,780 --> 00:22:03,000
+mean the fact that I'm doing it with
+
+490
+00:22:03,000 --> 00:22:04,980
+psychic learn doesn't mean that you
+
+491
+00:22:04,980 --> 00:22:07,740
+cannot plug in a neural network right
+
+492
+00:22:07,740 --> 00:22:09,480
+here and make your predictions with that
+
+493
+00:22:09,480 --> 00:22:13,020
+okay just so as long as you're able to
+
+494
+00:22:13,020 --> 00:22:15,780
+export your model later as you will see
+
+495
+00:22:15,780 --> 00:22:18,659
+in a moment it should be okay
+
+496
+00:22:18,659 --> 00:22:20,580
+so we're going to test the model right
+
+497
+00:22:20,580 --> 00:22:21,320
+now
+
+498
+00:22:21,320 --> 00:22:24,840
+to test the model we're going to be
+
+499
+00:22:24,840 --> 00:22:27,000
+using first we're going to be using the
+
+500
+00:22:27,000 --> 00:22:30,120
+predict function from the model that we
+
+501
+00:22:30,120 --> 00:22:31,500
+just created and that we're importing
+
+502
+00:22:31,500 --> 00:22:33,960
+right here so let's do that we're going
+
+503
+00:22:33,960 --> 00:22:38,059
+to say that the Y predictions
+
+504
+00:22:38,400 --> 00:22:41,100
+um actually you know what we're just
+
+505
+00:22:41,100 --> 00:22:42,900
+going to test the model inside of here
+
+506
+00:22:42,900 --> 00:22:44,820
+so that we can actually have access to
+
+507
+00:22:44,820 --> 00:22:45,900
+all of this
+
+508
+00:22:45,900 --> 00:22:48,679
+there we go
+
+509
+00:22:48,720 --> 00:22:50,100
+um
+
+510
+00:22:50,100 --> 00:22:54,199
+we're going to test the model right here
+
+511
+00:22:55,080 --> 00:22:56,340
+train
+
+512
+00:22:56,340 --> 00:22:58,740
+the model
+
+513
+00:22:58,740 --> 00:23:01,220
+then we're going to test the model
+
+514
+00:23:01,220 --> 00:23:03,720
+and in order to test the model we're
+
+515
+00:23:03,720 --> 00:23:06,960
+going to create the predictions
+
+516
+00:23:06,960 --> 00:23:09,240
+protect
+
+517
+00:23:09,240 --> 00:23:12,059
+um yeah the Y predictions and they are
+
+518
+00:23:12,059 --> 00:23:14,100
+going to be based on the model right
+
+519
+00:23:14,100 --> 00:23:16,679
+here and we're going to run predict
+
+520
+00:23:16,679 --> 00:23:18,659
+and we're basically going to predict
+
+521
+00:23:18,659 --> 00:23:23,640
+under X test set okay as you remember we
+
+522
+00:23:23,640 --> 00:23:26,280
+trained it on the training part of the
+
+523
+00:23:26,280 --> 00:23:27,900
+predictors and now we're going to test
+
+524
+00:23:27,900 --> 00:23:31,679
+it on the on the testing part of the
+
+525
+00:23:31,679 --> 00:23:34,340
+predictors
+
+526
+00:23:34,559 --> 00:23:36,780
+um and then finally we're going to print
+
+527
+00:23:36,780 --> 00:23:39,980
+the accuracy
+
+528
+00:23:40,200 --> 00:23:43,140
+accuracy of our
+
+529
+00:23:43,140 --> 00:23:45,780
+model
+
+530
+00:23:45,780 --> 00:23:47,820
+and we're going to say that the accuracy
+
+531
+00:23:47,820 --> 00:23:50,220
+is the accuracy score
+
+532
+00:23:50,220 --> 00:23:52,380
+but in order to use the accuracy score
+
+533
+00:23:52,380 --> 00:23:54,659
+we're going to need to import that
+
+534
+00:23:54,659 --> 00:23:56,880
+function from scikit-learn
+
+535
+00:23:56,880 --> 00:23:59,700
+so from
+
+536
+00:23:59,700 --> 00:24:03,840
+scikit-learn dot metrics
+
+537
+00:24:03,840 --> 00:24:07,039
+we're going to import
+
+538
+00:24:07,400 --> 00:24:10,620
+accuracy score basically tells you how
+
+539
+00:24:10,620 --> 00:24:12,659
+how often you will write in your
+
+540
+00:24:12,659 --> 00:24:14,880
+predictions and also we're going to
+
+541
+00:24:14,880 --> 00:24:17,100
+import the classification report
+
+542
+00:24:17,100 --> 00:24:19,980
+there you go so for the accuracy of our
+
+543
+00:24:19,980 --> 00:24:22,559
+model we're going to say that we're
+
+544
+00:24:22,559 --> 00:24:24,960
+going to check the accuracy score and
+
+545
+00:24:24,960 --> 00:24:28,080
+this function takes two
+
+546
+00:24:28,080 --> 00:24:30,480
+two parameters the first one is the
+
+547
+00:24:30,480 --> 00:24:33,299
+actual values and the second one is your
+
+548
+00:24:33,299 --> 00:24:37,080
+predicted values for y okay remember
+
+549
+00:24:37,080 --> 00:24:39,179
+that the actual values are stored right
+
+550
+00:24:39,179 --> 00:24:41,039
+here in the test variable and the
+
+551
+00:24:41,039 --> 00:24:43,140
+predicted variables are the ones that
+
+552
+00:24:43,140 --> 00:24:45,480
+we're predicting with our model
+
+553
+00:24:45,480 --> 00:24:48,299
+and this should print out the accuracy
+
+554
+00:24:48,299 --> 00:24:51,419
+of our model and second of all
+
+555
+00:24:51,419 --> 00:24:54,240
+we're also going to print our
+
+556
+00:24:54,240 --> 00:24:56,400
+classification report
+
+557
+00:24:56,400 --> 00:24:59,460
+which is a more
+
+558
+00:24:59,460 --> 00:25:01,440
+a more in-depth
+
+559
+00:25:01,440 --> 00:25:04,980
+um analysis I mean in-depth report of
+
+560
+00:25:04,980 --> 00:25:06,840
+our model
+
+561
+00:25:06,840 --> 00:25:08,460
+so we're going to use the classification
+
+562
+00:25:08,460 --> 00:25:09,659
+report
+
+563
+00:25:09,659 --> 00:25:12,000
+and just as the previous one it takes
+
+564
+00:25:12,000 --> 00:25:16,020
+the the actual values for the
+
+565
+00:25:16,020 --> 00:25:18,480
+the actual values for diagnosis and then
+
+566
+00:25:18,480 --> 00:25:20,220
+our predictions
+
+567
+00:25:20,220 --> 00:25:22,919
+there you go
+
+568
+00:25:22,919 --> 00:25:25,559
+there we go and then just as before
+
+569
+00:25:25,559 --> 00:25:27,440
+we're going to be returning our model
+
+570
+00:25:27,440 --> 00:25:31,440
+and our scalar
+
+571
+00:25:31,440 --> 00:25:33,240
+there you go
+
+572
+00:25:33,240 --> 00:25:35,820
+now we should be able to run this and
+
+573
+00:25:35,820 --> 00:25:37,440
+let's see what it returns
+
+574
+00:25:37,440 --> 00:25:40,500
+okay so we have an accuracy of our model
+
+575
+00:25:40,500 --> 00:25:44,039
+of 97 which looks pretty good and here
+
+576
+00:25:44,039 --> 00:25:45,960
+is the classification report we have a
+
+577
+00:25:45,960 --> 00:25:50,220
+Precision of 97 for negative I mean for
+
+578
+00:25:50,220 --> 00:25:51,779
+benign
+
+579
+00:25:51,779 --> 00:25:52,460
+um
+
+580
+00:25:52,460 --> 00:25:56,580
+for benign cell clusters and a Precision
+
+581
+00:25:56,580 --> 00:26:00,720
+of 98 for malicious
+
+582
+00:26:00,720 --> 00:26:01,559
+um
+
+583
+00:26:01,559 --> 00:26:04,320
+for malicious cell clusters we also have
+
+584
+00:26:04,320 --> 00:26:06,480
+the other measures other statistical
+
+585
+00:26:06,480 --> 00:26:08,159
+measures right here like the F1 score
+
+586
+00:26:08,159 --> 00:26:11,880
+which is very important if our data set
+
+587
+00:26:11,880 --> 00:26:13,720
+is very
+
+588
+00:26:13,720 --> 00:26:15,020
+[Music]
+
+589
+00:26:15,020 --> 00:26:21,000
+if the yeah if the portion of actual of
+
+590
+00:26:21,000 --> 00:26:23,760
+actual positive diagnosis is very very
+
+591
+00:26:23,760 --> 00:26:24,720
+little
+
+592
+00:26:24,720 --> 00:26:27,600
+so there we go I mean our model seems to
+
+593
+00:26:27,600 --> 00:26:30,600
+be looking very good now it is now it is
+
+594
+00:26:30,600 --> 00:26:33,179
+time to actually export that model and
+
+595
+00:26:33,179 --> 00:26:35,520
+the scalar of course very important
+
+596
+00:26:35,520 --> 00:26:38,100
+and to start using it in our application
+
+597
+00:26:38,100 --> 00:26:40,320
+there we go
+
+598
+00:26:40,320 --> 00:26:42,720
+all right there we go now that our model
+
+599
+00:26:42,720 --> 00:26:45,799
+is script is pretty much ready
+
+600
+00:26:45,799 --> 00:26:49,020
+it should look something like this just
+
+601
+00:26:49,020 --> 00:26:50,520
+minimize the function so that it's
+
+602
+00:26:50,520 --> 00:26:52,260
+easier to for you to see what is going
+
+603
+00:26:52,260 --> 00:26:55,140
+on but as you can see we first created
+
+604
+00:26:55,140 --> 00:26:58,740
+the clean data function that I just
+
+605
+00:26:58,740 --> 00:27:01,080
+built super quick uh because I already
+
+606
+00:27:01,080 --> 00:27:03,000
+know the data but remember to perform
+
+607
+00:27:03,000 --> 00:27:06,059
+some some exploratory data analysis to
+
+608
+00:27:06,059 --> 00:27:09,559
+make sure that your data is
+
+609
+00:27:09,559 --> 00:27:13,200
+is clean before actually using it
+
+610
+00:27:13,200 --> 00:27:15,779
+and then we created the model also I did
+
+611
+00:27:15,779 --> 00:27:18,000
+that super quick because I already have
+
+612
+00:27:18,000 --> 00:27:20,159
+already worked with this data set but
+
+613
+00:27:20,159 --> 00:27:21,360
+also
+
+614
+00:27:21,360 --> 00:27:23,279
+um this should be like a a little bit of
+
+615
+00:27:23,279 --> 00:27:25,559
+a longer process uh if this is a new
+
+616
+00:27:25,559 --> 00:27:27,720
+data set for you
+
+617
+00:27:27,720 --> 00:27:30,779
+um and then we exported the scalar and
+
+618
+00:27:30,779 --> 00:27:32,940
+the model in order to be able to make
+
+619
+00:27:32,940 --> 00:27:37,460
+our predictions in our application okay
+
+620
+00:27:37,460 --> 00:27:39,539
+and now what we're going to do is we're
+
+621
+00:27:39,539 --> 00:27:41,940
+going to export the model and the scalar
+
+622
+00:27:41,940 --> 00:27:43,980
+in order to be able to use them inside
+
+623
+00:27:43,980 --> 00:27:46,500
+of our application this is very
+
+624
+00:27:46,500 --> 00:27:50,279
+important because you I mean sometimes
+
+625
+00:27:50,279 --> 00:27:52,740
+you might be tempted to just run this
+
+626
+00:27:52,740 --> 00:27:55,500
+code inside of your application that
+
+627
+00:27:55,500 --> 00:27:58,380
+would mean that it would be training a
+
+628
+00:27:58,380 --> 00:28:00,059
+machine learning model inside your
+
+629
+00:28:00,059 --> 00:28:02,360
+application every time someone
+
+630
+00:28:02,360 --> 00:28:07,340
+opens the app which is terrible for all
+
+631
+00:28:07,340 --> 00:28:09,779
+for usability I mean it's just going to
+
+632
+00:28:09,779 --> 00:28:11,460
+make your application way slower because
+
+633
+00:28:11,460 --> 00:28:13,799
+every time it's going to be opened it's
+
+634
+00:28:13,799 --> 00:28:15,240
+going to be training an entire machine
+
+635
+00:28:15,240 --> 00:28:16,919
+learning model I mean this one is a
+
+636
+00:28:16,919 --> 00:28:19,559
+little bit is quite fast because it's
+
+637
+00:28:19,559 --> 00:28:23,279
+just a logistic regression model on a
+
+638
+00:28:23,279 --> 00:28:24,200
+few
+
+639
+00:28:24,200 --> 00:28:26,900
+on very little data
+
+640
+00:28:26,900 --> 00:28:30,900
+uh but like anyways you should uh it
+
+641
+00:28:30,900 --> 00:28:33,000
+should be like uh something like you do
+
+642
+00:28:33,000 --> 00:28:34,799
+systematically that you build your model
+
+643
+00:28:34,799 --> 00:28:38,100
+uh apart and then you export it to a
+
+644
+00:28:38,100 --> 00:28:40,320
+binary file and then you import that
+
+645
+00:28:40,320 --> 00:28:42,779
+binary file into your application okay
+
+646
+00:28:42,779 --> 00:28:44,820
+and that is exactly what we're going to
+
+647
+00:28:44,820 --> 00:28:46,740
+be doing right now in order to do that
+
+648
+00:28:46,740 --> 00:28:50,880
+you're going to want to install first
+
+649
+00:28:50,880 --> 00:28:53,520
+um this package got called pickle pickle
+
+650
+00:28:53,520 --> 00:28:55,980
+five so in order to do that basically
+
+651
+00:28:55,980 --> 00:29:00,059
+you just do pip install pickle five it's
+
+652
+00:29:00,059 --> 00:29:02,059
+the one that we're going to use for
+
+653
+00:29:02,059 --> 00:29:05,400
+exporting our binary file then you're
+
+654
+00:29:05,400 --> 00:29:07,080
+going to import it like this import
+
+655
+00:29:07,080 --> 00:29:11,159
+pickle 5 as pickle and then we're going
+
+656
+00:29:11,159 --> 00:29:15,679
+to write a binary file with this
+
+657
+00:29:15,679 --> 00:29:19,380
+with this module okay so first we're
+
+658
+00:29:19,380 --> 00:29:21,659
+going to open
+
+659
+00:29:21,659 --> 00:29:25,200
+a new file we're going to call it model
+
+660
+00:29:25,200 --> 00:29:27,659
+dot pickle
+
+661
+00:29:27,659 --> 00:29:29,399
+and then the second argument of the
+
+662
+00:29:29,399 --> 00:29:30,779
+model we're going to say that we're
+
+663
+00:29:30,779 --> 00:29:33,720
+going to be writing in the in the file
+
+664
+00:29:33,720 --> 00:29:36,360
+and then it's a binary file that's what
+
+665
+00:29:36,360 --> 00:29:38,899
+the b stands for and we're going to say
+
+666
+00:29:38,899 --> 00:29:41,159
+sf4 file
+
+667
+00:29:41,159 --> 00:29:44,580
+and with this file we're going to pickle
+
+668
+00:29:44,580 --> 00:29:45,840
+oops
+
+669
+00:29:45,840 --> 00:29:48,240
+typical dot dump
+
+670
+00:29:48,240 --> 00:29:51,000
+and we're going to dump our model inside
+
+671
+00:29:51,000 --> 00:29:54,059
+the file there you go
+
+672
+00:29:54,059 --> 00:29:56,760
+um and then second we're going to do the
+
+673
+00:29:56,760 --> 00:30:01,799
+same thing with a scalar oops
+
+674
+00:30:01,799 --> 00:30:03,779
+scaler
+
+675
+00:30:03,779 --> 00:30:07,559
+dot pickle like this and just as before
+
+676
+00:30:07,559 --> 00:30:08,880
+we're going to say that we're going to
+
+677
+00:30:08,880 --> 00:30:11,340
+be writing on it and it's going to be in
+
+678
+00:30:11,340 --> 00:30:15,419
+binary mode as file there you go and
+
+679
+00:30:15,419 --> 00:30:17,700
+also we're going to pickle dump but this
+
+680
+00:30:17,700 --> 00:30:19,980
+time we're going to pickle dump our
+
+681
+00:30:19,980 --> 00:30:22,700
+scalar
+
+682
+00:30:22,799 --> 00:30:25,620
+and all we're going to dump it into our
+
+683
+00:30:25,620 --> 00:30:28,980
+file right here so there you go
+
+684
+00:30:28,980 --> 00:30:31,080
+um quite I mean like just as I mentioned
+
+685
+00:30:31,080 --> 00:30:34,559
+before even though we're running oh I
+
+686
+00:30:34,559 --> 00:30:36,960
+mean this file is being executed inside
+
+687
+00:30:36,960 --> 00:30:40,500
+of model we want to save it inside of
+
+688
+00:30:40,500 --> 00:30:43,919
+model itself so we do model
+
+689
+00:30:43,919 --> 00:30:47,340
+model like that that way the file is
+
+690
+00:30:47,340 --> 00:30:50,279
+going to be I mean the binary for
+
+691
+00:30:50,279 --> 00:30:52,260
+for our model is going to be stored
+
+692
+00:30:52,260 --> 00:30:54,179
+inside the model folder and same for
+
+693
+00:30:54,179 --> 00:30:56,659
+model for the pickle
+
+694
+00:30:56,659 --> 00:31:00,799
+folder right so there you go
+
+695
+00:31:01,200 --> 00:31:01,919
+um
+
+696
+00:31:01,919 --> 00:31:05,700
+so there we go now if we run this and we
+
+697
+00:31:05,700 --> 00:31:08,279
+save this we should
+
+698
+00:31:08,279 --> 00:31:10,919
+be able to see that our model that
+
+699
+00:31:10,919 --> 00:31:13,919
+pickle is being saved right here but our
+
+700
+00:31:13,919 --> 00:31:16,500
+scalar doesn't seem to be saved so no
+
+701
+00:31:16,500 --> 00:31:19,020
+such file or directory
+
+702
+00:31:19,020 --> 00:31:20,840
+assess it
+
+703
+00:31:20,840 --> 00:31:25,200
+right open pickle scalar f
+
+704
+00:31:25,200 --> 00:31:27,320
+um
+
+705
+00:31:34,580 --> 00:31:36,679
+[Music]
+
+706
+00:31:36,679 --> 00:31:42,659
+maybe I have to change this here
+
+707
+00:31:42,659 --> 00:31:45,860
+let's see if that works
+
+708
+00:31:46,320 --> 00:31:48,659
+not switch file or directory modal
+
+709
+00:31:48,659 --> 00:31:51,659
+scaler.pickle
+
+710
+00:31:55,919 --> 00:31:58,799
+all right yeah sure I added just like an
+
+711
+00:31:58,799 --> 00:32:00,840
+extra parenthesis right here
+
+712
+00:32:00,840 --> 00:32:04,440
+uh so yeah the G was not a problem
+
+713
+00:32:04,440 --> 00:32:07,320
+there you go now if we save it we should
+
+714
+00:32:07,320 --> 00:32:10,440
+have our model.pickle and ourscaler Dot
+
+715
+00:32:10,440 --> 00:32:13,200
+pickle like that there you go and these
+
+716
+00:32:13,200 --> 00:32:15,120
+are the files that we're going to be
+
+717
+00:32:15,120 --> 00:32:17,700
+importing into our application
+
+718
+00:32:17,700 --> 00:32:22,380
+so now that our model is built and our
+
+719
+00:32:22,380 --> 00:32:24,299
+scalar is built and both of these
+
+720
+00:32:24,299 --> 00:32:27,059
+binaries are exported it is time to
+
+721
+00:32:27,059 --> 00:32:29,700
+actually start building our streamlit
+
+722
+00:32:29,700 --> 00:32:32,640
+application with this okay so there we
+
+723
+00:32:32,640 --> 00:32:35,039
+go let's try get right into it
+
+724
+00:32:35,039 --> 00:32:36,600
+all right so now it's time to actually
+
+725
+00:32:36,600 --> 00:32:39,779
+create this app in order to do that as I
+
+726
+00:32:39,779 --> 00:32:41,520
+mentioned before we're going to create a
+
+727
+00:32:41,520 --> 00:32:44,460
+folder called app and inside of it I'm
+
+728
+00:32:44,460 --> 00:32:46,500
+just going to create another file called
+
+729
+00:32:46,500 --> 00:32:49,080
+main.py
+
+730
+00:32:49,080 --> 00:32:51,299
+there you go and it is in this file that
+
+731
+00:32:51,299 --> 00:32:52,980
+we're going to be running the
+
+732
+00:32:52,980 --> 00:32:54,360
+application
+
+733
+00:32:54,360 --> 00:32:56,760
+so just as before we're going to be
+
+734
+00:32:56,760 --> 00:33:00,240
+testing that the fat that this is the
+
+735
+00:33:00,240 --> 00:33:02,399
+file that is being executed and not that
+
+736
+00:33:02,399 --> 00:33:03,860
+it's being
+
+737
+00:33:03,860 --> 00:33:06,480
+imported somewhere else it's just like a
+
+738
+00:33:06,480 --> 00:33:08,779
+safety mechanism
+
+739
+00:33:08,779 --> 00:33:12,659
+then we're going to run main like this
+
+740
+00:33:12,659 --> 00:33:15,120
+there you go and now we're gonna have to
+
+741
+00:33:15,120 --> 00:33:17,399
+Define our main function
+
+742
+00:33:17,399 --> 00:33:22,019
+Main and we're going to say print
+
+743
+00:33:22,019 --> 00:33:25,019
+hello world
+
+744
+00:33:25,019 --> 00:33:28,679
+we will build streamlit
+
+745
+00:33:28,679 --> 00:33:31,380
+streamlit app
+
+746
+00:33:31,380 --> 00:33:32,519
+there we go
+
+747
+00:33:32,519 --> 00:33:34,860
+so now let's see how that looks Hello
+
+748
+00:33:34,860 --> 00:33:36,720
+World we will build a streamlit
+
+749
+00:33:36,720 --> 00:33:39,299
+application there we go
+
+750
+00:33:39,299 --> 00:33:42,059
+um so let's do this first of all what
+
+751
+00:33:42,059 --> 00:33:43,440
+we're going to want to do is we're going
+
+752
+00:33:43,440 --> 00:33:45,320
+to want to import
+
+753
+00:33:45,320 --> 00:33:48,419
+streamlit okay and in order to do that
+
+754
+00:33:48,419 --> 00:33:50,820
+you're going to have to have streamlit
+
+755
+00:33:50,820 --> 00:33:55,380
+installed streamlit is a python a python
+
+756
+00:33:55,380 --> 00:33:58,460
+library that allows you to
+
+757
+00:33:58,460 --> 00:34:00,120
+to
+
+758
+00:34:00,120 --> 00:34:03,059
+that allows you to oops nope
+
+759
+00:34:03,059 --> 00:34:04,620
+stream lit
+
+760
+00:34:04,620 --> 00:34:07,219
+ah
+
+761
+00:34:08,760 --> 00:34:11,159
+extremely to say python library that
+
+762
+00:34:11,159 --> 00:34:12,659
+allows you to build web applications
+
+763
+00:34:12,659 --> 00:34:14,820
+super quick
+
+764
+00:34:14,820 --> 00:34:18,659
+um basically around your around uh
+
+765
+00:34:18,659 --> 00:34:21,359
+around some data it's super useful to
+
+766
+00:34:21,359 --> 00:34:24,060
+create like dashboards or data
+
+767
+00:34:24,060 --> 00:34:26,879
+visualization applications or in this
+
+768
+00:34:26,879 --> 00:34:28,739
+case machine learning prediction
+
+769
+00:34:28,739 --> 00:34:31,040
+applications okay
+
+770
+00:34:31,040 --> 00:34:33,899
+and it's super fast you will see how how
+
+771
+00:34:33,899 --> 00:34:35,699
+we're going to
+
+772
+00:34:35,699 --> 00:34:38,040
+we're going to start up this application
+
+773
+00:34:38,040 --> 00:34:40,080
+with very little and very few lines of
+
+774
+00:34:40,080 --> 00:34:41,159
+code
+
+775
+00:34:41,159 --> 00:34:43,739
+so as I mentioned before you're going to
+
+776
+00:34:43,739 --> 00:34:45,599
+have to install it so you're going to do
+
+777
+00:34:45,599 --> 00:34:47,480
+pip install
+
+778
+00:34:47,480 --> 00:34:50,040
+it first
+
+779
+00:34:50,040 --> 00:34:51,839
+um I already have it installed so that's
+
+780
+00:34:51,839 --> 00:34:53,580
+going to be super fast
+
+781
+00:34:53,580 --> 00:34:56,879
+but then once you have done that you're
+
+782
+00:34:56,879 --> 00:34:58,380
+gonna have to come right here and do
+
+783
+00:34:58,380 --> 00:34:59,700
+import
+
+784
+00:34:59,700 --> 00:35:03,799
+streamlit as St
+
+785
+00:35:04,140 --> 00:35:05,900
+um
+
+786
+00:35:05,900 --> 00:35:09,540
+what is going on here that's SD there
+
+787
+00:35:09,540 --> 00:35:11,339
+you go then we're going to do import
+
+788
+00:35:11,339 --> 00:35:13,079
+pickle
+
+789
+00:35:13,079 --> 00:35:14,880
+pickle 5 as
+
+790
+00:35:14,880 --> 00:35:17,220
+pickle like that in order to actually
+
+791
+00:35:17,220 --> 00:35:20,420
+import our model and scaler
+
+792
+00:35:20,420 --> 00:35:24,599
+and we're going to import pandas SPD as
+
+793
+00:35:24,599 --> 00:35:26,460
+well in case we need it
+
+794
+00:35:26,460 --> 00:35:29,400
+so there we go so in our main in our
+
+795
+00:35:29,400 --> 00:35:31,260
+main function the first thing that we
+
+796
+00:35:31,260 --> 00:35:33,660
+are going to do is we're going to set
+
+797
+00:35:33,660 --> 00:35:37,440
+the page configuration for our
+
+798
+00:35:37,440 --> 00:35:39,119
+flower or
+
+799
+00:35:39,119 --> 00:35:43,700
+flower application so that goes St
+
+800
+00:35:43,700 --> 00:35:46,619
+page config
+
+801
+00:35:46,619 --> 00:35:48,720
+and here we're going to say that first
+
+802
+00:35:48,720 --> 00:35:51,599
+we need the page title page title
+
+803
+00:35:51,599 --> 00:35:53,760
+you know what I'm going to do it like
+
+804
+00:35:53,760 --> 00:35:57,960
+this page title it's going to be
+
+805
+00:35:57,960 --> 00:36:01,619
+breast cancer
+
+806
+00:36:02,160 --> 00:36:04,940
+predictor
+
+807
+00:36:05,460 --> 00:36:08,640
+there you go the second argument that it
+
+808
+00:36:08,640 --> 00:36:11,160
+takes is the page icon I'm just going
+
+809
+00:36:11,160 --> 00:36:13,560
+I'm not sure what I think it takes
+
+810
+00:36:13,560 --> 00:36:15,300
+seconds like this so I'm going to say
+
+811
+00:36:15,300 --> 00:36:17,099
+female
+
+812
+00:36:17,099 --> 00:36:20,000
+female doctor
+
+813
+00:36:20,280 --> 00:36:22,920
+supposed to work and the layout I'm
+
+814
+00:36:22,920 --> 00:36:24,960
+going to say it's white because I mean
+
+815
+00:36:24,960 --> 00:36:27,060
+if I just run it like this let me just
+
+816
+00:36:27,060 --> 00:36:29,339
+show you in order to write anything
+
+817
+00:36:29,339 --> 00:36:31,920
+where I'm just going to say right and
+
+818
+00:36:31,920 --> 00:36:33,359
+let's be
+
+819
+00:36:33,359 --> 00:36:36,480
+let's just do hello world
+
+820
+00:36:36,480 --> 00:36:38,640
+there you go if we save this file like
+
+821
+00:36:38,640 --> 00:36:42,599
+this and we do and we try to run it also
+
+822
+00:36:42,599 --> 00:36:45,359
+watch out in order to run this file you
+
+823
+00:36:45,359 --> 00:36:47,599
+cannot just do python
+
+824
+00:36:47,599 --> 00:36:52,680
+python your your app Main
+
+825
+00:36:52,680 --> 00:36:55,200
+.py because this is not going to
+
+826
+00:36:55,200 --> 00:36:58,079
+actually execute the application in
+
+827
+00:36:58,079 --> 00:36:59,940
+order to run the application you're
+
+828
+00:36:59,940 --> 00:37:03,599
+going to have to do streamlit run and
+
+829
+00:37:03,599 --> 00:37:05,280
+then actually Target the file that you
+
+830
+00:37:05,280 --> 00:37:06,839
+want to run that has the streamlined
+
+831
+00:37:06,839 --> 00:37:08,940
+application and then it's going to start
+
+832
+00:37:08,940 --> 00:37:11,820
+up oh it's going to start up this
+
+833
+00:37:11,820 --> 00:37:15,180
+um this app in your browser and as you
+
+834
+00:37:15,180 --> 00:37:17,400
+can see we have our app and it says
+
+835
+00:37:17,400 --> 00:37:21,839
+hello world which is the the text that
+
+836
+00:37:21,839 --> 00:37:24,060
+we wrote right here okay so just with
+
+837
+00:37:24,060 --> 00:37:26,640
+that we already have an application that
+
+838
+00:37:26,640 --> 00:37:28,200
+is up and running
+
+839
+00:37:28,200 --> 00:37:30,839
+so that's pretty convenient
+
+840
+00:37:30,839 --> 00:37:32,579
+and
+
+841
+00:37:32,579 --> 00:37:36,060
+now as you can see we have a a contained
+
+842
+00:37:36,060 --> 00:37:38,240
+layout it has a container right here
+
+843
+00:37:38,240 --> 00:37:41,480
+with a very big
+
+844
+00:37:41,480 --> 00:37:45,420
+like margin but we want it to be like a
+
+845
+00:37:45,420 --> 00:37:47,700
+wide layout so I'm just going to set
+
+846
+00:37:47,700 --> 00:37:49,800
+right here that this is going to be
+
+847
+00:37:49,800 --> 00:37:52,280
+layout
+
+848
+00:37:52,280 --> 00:37:56,339
+and delay is going to be white there you
+
+849
+00:37:56,339 --> 00:37:57,380
+go
+
+850
+00:37:57,380 --> 00:37:59,099
+and
+
+851
+00:37:59,099 --> 00:38:01,079
+and we are going to have a sidebar so
+
+852
+00:38:01,079 --> 00:38:02,460
+I'm going to say that the initial
+
+853
+00:38:02,460 --> 00:38:06,300
+sidebar state is going to be expanded
+
+854
+00:38:06,300 --> 00:38:09,000
+this one takes
+
+855
+00:38:09,000 --> 00:38:11,880
+expand it there you go
+
+856
+00:38:11,880 --> 00:38:14,460
+now if I save it and I rerun the
+
+857
+00:38:14,460 --> 00:38:16,170
+application
+
+858
+00:38:16,170 --> 00:38:17,480
+[Music]
+
+859
+00:38:17,480 --> 00:38:19,619
+rerun the application you can see that
+
+860
+00:38:19,619 --> 00:38:22,140
+the layout is white and I still don't
+
+861
+00:38:22,140 --> 00:38:24,060
+have a sidebar because I haven't created
+
+862
+00:38:24,060 --> 00:38:25,920
+it yet but as soon as I add a sidebar
+
+863
+00:38:25,920 --> 00:38:29,339
+it's going to appear open right here so
+
+864
+00:38:29,339 --> 00:38:31,360
+let's get on to that
+
+865
+00:38:31,360 --> 00:38:32,760
+[Music]
+
+866
+00:38:32,760 --> 00:38:34,980
+um so there we go that is the pretty
+
+867
+00:38:34,980 --> 00:38:36,300
+much the start for the streamlit
+
+868
+00:38:36,300 --> 00:38:37,500
+application the next thing that we're
+
+869
+00:38:37,500 --> 00:38:39,540
+going to do right now is we're going to
+
+870
+00:38:39,540 --> 00:38:42,060
+create the layout of our app create the
+
+871
+00:38:42,060 --> 00:38:43,040
+sidebar
+
+872
+00:38:43,040 --> 00:38:45,720
+some columns and then start populating
+
+873
+00:38:45,720 --> 00:38:48,000
+the columns okay so let's get right into
+
+874
+00:38:48,000 --> 00:38:49,020
+it
+
+875
+00:38:49,020 --> 00:38:51,180
+there we go so now what we're going to
+
+876
+00:38:51,180 --> 00:38:53,579
+want to do is we're going to want to set
+
+877
+00:38:53,579 --> 00:38:58,200
+a title for our app and set the set and
+
+878
+00:38:58,200 --> 00:39:00,000
+just write some explanation of it and
+
+879
+00:39:00,000 --> 00:39:02,640
+then just set the layout okay
+
+880
+00:39:02,640 --> 00:39:06,000
+now I come from web development so it
+
+881
+00:39:06,000 --> 00:39:07,460
+kind of is
+
+882
+00:39:07,460 --> 00:39:11,099
+a reflex to me to put everything inside
+
+883
+00:39:11,099 --> 00:39:12,500
+containers
+
+884
+00:39:12,500 --> 00:39:16,440
+and streamlate comes with containers
+
+885
+00:39:16,440 --> 00:39:20,760
+that actually just become divs in in the
+
+886
+00:39:20,760 --> 00:39:23,700
+H in the HTML code okay so in order to
+
+887
+00:39:23,700 --> 00:39:25,200
+create a container that is going to
+
+888
+00:39:25,200 --> 00:39:28,440
+contain some of some other elements you
+
+889
+00:39:28,440 --> 00:39:32,540
+do St container like that
+
+890
+00:39:32,540 --> 00:39:35,339
+and you're going I mean in order to
+
+891
+00:39:35,339 --> 00:39:38,400
+write inside of it you can do with
+
+892
+00:39:38,400 --> 00:39:40,619
+um the default python thing
+
+893
+00:39:40,619 --> 00:39:43,200
+and then in whatever you write inside of
+
+894
+00:39:43,200 --> 00:39:45,000
+here is going to be contained inside
+
+895
+00:39:45,000 --> 00:39:47,760
+this container right here
+
+896
+00:39:47,760 --> 00:39:50,160
+um and it's just a very convenient way
+
+897
+00:39:50,160 --> 00:39:52,079
+to structure your application
+
+898
+00:39:52,079 --> 00:39:54,900
+so right here we're going to do we're
+
+899
+00:39:54,900 --> 00:39:57,119
+going to write St title which basically
+
+900
+00:39:57,119 --> 00:40:00,420
+creates a H1 header and we're going to
+
+901
+00:40:00,420 --> 00:40:02,220
+call it rest
+
+902
+00:40:02,220 --> 00:40:03,920
+cancer
+
+903
+00:40:03,920 --> 00:40:05,460
+predictor
+
+904
+00:40:05,460 --> 00:40:06,780
+there you go
+
+905
+00:40:06,780 --> 00:40:09,540
+and then we're going to St right which
+
+906
+00:40:09,540 --> 00:40:12,420
+basically creates a p element which is a
+
+907
+00:40:12,420 --> 00:40:14,339
+paragraph in the HTML
+
+908
+00:40:14,339 --> 00:40:15,960
+and I'm just going to copy this
+
+909
+00:40:15,960 --> 00:40:17,940
+description right here from this file
+
+910
+00:40:17,940 --> 00:40:20,760
+that I have on the side in order to not
+
+911
+00:40:20,760 --> 00:40:22,500
+have to type it all
+
+912
+00:40:22,500 --> 00:40:23,940
+it's just a description of the
+
+913
+00:40:23,940 --> 00:40:27,060
+application for the users and to make it
+
+914
+00:40:27,060 --> 00:40:29,099
+easier for them to understand what is
+
+915
+00:40:29,099 --> 00:40:30,359
+going on
+
+916
+00:40:30,359 --> 00:40:32,700
+and now that I have this container right
+
+917
+00:40:32,700 --> 00:40:36,540
+here the container includes the
+
+918
+00:40:36,540 --> 00:40:39,359
+the title and the P element so let's
+
+919
+00:40:39,359 --> 00:40:41,760
+just start the application again and
+
+920
+00:40:41,760 --> 00:40:44,040
+there you have it you have our title and
+
+921
+00:40:44,040 --> 00:40:47,400
+then you have this quick explanation of
+
+922
+00:40:47,400 --> 00:40:48,660
+the application
+
+923
+00:40:48,660 --> 00:40:51,599
+uh the explanation rates please connect
+
+924
+00:40:51,599 --> 00:40:54,119
+this app to the cytology lab to help
+
+925
+00:40:54,119 --> 00:40:56,460
+diagnose breast cancer from your tissue
+
+926
+00:40:56,460 --> 00:40:59,700
+sample this app predicts using machine
+
+927
+00:40:59,700 --> 00:41:00,980
+learning model
+
+928
+00:41:00,980 --> 00:41:04,320
+what whether a breast mass is benign or
+
+929
+00:41:04,320 --> 00:41:06,660
+malignant based on the measurements it
+
+930
+00:41:06,660 --> 00:41:10,320
+receives from the cytosis laboratory
+
+931
+00:41:10,320 --> 00:41:12,359
+you can also update the measurements by
+
+932
+00:41:12,359 --> 00:41:15,420
+hand as you will as you remember we have
+
+933
+00:41:15,420 --> 00:41:19,140
+this we have this sliders that you can
+
+934
+00:41:19,140 --> 00:41:22,200
+update by hand but like ideally for an
+
+935
+00:41:22,200 --> 00:41:24,000
+application like this you would like you
+
+936
+00:41:24,000 --> 00:41:26,700
+would want to plug it directly into the
+
+937
+00:41:26,700 --> 00:41:28,260
+machine that is doing the measurement so
+
+938
+00:41:28,260 --> 00:41:29,760
+that you have the
+
+939
+00:41:29,760 --> 00:41:33,900
+the predictions immediately all right so
+
+940
+00:41:33,900 --> 00:41:35,579
+there you go
+
+941
+00:41:35,579 --> 00:41:38,640
+um now that this looks correctly we can
+
+942
+00:41:38,640 --> 00:41:40,800
+continue with
+
+943
+00:41:40,800 --> 00:41:42,960
+um with the layout that was one
+
+944
+00:41:42,960 --> 00:41:44,820
+container now we're going to create two
+
+945
+00:41:44,820 --> 00:41:47,520
+columns okay in the First Column is
+
+946
+00:41:47,520 --> 00:41:48,960
+going to be
+
+947
+00:41:48,960 --> 00:41:52,619
+is going to be this chart right here and
+
+948
+00:41:52,619 --> 00:41:55,020
+in the second column is going to be this
+
+949
+00:41:55,020 --> 00:41:57,000
+prediction
+
+950
+00:41:57,000 --> 00:42:00,240
+um box right here so let's do that in
+
+951
+00:42:00,240 --> 00:42:02,700
+order to create columns in streamlit you
+
+952
+00:42:02,700 --> 00:42:04,040
+can do St
+
+953
+00:42:04,040 --> 00:42:07,940
+dot columns
+
+954
+00:42:07,980 --> 00:42:09,540
+um this is important because
+
+955
+00:42:09,540 --> 00:42:13,020
+um just very a few months ago or years I
+
+956
+00:42:13,020 --> 00:42:14,040
+don't know
+
+957
+00:42:14,040 --> 00:42:16,619
+um this was a beta function so you had
+
+958
+00:42:16,619 --> 00:42:21,000
+to do beta dot columns Etc but now that
+
+959
+00:42:21,000 --> 00:42:22,800
+it's in the standard version you can
+
+960
+00:42:22,800 --> 00:42:25,740
+just do St columns and it works and this
+
+961
+00:42:25,740 --> 00:42:26,820
+one takes
+
+962
+00:42:26,820 --> 00:42:27,720
+um
+
+963
+00:42:27,720 --> 00:42:29,880
+okay I mean takes a list of how many
+
+964
+00:42:29,880 --> 00:42:32,460
+columns you want and the ratio of them
+
+965
+00:42:32,460 --> 00:42:35,099
+so I'm going to do four and one which
+
+966
+00:42:35,099 --> 00:42:37,140
+means that the First Column is going to
+
+967
+00:42:37,140 --> 00:42:37,430
+be
+
+968
+00:42:37,430 --> 00:42:38,280
+[Music]
+
+969
+00:42:38,280 --> 00:42:39,060
+um
+
+970
+00:42:39,060 --> 00:42:42,900
+four times as big as the as the as the
+
+971
+00:42:42,900 --> 00:42:44,040
+second one
+
+972
+00:42:44,040 --> 00:42:46,320
+and since we're creating two columns
+
+973
+00:42:46,320 --> 00:42:48,359
+this function returns two columns like
+
+974
+00:42:48,359 --> 00:42:51,660
+this call one and call two equals SD
+
+975
+00:42:51,660 --> 00:42:54,480
+columns four and one
+
+976
+00:42:54,480 --> 00:42:56,760
+and then just as we did with the
+
+977
+00:42:56,760 --> 00:42:59,339
+container we can write inside of these
+
+978
+00:42:59,339 --> 00:43:03,260
+columns by using the width
+
+979
+00:43:03,260 --> 00:43:06,540
+the width function from python so we do
+
+980
+00:43:06,540 --> 00:43:07,680
+St
+
+981
+00:43:07,680 --> 00:43:10,319
+sorry with column one
+
+982
+00:43:10,319 --> 00:43:14,460
+we're going to do St that right
+
+983
+00:43:14,460 --> 00:43:17,700
+this is column one
+
+984
+00:43:17,700 --> 00:43:22,440
+and then with oops with call 2 we're
+
+985
+00:43:22,440 --> 00:43:24,720
+going to do
+
+986
+00:43:24,720 --> 00:43:28,619
+St right which remember creates a p
+
+987
+00:43:28,619 --> 00:43:30,480
+element like a paragraph
+
+988
+00:43:30,480 --> 00:43:34,980
+and this is column two remember that the
+
+989
+00:43:34,980 --> 00:43:36,480
+first one is supposed to be four times
+
+990
+00:43:36,480 --> 00:43:39,000
+as big as the second one so let's see
+
+991
+00:43:39,000 --> 00:43:41,339
+how it looks
+
+992
+00:43:41,339 --> 00:43:44,900
+um am I running it or not
+
+993
+00:43:46,079 --> 00:43:48,540
+uh there you go so here this is column
+
+994
+00:43:48,540 --> 00:43:50,579
+one and this is column two as you can
+
+995
+00:43:50,579 --> 00:43:52,980
+see it's
+
+996
+00:43:52,980 --> 00:43:55,619
+um shorter than the column one by a
+
+997
+00:43:55,619 --> 00:43:58,380
+ratio of one to four
+
+998
+00:43:58,380 --> 00:44:00,720
+so there you go that seems to be working
+
+999
+00:44:00,720 --> 00:44:03,180
+correctly now what we're going to do is
+
+1000
+00:44:03,180 --> 00:44:04,619
+we're going to
+
+1001
+00:44:04,619 --> 00:44:06,839
+we're going to start
+
+1002
+00:44:06,839 --> 00:44:08,700
+um with the sidebar we're going to
+
+1003
+00:44:08,700 --> 00:44:11,160
+create our sidebar right here with all
+
+1004
+00:44:11,160 --> 00:44:14,640
+of our inputs and then from those inputs
+
+1005
+00:44:14,640 --> 00:44:16,440
+we're going to generate the chart and
+
+1006
+00:44:16,440 --> 00:44:19,260
+the prediction so there we go
+
+1007
+00:44:19,260 --> 00:44:21,960
+all right so what we're going to be
+
+1008
+00:44:21,960 --> 00:44:24,420
+doing right now is to create our sidebar
+
+1009
+00:44:24,420 --> 00:44:27,240
+for our application okay the sidebar
+
+1010
+00:44:27,240 --> 00:44:29,540
+should look something like this
+
+1011
+00:44:29,540 --> 00:44:32,640
+and it has as you can see right here it
+
+1012
+00:44:32,640 --> 00:44:35,099
+has a slider for every single variable
+
+1013
+00:44:35,099 --> 00:44:37,619
+in our data okay
+
+1014
+00:44:37,619 --> 00:44:41,339
+so here we have our data and as you can
+
+1015
+00:44:41,339 --> 00:44:45,300
+see we have around 30 predictors now if
+
+1016
+00:44:45,300 --> 00:44:47,640
+I remember we dropped two columns
+
+1017
+00:44:47,640 --> 00:44:49,980
+so we have 30 predictors
+
+1018
+00:44:49,980 --> 00:44:52,440
+and so we should have around I we should
+
+1019
+00:44:52,440 --> 00:44:55,200
+have 30 sliders one for its predictor
+
+1020
+00:44:55,200 --> 00:44:57,240
+and depending on the value here we will
+
+1021
+00:44:57,240 --> 00:44:59,700
+make our prediction and we will update
+
+1022
+00:44:59,700 --> 00:45:03,260
+our chart right here all right
+
+1023
+00:45:03,260 --> 00:45:06,780
+so in order to do this the first thing
+
+1024
+00:45:06,780 --> 00:45:09,300
+that you want to do is to subscribe to
+
+1025
+00:45:09,300 --> 00:45:11,400
+the channel and to like the video
+
+1026
+00:45:11,400 --> 00:45:13,619
+because if you have come this far that
+
+1027
+00:45:13,619 --> 00:45:14,819
+probably means that you're enjoying it
+
+1028
+00:45:14,819 --> 00:45:18,420
+and it would be very good for me thank
+
+1029
+00:45:18,420 --> 00:45:20,280
+you
+
+1030
+00:45:20,280 --> 00:45:23,160
+um all right so now what we're going to
+
+1031
+00:45:23,160 --> 00:45:24,480
+do is we're going to create this thing
+
+1032
+00:45:24,480 --> 00:45:25,740
+right here
+
+1033
+00:45:25,740 --> 00:45:27,540
+I'm just going to add it before the
+
+1034
+00:45:27,540 --> 00:45:29,760
+container
+
+1035
+00:45:29,760 --> 00:45:32,400
+um I'm going to make my own function and
+
+1036
+00:45:32,400 --> 00:45:34,440
+where I'm going to actually create the
+
+1037
+00:45:34,440 --> 00:45:36,060
+sidebar I'm going to show you a little
+
+1038
+00:45:36,060 --> 00:45:38,520
+bit later why I'm doing this
+
+1039
+00:45:38,520 --> 00:45:40,920
+um but let's see the first the first the
+
+1040
+00:45:40,920 --> 00:45:42,900
+function is going to be called add
+
+1041
+00:45:42,900 --> 00:45:45,540
+sidebar like this
+
+1042
+00:45:45,540 --> 00:45:47,760
+and then I'm just going to create my
+
+1043
+00:45:47,760 --> 00:45:51,960
+function up here add sidebar
+
+1044
+00:45:51,960 --> 00:45:55,260
+fine add sidebarm
+
+1045
+00:45:55,260 --> 00:45:56,940
+there you go
+
+1046
+00:45:56,940 --> 00:45:59,460
+and now inside of here in order to
+
+1047
+00:45:59,460 --> 00:46:00,960
+create a sidebar all you have to do is
+
+1048
+00:46:00,960 --> 00:46:04,560
+do St sidebar and then just create a
+
+1049
+00:46:04,560 --> 00:46:06,420
+heading for the sidebar I'm going to say
+
+1050
+00:46:06,420 --> 00:46:07,859
+header sorry
+
+1051
+00:46:07,859 --> 00:46:10,440
+I'm going to say that my header is going
+
+1052
+00:46:10,440 --> 00:46:14,220
+to be called cell
+
+1053
+00:46:14,660 --> 00:46:18,660
+nuclei measurements
+
+1054
+00:46:18,839 --> 00:46:21,000
+there you go now if I save it and I come
+
+1055
+00:46:21,000 --> 00:46:22,619
+back to the app that we are developing
+
+1056
+00:46:22,619 --> 00:46:26,640
+now refresh here you have your sidebar
+
+1057
+00:46:26,640 --> 00:46:28,140
+um there you go
+
+1058
+00:46:28,140 --> 00:46:30,359
+so I mean just a quick note I don't
+
+1059
+00:46:30,359 --> 00:46:33,300
+remember if I mentioned this already but
+
+1060
+00:46:33,300 --> 00:46:36,540
+I mean in this example ideally you would
+
+1061
+00:46:36,540 --> 00:46:39,960
+want this data to come directly from the
+
+1062
+00:46:39,960 --> 00:46:43,079
+cytosis lab and to not have to update
+
+1063
+00:46:43,079 --> 00:46:46,500
+all of them by hand
+
+1064
+00:46:46,500 --> 00:46:48,420
+um but it's just that example right so I
+
+1065
+00:46:48,420 --> 00:46:50,099
+mean ideally you would have this plugged
+
+1066
+00:46:50,099 --> 00:46:52,079
+into a laboratory and then the
+
+1067
+00:46:52,079 --> 00:46:54,319
+laboratory would fill the input values
+
+1068
+00:46:54,319 --> 00:46:56,339
+automatically based on the measurements
+
+1069
+00:46:56,339 --> 00:46:59,220
+from the machine and then like the the
+
+1070
+00:46:59,220 --> 00:47:01,440
+researcher would be able to just tweak
+
+1071
+00:47:01,440 --> 00:47:03,960
+some values to make sure that it's what
+
+1072
+00:47:03,960 --> 00:47:06,599
+they intend
+
+1073
+00:47:06,599 --> 00:47:08,339
+um so there you go so now we're going to
+
+1074
+00:47:08,339 --> 00:47:10,920
+create this slot and this slide is right
+
+1075
+00:47:10,920 --> 00:47:11,700
+here
+
+1076
+00:47:11,700 --> 00:47:13,819
+but here we're
+
+1077
+00:47:13,819 --> 00:47:16,800
+heading to a problem and it's the fact
+
+1078
+00:47:16,800 --> 00:47:17,579
+that
+
+1079
+00:47:17,579 --> 00:47:22,020
+as you can see inside of our app file we
+
+1080
+00:47:22,020 --> 00:47:24,839
+don't actually have access to the column
+
+1081
+00:47:24,839 --> 00:47:25,740
+names
+
+1082
+00:47:25,740 --> 00:47:28,319
+or to the maximum values of the column
+
+1083
+00:47:28,319 --> 00:47:30,780
+names because as you can see each site
+
+1084
+00:47:30,780 --> 00:47:34,260
+each slider needs a maximum value so
+
+1085
+00:47:34,260 --> 00:47:37,380
+that we know kind of like where to stop
+
+1086
+00:47:37,380 --> 00:47:40,740
+this and to like in order to not set a
+
+1087
+00:47:40,740 --> 00:47:42,900
+maximum value of 100 right here if all
+
+1088
+00:47:42,900 --> 00:47:44,640
+the if all the values will be between 1
+
+1089
+00:47:44,640 --> 00:47:46,619
+and 10 right that would be extremely
+
+1090
+00:47:46,619 --> 00:47:49,020
+complicated to choose a value if all the
+
+1091
+00:47:49,020 --> 00:47:51,180
+all the real values are actually just
+
+1092
+00:47:51,180 --> 00:47:54,420
+like on this portion of the slider
+
+1093
+00:47:54,420 --> 00:47:56,900
+so what we're going to do
+
+1094
+00:47:56,900 --> 00:47:58,980
+there are two things that we could do
+
+1095
+00:47:58,980 --> 00:48:00,140
+here
+
+1096
+00:48:00,140 --> 00:48:02,880
+the more formal and correct way of doing
+
+1097
+00:48:02,880 --> 00:48:06,119
+this is to export an object just like we
+
+1098
+00:48:06,119 --> 00:48:08,220
+did with the model and the scalar from
+
+1099
+00:48:08,220 --> 00:48:09,660
+the
+
+1100
+00:48:09,660 --> 00:48:12,000
+when we're training our model export an
+
+1101
+00:48:12,000 --> 00:48:15,359
+object with the information that we need
+
+1102
+00:48:15,359 --> 00:48:17,040
+which would be the maximum value for
+
+1103
+00:48:17,040 --> 00:48:18,200
+each column
+
+1104
+00:48:18,200 --> 00:48:20,700
+and the column labels and the column
+
+1105
+00:48:20,700 --> 00:48:22,980
+names for example
+
+1106
+00:48:22,980 --> 00:48:25,380
+um since we are doing this like super
+
+1107
+00:48:25,380 --> 00:48:28,619
+quick and this is and also since the
+
+1108
+00:48:28,619 --> 00:48:31,500
+data is very very very small
+
+1109
+00:48:31,500 --> 00:48:33,900
+like our data set is just a few hundred
+
+1110
+00:48:33,900 --> 00:48:37,920
+a few hundred lines long so that means
+
+1111
+00:48:37,920 --> 00:48:40,079
+that we can probably get away with
+
+1112
+00:48:40,079 --> 00:48:42,599
+actually importing the data inside of
+
+1113
+00:48:42,599 --> 00:48:45,540
+the app this is not what you would do in
+
+1114
+00:48:45,540 --> 00:48:48,420
+a real production application
+
+1115
+00:48:48,420 --> 00:48:50,220
+but we're just going to do it right here
+
+1116
+00:48:50,220 --> 00:48:52,440
+to show you how how it would work like
+
+1117
+00:48:52,440 --> 00:48:54,359
+just keep in mind that in a real world
+
+1118
+00:48:54,359 --> 00:48:57,079
+scenario you would do this in the main
+
+1119
+00:48:57,079 --> 00:48:59,579
+file and then just export it just as
+
+1120
+00:48:59,579 --> 00:49:01,800
+with it with the pickle function
+
+1121
+00:49:01,800 --> 00:49:04,380
+and import it right here
+
+1122
+00:49:04,380 --> 00:49:07,319
+all right so let's do that
+
+1123
+00:49:07,319 --> 00:49:08,760
+um I'm just going to create a function
+
+1124
+00:49:08,760 --> 00:49:11,579
+where we get the data I'm actually just
+
+1125
+00:49:11,579 --> 00:49:13,319
+going to copy it from here get clean
+
+1126
+00:49:13,319 --> 00:49:15,300
+data
+
+1127
+00:49:15,300 --> 00:49:16,920
+because remember that remember that we
+
+1128
+00:49:16,920 --> 00:49:18,480
+want it clean
+
+1129
+00:49:18,480 --> 00:49:20,400
+and now that we have the function of get
+
+1130
+00:49:20,400 --> 00:49:22,920
+clean data
+
+1131
+00:49:22,920 --> 00:49:25,079
+we are going to call it right here
+
+1132
+00:49:25,079 --> 00:49:27,119
+inside the sidebar I'm going to say data
+
+1133
+00:49:27,119 --> 00:49:31,440
+equals get clean data there you go
+
+1134
+00:49:31,440 --> 00:49:35,160
+and now what we want is the column names
+
+1135
+00:49:35,160 --> 00:49:37,400
+of the sidebar
+
+1136
+00:49:37,400 --> 00:49:40,740
+inside of um finder inside of a list
+
+1137
+00:49:40,740 --> 00:49:42,960
+right because we're going to want to
+
+1138
+00:49:42,960 --> 00:49:45,180
+we're working on and also we're going to
+
+1139
+00:49:45,180 --> 00:49:47,160
+need the labels of each of these sliders
+
+1140
+00:49:47,160 --> 00:49:49,500
+right now I'm going to cheat a little
+
+1141
+00:49:49,500 --> 00:49:51,420
+bit right here because I had this ready
+
+1142
+00:49:51,420 --> 00:49:55,680
+I asked chai GPT to make it for me so I
+
+1143
+00:49:55,680 --> 00:49:56,940
+mean that just makes it a little bit
+
+1144
+00:49:56,940 --> 00:49:59,040
+easier because otherwise I would have to
+
+1145
+00:49:59,040 --> 00:50:01,319
+to type all of this by hand
+
+1146
+00:50:01,319 --> 00:50:03,119
+but the idea here is that you have a
+
+1147
+00:50:03,119 --> 00:50:04,079
+list
+
+1148
+00:50:04,079 --> 00:50:06,240
+with the label right here and the name
+
+1149
+00:50:06,240 --> 00:50:09,180
+of the column right here so this is the
+
+1150
+00:50:09,180 --> 00:50:11,880
+value that we're going to be using
+
+1151
+00:50:11,880 --> 00:50:12,599
+um
+
+1152
+00:50:12,599 --> 00:50:16,040
+as a label for our slider right here
+
+1153
+00:50:16,040 --> 00:50:19,079
+and oops
+
+1154
+00:50:19,079 --> 00:50:21,839
+um and here's the column name that we're
+
+1155
+00:50:21,839 --> 00:50:23,940
+going to be using to actually access the
+
+1156
+00:50:23,940 --> 00:50:27,060
+maximum value of that column okay
+
+1157
+00:50:27,060 --> 00:50:30,000
+so I mean this is the same for for every
+
+1158
+00:50:30,000 --> 00:50:33,300
+single column in our data set I mean you
+
+1159
+00:50:33,300 --> 00:50:35,040
+would probably won't find a better way
+
+1160
+00:50:35,040 --> 00:50:37,319
+of doing this but since charging PT just
+
+1161
+00:50:37,319 --> 00:50:40,260
+does it super fast I just um asked it to
+
+1162
+00:50:40,260 --> 00:50:41,040
+do it
+
+1163
+00:50:41,040 --> 00:50:43,500
+and then once we have that information
+
+1164
+00:50:43,500 --> 00:50:45,900
+what we're going to do is we're going to
+
+1165
+00:50:45,900 --> 00:50:49,140
+Loop through all of these labels and all
+
+1166
+00:50:49,140 --> 00:50:51,599
+of these column names and to create one
+
+1167
+00:50:51,599 --> 00:50:55,440
+slider with each of them right
+
+1168
+00:50:55,440 --> 00:50:57,900
+um so in order to do that we're going to
+
+1169
+00:50:57,900 --> 00:50:59,940
+say that for
+
+1170
+00:50:59,940 --> 00:51:01,559
+the label
+
+1171
+00:51:01,559 --> 00:51:04,200
+and the key which are the two values
+
+1172
+00:51:04,200 --> 00:51:08,280
+two values in my in my list
+
+1173
+00:51:08,280 --> 00:51:11,760
+in this in this list we are going to
+
+1174
+00:51:11,760 --> 00:51:14,280
+create St
+
+1175
+00:51:14,280 --> 00:51:17,579
+ABA dot slider I'm just calling sidebar
+
+1176
+00:51:17,579 --> 00:51:19,500
+because we want the slider to be inside
+
+1177
+00:51:19,500 --> 00:51:21,900
+the sidebar but we could very well just
+
+1178
+00:51:21,900 --> 00:51:25,200
+do SD that slider okay this is just to
+
+1179
+00:51:25,200 --> 00:51:28,020
+put the slider inside the sidebar
+
+1180
+00:51:28,020 --> 00:51:31,800
+and the slider we're going to say oops
+
+1181
+00:51:31,800 --> 00:51:34,319
+we're going to say that for each element
+
+1182
+00:51:34,319 --> 00:51:36,020
+in this list
+
+1183
+00:51:36,020 --> 00:51:39,839
+the slider is going to take the I mean
+
+1184
+00:51:39,839 --> 00:51:41,760
+the first argument that the slider takes
+
+1185
+00:51:41,760 --> 00:51:43,559
+is the label
+
+1186
+00:51:43,559 --> 00:51:45,240
+and we're just going to set it to the
+
+1187
+00:51:45,240 --> 00:51:47,520
+label which is this one
+
+1188
+00:51:47,520 --> 00:51:50,819
+um I mean the first value in our in our
+
+1189
+00:51:50,819 --> 00:51:54,119
+value pairs
+
+1190
+00:51:54,119 --> 00:51:56,579
+and actually I'm just going to
+
+1191
+00:51:56,579 --> 00:51:58,619
+erase it like that I'm just going to say
+
+1192
+00:51:58,619 --> 00:52:00,420
+label like that it's pretty much the
+
+1193
+00:52:00,420 --> 00:52:02,460
+same thing and then for the minimum
+
+1194
+00:52:02,460 --> 00:52:05,160
+value we're going to set it to zero
+
+1195
+00:52:05,160 --> 00:52:07,859
+and then for the maximum value
+
+1196
+00:52:07,859 --> 00:52:10,740
+um let's set it to 100 just just for now
+
+1197
+00:52:10,740 --> 00:52:12,720
+just to show you what is happening
+
+1198
+00:52:12,720 --> 00:52:15,720
+I'm going to save it
+
+1199
+00:52:15,720 --> 00:52:19,260
+and right here let's just refresh
+
+1200
+00:52:19,260 --> 00:52:21,359
+and there you go
+
+1201
+00:52:21,359 --> 00:52:22,619
+you have
+
+1202
+00:52:22,619 --> 00:52:26,339
+around I think it's 30 30 sliders that
+
+1203
+00:52:26,339 --> 00:52:28,800
+go from 0 to 100 and each one of them
+
+1204
+00:52:28,800 --> 00:52:30,319
+has the label
+
+1205
+00:52:30,319 --> 00:52:33,660
+that we require so that's looking pretty
+
+1206
+00:52:33,660 --> 00:52:35,880
+good so far
+
+1207
+00:52:35,880 --> 00:52:37,740
+um now actually tweak it let's just
+
+1208
+00:52:37,740 --> 00:52:39,119
+tweak it a little bit so that it
+
+1209
+00:52:39,119 --> 00:52:41,940
+actually is what we intend it to be now
+
+1210
+00:52:41,940 --> 00:52:43,800
+in here instead of it being a hundred
+
+1211
+00:52:43,800 --> 00:52:47,160
+we're going to make it take the the
+
+1212
+00:52:47,160 --> 00:52:48,660
+maximum value
+
+1213
+00:52:48,660 --> 00:52:51,480
+in the column that we're in so in order
+
+1214
+00:52:51,480 --> 00:52:53,940
+to do that we're going to take the data
+
+1215
+00:52:53,940 --> 00:52:55,920
+that we previously imported which is
+
+1216
+00:52:55,920 --> 00:52:58,380
+basically just the data set
+
+1217
+00:52:58,380 --> 00:53:01,319
+and we're going to say that we're going
+
+1218
+00:53:01,319 --> 00:53:02,819
+to pass in the key this is going to
+
+1219
+00:53:02,819 --> 00:53:05,220
+select the column in the data Associated
+
+1220
+00:53:05,220 --> 00:53:07,500
+to
+
+1221
+00:53:07,500 --> 00:53:10,619
+to the variable that we're using so here
+
+1222
+00:53:10,619 --> 00:53:14,460
+in this case for radius mean it's going
+
+1223
+00:53:14,460 --> 00:53:16,920
+to take the column named radius mean
+
+1224
+00:53:16,920 --> 00:53:19,800
+which is the column that contains the
+
+1225
+00:53:19,800 --> 00:53:22,200
+data about the radius mean there you go
+
+1226
+00:53:22,200 --> 00:53:24,559
+all right
+
+1227
+00:53:24,559 --> 00:53:28,740
+so and this one we're going to take this
+
+1228
+00:53:28,740 --> 00:53:31,079
+to take the maximum value right here
+
+1229
+00:53:31,079 --> 00:53:32,339
+there you go
+
+1230
+00:53:32,339 --> 00:53:33,900
+and in order to make sure that
+
+1231
+00:53:33,900 --> 00:53:35,160
+everything's working correctly we're
+
+1232
+00:53:35,160 --> 00:53:37,440
+going to convert it to a float
+
+1233
+00:53:37,440 --> 00:53:39,480
+and if we save it right here this is not
+
+1234
+00:53:39,480 --> 00:53:41,339
+going to work because this number right
+
+1235
+00:53:41,339 --> 00:53:43,079
+here is an integer and it should be a
+
+1236
+00:53:43,079 --> 00:53:45,540
+float as well in order for us to work if
+
+1237
+00:53:45,540 --> 00:53:47,880
+I refresh this we have the problem that
+
+1238
+00:53:47,880 --> 00:53:51,300
+it has the minimum value has an integer
+
+1239
+00:53:51,300 --> 00:53:53,160
+type and the maximum value has a flow
+
+1240
+00:53:53,160 --> 00:53:55,380
+type so in order to fix that we just do
+
+1241
+00:53:55,380 --> 00:53:57,859
+float
+
+1242
+00:53:58,020 --> 00:53:59,819
+there you go
+
+1243
+00:53:59,819 --> 00:54:02,520
+then we refresh this and there you have
+
+1244
+00:54:02,520 --> 00:54:06,800
+it now the maximum value is as it's like
+
+1245
+00:54:06,800 --> 00:54:10,140
+something that makes more sense for for
+
+1246
+00:54:10,140 --> 00:54:12,960
+this given for this given value so in
+
+1247
+00:54:12,960 --> 00:54:15,300
+this case as you can see the area can go
+
+1248
+00:54:15,300 --> 00:54:18,240
+to 200 2000 like 2500
+
+1249
+00:54:18,240 --> 00:54:20,220
+and this one right here and the maximum
+
+1250
+00:54:20,220 --> 00:54:22,980
+goes to just 0.16
+
+1251
+00:54:22,980 --> 00:54:26,520
+so I mean that makes it way easier to to
+
+1252
+00:54:26,520 --> 00:54:28,980
+actually visualize and to choose the the
+
+1253
+00:54:28,980 --> 00:54:30,960
+real value for it
+
+1254
+00:54:30,960 --> 00:54:33,359
+and now let's just set
+
+1255
+00:54:33,359 --> 00:54:36,119
+um an average I mean like um
+
+1256
+00:54:36,119 --> 00:54:38,280
+like a default value and we're going to
+
+1257
+00:54:38,280 --> 00:54:40,980
+set pretty much the same here as heat
+
+1258
+00:54:40,980 --> 00:54:43,319
+the same thing as we did here
+
+1259
+00:54:43,319 --> 00:54:45,240
+but we're going to say that instead of
+
+1260
+00:54:45,240 --> 00:54:47,160
+the maximum we're going to say that
+
+1261
+00:54:47,160 --> 00:54:48,960
+we're going to take the mean value of
+
+1262
+00:54:48,960 --> 00:54:51,839
+that of that column okay if we've got a
+
+1263
+00:54:51,839 --> 00:54:53,160
+comma here
+
+1264
+00:54:53,160 --> 00:54:56,040
+and then if I refresh
+
+1265
+00:54:56,040 --> 00:54:58,440
+I should have the average value for each
+
+1266
+00:54:58,440 --> 00:54:59,579
+one of them
+
+1267
+00:54:59,579 --> 00:55:01,380
+it's looking pretty good huh
+
+1268
+00:55:01,380 --> 00:55:03,780
+there you go
+
+1269
+00:55:03,780 --> 00:55:04,980
+um and now
+
+1270
+00:55:04,980 --> 00:55:06,720
+one thing that you may want to consider
+
+1271
+00:55:06,720 --> 00:55:10,079
+is that this this right here actually
+
+1272
+00:55:10,079 --> 00:55:12,900
+this function I mean the function slider
+
+1273
+00:55:12,900 --> 00:55:16,319
+can Returns the value of the slider
+
+1274
+00:55:16,319 --> 00:55:18,420
+so we're going to want to save that
+
+1275
+00:55:18,420 --> 00:55:20,760
+somewhere in order to take that
+
+1276
+00:55:20,760 --> 00:55:23,160
+information and build our chart and our
+
+1277
+00:55:23,160 --> 00:55:24,920
+prediction right
+
+1278
+00:55:24,920 --> 00:55:27,780
+just as a side note here we're using
+
+1279
+00:55:27,780 --> 00:55:31,380
+sliders but remember that you can use
+
+1280
+00:55:31,380 --> 00:55:34,980
+pretty much any HTML input element so if
+
+1281
+00:55:34,980 --> 00:55:38,760
+I go to streamlit inputs
+
+1282
+00:55:38,760 --> 00:55:41,460
+extremely inputs
+
+1283
+00:55:41,460 --> 00:55:43,380
+here we have the input widgets that you
+
+1284
+00:55:43,380 --> 00:55:45,599
+can use here like a checkbox a radio
+
+1285
+00:55:45,599 --> 00:55:48,240
+button select box here we're using the
+
+1286
+00:55:48,240 --> 00:55:51,119
+slider as you can see sd.slider
+
+1287
+00:55:51,119 --> 00:55:53,700
+but like you can choose among any of
+
+1288
+00:55:53,700 --> 00:55:56,040
+these and use them to build your
+
+1289
+00:55:56,040 --> 00:55:58,079
+application right
+
+1290
+00:55:58,079 --> 00:56:01,619
+so there we go now I was saying that
+
+1291
+00:56:01,619 --> 00:56:03,660
+this function right here Returns the
+
+1292
+00:56:03,660 --> 00:56:06,180
+value for each one of this
+
+1293
+00:56:06,180 --> 00:56:07,980
+so what we're going to want to do is
+
+1294
+00:56:07,980 --> 00:56:10,319
+we're going to create a dictionary
+
+1295
+00:56:10,319 --> 00:56:13,319
+input
+
+1296
+00:56:13,440 --> 00:56:15,859
+dictionary
+
+1297
+00:56:17,180 --> 00:56:20,220
+and we're going to say that for each one
+
+1298
+00:56:20,220 --> 00:56:21,180
+of this
+
+1299
+00:56:21,180 --> 00:56:23,460
+we're going to create a new key value
+
+1300
+00:56:23,460 --> 00:56:25,980
+pair in the dictionary that is going to
+
+1301
+00:56:25,980 --> 00:56:29,099
+have as a key it's going to have the
+
+1302
+00:56:29,099 --> 00:56:30,359
+column name
+
+1303
+00:56:30,359 --> 00:56:32,940
+and as a value it's going to have the
+
+1304
+00:56:32,940 --> 00:56:36,900
+current value of the of the slider so in
+
+1305
+00:56:36,900 --> 00:56:40,079
+this case for example it's 14 13. that
+
+1306
+00:56:40,079 --> 00:56:42,839
+means that in our dictionary the key
+
+1307
+00:56:42,839 --> 00:56:45,119
+value pair with the key of radius mean
+
+1308
+00:56:45,119 --> 00:56:49,500
+will have a value of 1413 and that is
+
+1309
+00:56:49,500 --> 00:56:51,119
+the dictionary that we're going to use
+
+1310
+00:56:51,119 --> 00:56:53,640
+to create the chart and the predictions
+
+1311
+00:56:53,640 --> 00:56:55,920
+later on all right
+
+1312
+00:56:55,920 --> 00:56:58,680
+so now we do that
+
+1313
+00:56:58,680 --> 00:57:01,740
+and here what we're going to do is input
+
+1314
+00:57:01,740 --> 00:57:04,740
+dictionary
+
+1315
+00:57:05,520 --> 00:57:07,859
+and we're going to say that the here is
+
+1316
+00:57:07,859 --> 00:57:10,200
+the key there you go
+
+1317
+00:57:10,200 --> 00:57:12,900
+so this basically is doing what I told
+
+1318
+00:57:12,900 --> 00:57:16,020
+you creating a key value pair well the
+
+1319
+00:57:16,020 --> 00:57:18,599
+key is the name of the column and the
+
+1320
+00:57:18,599 --> 00:57:21,300
+value is the value that the user input
+
+1321
+00:57:21,300 --> 00:57:24,180
+in the slider and then we're just going
+
+1322
+00:57:24,180 --> 00:57:27,200
+to return this dictionary
+
+1323
+00:57:27,200 --> 00:57:30,900
+input dictionary like that
+
+1324
+00:57:30,900 --> 00:57:33,599
+and then we can retrieve the data right
+
+1325
+00:57:33,599 --> 00:57:36,839
+here input data will be equal to
+
+1326
+00:57:36,839 --> 00:57:38,819
+whatever the sidebar returns and the
+
+1327
+00:57:38,819 --> 00:57:40,740
+sidebar is returning the data from those
+
+1328
+00:57:40,740 --> 00:57:41,819
+inputs
+
+1329
+00:57:41,819 --> 00:57:44,099
+so now if we refresh this seems to be
+
+1330
+00:57:44,099 --> 00:57:46,140
+working correctly and whenever I do this
+
+1331
+00:57:46,140 --> 00:57:48,960
+it should be updating the value of my
+
+1332
+00:57:48,960 --> 00:57:50,760
+input dictionary
+
+1333
+00:57:50,760 --> 00:57:54,140
+so there you go now we have created our
+
+1334
+00:57:54,140 --> 00:57:57,240
+let me just um let me see if I can show
+
+1335
+00:57:57,240 --> 00:57:59,700
+you this
+
+1336
+00:57:59,700 --> 00:58:04,200
+um Let's do an st dot write
+
+1337
+00:58:04,200 --> 00:58:05,480
+um
+
+1338
+00:58:05,480 --> 00:58:09,480
+can I write just input data I don't know
+
+1339
+00:58:09,480 --> 00:58:12,119
+if I can do this let's see
+
+1340
+00:58:12,119 --> 00:58:14,400
+yeah there you go so I mean like here
+
+1341
+00:58:14,400 --> 00:58:16,020
+I'm just like this is just for tests
+
+1342
+00:58:16,020 --> 00:58:16,859
+right
+
+1343
+00:58:16,859 --> 00:58:19,020
+every time I update this you can see
+
+1344
+00:58:19,020 --> 00:58:21,420
+that this one is being updated
+
+1345
+00:58:21,420 --> 00:58:24,000
+this one is being updated I mean like
+
+1346
+00:58:24,000 --> 00:58:25,440
+what I'm doing here is I'm just
+
+1347
+00:58:25,440 --> 00:58:28,020
+outputting the data that comes from the
+
+1348
+00:58:28,020 --> 00:58:29,220
+sidebar
+
+1349
+00:58:29,220 --> 00:58:32,220
+so now this is
+
+1350
+00:58:32,220 --> 00:58:35,099
+this is basically what we need what I
+
+1351
+00:58:35,099 --> 00:58:37,260
+told you the key value Pairs and we're
+
+1352
+00:58:37,260 --> 00:58:39,540
+going to be building our chart from this
+
+1353
+00:58:39,540 --> 00:58:42,119
+and our prediction
+
+1354
+00:58:42,119 --> 00:58:44,520
+um later on from this as well so there
+
+1355
+00:58:44,520 --> 00:58:47,819
+we go I'm just going to remove that
+
+1356
+00:58:47,819 --> 00:58:50,400
+there we go so let's get to building
+
+1357
+00:58:50,400 --> 00:58:53,099
+these two parts
+
+1358
+00:58:53,099 --> 00:58:56,579
+all right so now it is time to complete
+
+1359
+00:58:56,579 --> 00:58:59,640
+our application with a charge right here
+
+1360
+00:58:59,640 --> 00:59:02,160
+that is going to take the values from
+
+1361
+00:59:02,160 --> 00:59:05,160
+our input elements that we have on the
+
+1362
+00:59:05,160 --> 00:59:07,619
+sidebar okay
+
+1363
+00:59:07,619 --> 00:59:11,160
+um we want a we'll want a chart to look
+
+1364
+00:59:11,160 --> 00:59:12,420
+something like this
+
+1365
+00:59:12,420 --> 00:59:15,599
+the chart is a radar chart that's how it
+
+1366
+00:59:15,599 --> 00:59:18,299
+is called and it has different values
+
+1367
+00:59:18,299 --> 00:59:21,359
+right here and the on the on the
+
+1368
+00:59:21,359 --> 00:59:22,619
+circumference
+
+1369
+00:59:22,619 --> 00:59:26,760
+and it has different values here on the
+
+1370
+00:59:26,760 --> 00:59:30,720
+radiuses right radii yeah
+
+1371
+00:59:30,720 --> 00:59:31,319
+um
+
+1372
+00:59:31,319 --> 00:59:33,359
+and the idea is that you will have the
+
+1373
+00:59:33,359 --> 00:59:35,220
+perimeter the texture and the radius and
+
+1374
+00:59:35,220 --> 00:59:37,440
+you will have three values for each one
+
+1375
+00:59:37,440 --> 00:59:39,599
+of this you have the mean the standard
+
+1376
+00:59:39,599 --> 00:59:42,900
+error and the worst value uh for that
+
+1377
+00:59:42,900 --> 00:59:46,020
+one in the cell cluster
+
+1378
+00:59:46,020 --> 00:59:47,460
+um all right something to keep in mind
+
+1379
+00:59:47,460 --> 00:59:53,040
+is that this are not the same column all
+
+1380
+00:59:53,040 --> 00:59:55,380
+right so
+
+1381
+00:59:55,380 --> 00:59:58,920
+um how to put this in simple terms
+
+1382
+00:59:58,920 --> 01:00:03,720
+so the mean radius is one column the
+
+1383
+01:00:03,720 --> 01:00:06,000
+standard error for the radius is another
+
+1384
+01:00:06,000 --> 01:00:09,420
+column and the worst value for the
+
+1385
+01:00:09,420 --> 01:00:12,119
+radius is another column all right so
+
+1386
+01:00:12,119 --> 01:00:13,799
+it's not one single column from which
+
+1387
+01:00:13,799 --> 01:00:16,020
+we're taking the mean the worst value
+
+1388
+01:00:16,020 --> 01:00:18,359
+and the standard error they are
+
+1389
+01:00:18,359 --> 01:00:19,460
+different
+
+1390
+01:00:19,460 --> 01:00:21,960
+columns in our data set and that's
+
+1391
+01:00:21,960 --> 01:00:23,940
+basically just how our data set arrived
+
+1392
+01:00:23,940 --> 01:00:27,859
+so that's how we're working with it
+
+1393
+01:00:27,900 --> 01:00:29,819
+um so as you can see here you can see it
+
+1394
+01:00:29,819 --> 01:00:31,619
+clearly here you have the radius mean
+
+1395
+01:00:31,619 --> 01:00:35,160
+you have the radius standard error and
+
+1396
+01:00:35,160 --> 01:00:38,400
+then you have the radius
+
+1397
+01:00:38,400 --> 01:00:40,799
+um worst value which should be here
+
+1398
+01:00:40,799 --> 01:00:42,839
+there you go
+
+1399
+01:00:42,839 --> 01:00:44,280
+um so basically what we're going to do
+
+1400
+01:00:44,280 --> 01:00:46,440
+is we're going to create this chart and
+
+1401
+01:00:46,440 --> 01:00:49,079
+we're going to map we're going to map
+
+1402
+01:00:49,079 --> 01:00:52,020
+the values from the mean from the
+
+1403
+01:00:52,020 --> 01:00:53,760
+standard error and from the worst part
+
+1404
+01:00:53,760 --> 01:00:56,940
+of the data set into each part of these
+
+1405
+01:00:56,940 --> 01:01:00,900
+traces okay so let's do that in order to
+
+1406
+01:01:00,900 --> 01:01:03,599
+build this chart we're going to be using
+
+1407
+01:01:03,599 --> 01:01:06,420
+a JavaScript library that has a python
+
+1408
+01:01:06,420 --> 01:01:10,260
+module called plotly it's super powerful
+
+1409
+01:01:10,260 --> 01:01:13,700
+and it's it makes interactive charts
+
+1410
+01:01:13,700 --> 01:01:16,160
+unlike for example
+
+1411
+01:01:16,160 --> 01:01:20,280
+Seaborn or Matlab here you have like an
+
+1412
+01:01:20,280 --> 01:01:22,020
+interactive chart that you can play with
+
+1413
+01:01:22,020 --> 01:01:24,839
+I'm not sure if this is working
+
+1414
+01:01:24,839 --> 01:01:26,460
+um yeah here we have an interactive
+
+1415
+01:01:26,460 --> 01:01:28,920
+chart that you can play with
+
+1416
+01:01:28,920 --> 01:01:30,299
+um I don't know what this is what's
+
+1417
+01:01:30,299 --> 01:01:31,680
+going on here
+
+1418
+01:01:31,680 --> 01:01:34,440
+Zoom
+
+1419
+01:01:34,440 --> 01:01:36,299
+um
+
+1420
+01:01:36,299 --> 01:01:39,299
+yeah uh I don't know for some reason
+
+1421
+01:01:39,299 --> 01:01:41,099
+there is a bug here in my JavaScript I
+
+1422
+01:01:41,099 --> 01:01:42,299
+suppose
+
+1423
+01:01:42,299 --> 01:01:44,220
+yeah but I mean the thing is that you
+
+1424
+01:01:44,220 --> 01:01:46,799
+can you can usually play with it uh we
+
+1425
+01:01:46,799 --> 01:01:48,059
+should be able to do that in a moment
+
+1426
+01:01:48,059 --> 01:01:51,240
+but yeah I mean it's a very nice library
+
+1427
+01:01:51,240 --> 01:01:55,200
+and it is the documentation is right
+
+1428
+01:01:55,200 --> 01:01:57,420
+here okay
+
+1429
+01:01:57,420 --> 01:01:58,980
+um what we're going to be doing is we're
+
+1430
+01:01:58,980 --> 01:02:01,500
+going to be copying this example from
+
+1431
+01:02:01,500 --> 01:02:03,359
+the documentation and we're going to be
+
+1432
+01:02:03,359 --> 01:02:06,059
+upload upgrade and in updating it with
+
+1433
+01:02:06,059 --> 01:02:10,260
+our own data okay so let's do that
+
+1434
+01:02:10,260 --> 01:02:12,960
+I'm just going to copy this well first
+
+1435
+01:02:12,960 --> 01:02:15,540
+of all I'm just going to add my function
+
+1436
+01:02:15,540 --> 01:02:18,599
+right here instead instead of the text
+
+1437
+01:02:18,599 --> 01:02:22,559
+this is column one we're going to write
+
+1438
+01:02:22,559 --> 01:02:26,579
+um get Trader
+
+1439
+01:02:27,059 --> 01:02:30,000
+chart and this is going to be a function
+
+1440
+01:02:30,000 --> 01:02:33,540
+that takes as an argument my input data
+
+1441
+01:02:33,540 --> 01:02:37,920
+that we are retrieving from the sidebar
+
+1442
+01:02:37,920 --> 01:02:39,839
+do you remember that we're getting the
+
+1443
+01:02:39,839 --> 01:02:42,240
+dictionary of values from the sidebar
+
+1444
+01:02:42,240 --> 01:02:44,579
+and this is the dictionary of values
+
+1445
+01:02:44,579 --> 01:02:47,000
+that we are
+
+1446
+01:02:47,000 --> 01:02:50,160
+injecting into our I mean we're passing
+
+1447
+01:02:50,160 --> 01:02:53,280
+to our data chart as an argument
+
+1448
+01:02:53,280 --> 01:02:57,660
+so let's now create the function get
+
+1449
+01:02:57,660 --> 01:02:58,640
+um
+
+1450
+01:02:58,640 --> 01:03:02,099
+radar chart like this
+
+1451
+01:03:02,099 --> 01:03:04,740
+and inside of it we're going to actually
+
+1452
+01:03:04,740 --> 01:03:06,660
+just add the code
+
+1453
+01:03:06,660 --> 01:03:09,059
+that comes in the example of our
+
+1454
+01:03:09,059 --> 01:03:11,000
+documentation
+
+1455
+01:03:11,000 --> 01:03:13,260
+something to keep in mind is that you're
+
+1456
+01:03:13,260 --> 01:03:15,420
+going to have to install plotly first so
+
+1457
+01:03:15,420 --> 01:03:16,799
+in order to do that it's very simple
+
+1458
+01:03:16,799 --> 01:03:18,839
+you're just going to do
+
+1459
+01:03:18,839 --> 01:03:22,020
+um pip install plotly I already have it
+
+1460
+01:03:22,020 --> 01:03:24,740
+installed so I'm not going to do it but
+
+1461
+01:03:24,740 --> 01:03:27,359
+once you do that you're gonna be able to
+
+1462
+01:03:27,359 --> 01:03:30,119
+import plotly right here
+
+1463
+01:03:30,119 --> 01:03:32,160
+like that
+
+1464
+01:03:32,160 --> 01:03:34,319
+um using just as in the example from the
+
+1465
+01:03:34,319 --> 01:03:36,780
+documentation graph objects which is a
+
+1466
+01:03:36,780 --> 01:03:39,540
+part a module of the plotly library that
+
+1467
+01:03:39,540 --> 01:03:42,000
+allows you that gives you a higher level
+
+1468
+01:03:42,000 --> 01:03:45,000
+of customization in your charts but
+
+1469
+01:03:45,000 --> 01:03:47,220
+something that you can do is also use
+
+1470
+01:03:47,220 --> 01:03:48,180
+like
+
+1471
+01:03:48,180 --> 01:03:50,700
+I mean if you're using plotly for other
+
+1472
+01:03:50,700 --> 01:03:53,099
+things you can use the express module
+
+1473
+01:03:53,099 --> 01:03:55,940
+which makes allows you to make charts
+
+1474
+01:03:55,940 --> 01:03:58,760
+with predefined
+
+1475
+01:03:58,760 --> 01:04:00,859
+characteristics
+
+1476
+01:04:00,859 --> 01:04:04,380
+with way less code but since we want to
+
+1477
+01:04:04,380 --> 01:04:07,880
+be since we want it a little bit more
+
+1478
+01:04:07,880 --> 01:04:10,079
+customized we're going to go for this
+
+1479
+01:04:10,079 --> 01:04:11,880
+one and we're going to just copy this
+
+1480
+01:04:11,880 --> 01:04:13,400
+example right here
+
+1481
+01:04:13,400 --> 01:04:17,280
+now that we have this right here
+
+1482
+01:04:17,280 --> 01:04:19,980
+uh notice that here at the end they have
+
+1483
+01:04:19,980 --> 01:04:23,660
+fake.show that basically just renders
+
+1484
+01:04:23,660 --> 01:04:29,460
+the plotly chart in in the page but this
+
+1485
+01:04:29,460 --> 01:04:31,020
+is not where we're going to be using
+
+1486
+01:04:31,020 --> 01:04:32,579
+because
+
+1487
+01:04:32,579 --> 01:04:36,180
+um streamlit uses its own function to
+
+1488
+01:04:36,180 --> 01:04:39,180
+incorporate
+
+1489
+01:04:39,180 --> 01:04:41,280
+um plotly yellow I mean plotly elements
+
+1490
+01:04:41,280 --> 01:04:43,260
+into the application so what we're going
+
+1491
+01:04:43,260 --> 01:04:45,599
+to do is instead of doing fict.show
+
+1492
+01:04:45,599 --> 01:04:48,660
+we're just going to return
+
+1493
+01:04:48,660 --> 01:04:52,319
+return the figure like that
+
+1494
+01:04:52,319 --> 01:04:54,780
+and right here
+
+1495
+01:04:54,780 --> 01:04:56,339
+we're going to
+
+1496
+01:04:56,339 --> 01:04:59,400
+Raider we're going to get that figure
+
+1497
+01:04:59,400 --> 01:05:03,500
+which this function is going to return
+
+1498
+01:05:03,900 --> 01:05:05,700
+and we're going to use this streamlit
+
+1499
+01:05:05,700 --> 01:05:09,780
+function called St dot plotly chart
+
+1500
+01:05:09,780 --> 01:05:11,220
+there you go
+
+1501
+01:05:11,220 --> 01:05:12,720
+and then we're just going to call in
+
+1502
+01:05:12,720 --> 01:05:14,940
+we're just going to pass in the figure
+
+1503
+01:05:14,940 --> 01:05:16,380
+element
+
+1504
+01:05:16,380 --> 01:05:19,680
+that we got from from the function
+
+1505
+01:05:19,680 --> 01:05:22,500
+so now if we save this we should have
+
+1506
+01:05:22,500 --> 01:05:26,220
+this chart in our page let's see if we
+
+1507
+01:05:26,220 --> 01:05:27,960
+refresh does it work
+
+1508
+01:05:27,960 --> 01:05:30,420
+and there seems to be a problem here uh
+
+1509
+01:05:30,420 --> 01:05:31,980
+Raider chart takes zero positional
+
+1510
+01:05:31,980 --> 01:05:35,819
+arguments okay I forgot to add input
+
+1511
+01:05:35,819 --> 01:05:38,700
+data here there you go now if I refresh
+
+1512
+01:05:38,700 --> 01:05:41,819
+there you go now we have our
+
+1513
+01:05:41,819 --> 01:05:44,280
+our rated chart uh it's looking pretty
+
+1514
+01:05:44,280 --> 01:05:47,099
+good now what we want is to it to
+
+1515
+01:05:47,099 --> 01:05:49,140
+actually take the real values that we
+
+1516
+01:05:49,140 --> 01:05:50,460
+wanted to take
+
+1517
+01:05:50,460 --> 01:05:52,500
+and in order to do that it's actually
+
+1518
+01:05:52,500 --> 01:05:55,020
+very simple let me just show you what is
+
+1519
+01:05:55,020 --> 01:05:57,780
+going on in the in the chart
+
+1520
+01:05:57,780 --> 01:06:00,780
+so here as you can see we have five
+
+1521
+01:06:00,780 --> 01:06:04,559
+different values that the traces can
+
+1522
+01:06:04,559 --> 01:06:05,280
+take
+
+1523
+01:06:05,280 --> 01:06:07,559
+mechanical properties processing codes
+
+1524
+01:06:07,559 --> 01:06:10,200
+Etc right and this ones correspond to
+
+1525
+01:06:10,200 --> 01:06:13,140
+the categories list right here and they
+
+1526
+01:06:13,140 --> 01:06:16,079
+have they correspond to the
+
+1527
+01:06:16,079 --> 01:06:20,400
+to the parameter Theta Theta Theta Theta
+
+1528
+01:06:20,400 --> 01:06:23,640
+and this is basically just the
+
+1529
+01:06:23,640 --> 01:06:28,380
+yeah yeah the the values among the the
+
+1530
+01:06:28,380 --> 01:06:31,500
+yeah the angular the angular values all
+
+1531
+01:06:31,500 --> 01:06:34,559
+right and the r or the radial value so I
+
+1532
+01:06:34,559 --> 01:06:38,880
+mean the distance uh from the center to
+
+1533
+01:06:38,880 --> 01:06:41,819
+the actual maximum value that each value
+
+1534
+01:06:41,819 --> 01:06:45,359
+has right I hope it's clear there you go
+
+1535
+01:06:45,359 --> 01:06:47,400
+so here for example we have categories
+
+1536
+01:06:47,400 --> 01:06:49,740
+the first element in the categories list
+
+1537
+01:06:49,740 --> 01:06:52,260
+is processing cost and here the first
+
+1538
+01:06:52,260 --> 01:06:54,359
+element of this Trace which is product a
+
+1539
+01:06:54,359 --> 01:06:57,599
+is one and here we have it that it is
+
+1540
+01:06:57,599 --> 01:07:00,720
+the value for that one is one right here
+
+1541
+01:07:00,720 --> 01:07:03,480
+and the processing cost is the value
+
+1542
+01:07:03,480 --> 01:07:05,480
+Associated to it okay
+
+1543
+01:07:05,480 --> 01:07:07,980
+same thing mechanical properties is the
+
+1544
+01:07:07,980 --> 01:07:11,220
+second one and here it is number five
+
+1545
+01:07:11,220 --> 01:07:13,920
+the value for that one so it Maps two
+
+1546
+01:07:13,920 --> 01:07:15,599
+mechanical properties and here we have
+
+1547
+01:07:15,599 --> 01:07:17,760
+it it was one for processing cost and it
+
+1548
+01:07:17,760 --> 01:07:21,240
+is five for mechanical values okay so
+
+1549
+01:07:21,240 --> 01:07:23,039
+all that we're going to want to do is
+
+1550
+01:07:23,039 --> 01:07:25,559
+we're going to replace this with our own
+
+1551
+01:07:25,559 --> 01:07:27,240
+values
+
+1552
+01:07:27,240 --> 01:07:30,059
+that are here which come from radius
+
+1553
+01:07:30,059 --> 01:07:31,859
+texture perimeter Etc
+
+1554
+01:07:31,859 --> 01:07:34,819
+and we're going to replace the r values
+
+1555
+01:07:34,819 --> 01:07:39,140
+with the values that come from our input
+
+1556
+01:07:39,140 --> 01:07:41,760
+data that comes from our sidebar okay
+
+1557
+01:07:41,760 --> 01:07:43,400
+very simple
+
+1558
+01:07:43,400 --> 01:07:46,380
+it might get a little tricky and while
+
+1559
+01:07:46,380 --> 01:07:49,079
+we're doing this but stay with me it's
+
+1560
+01:07:49,079 --> 01:07:52,319
+not that hard just just feel free to
+
+1561
+01:07:52,319 --> 01:07:55,740
+replay this um this part of the video If
+
+1562
+01:07:55,740 --> 01:07:57,839
+at some point you get stuck or just ask
+
+1563
+01:07:57,839 --> 01:07:59,520
+me in the comments if you have any
+
+1564
+01:07:59,520 --> 01:08:00,960
+questions okay
+
+1565
+01:08:00,960 --> 01:08:04,260
+all right so what we're going to do is
+
+1566
+01:08:04,260 --> 01:08:07,020
+first of all we're going to replace the
+
+1567
+01:08:07,020 --> 01:08:08,579
+values on the
+
+1568
+01:08:08,579 --> 01:08:11,400
+on the perimeter with the actual values
+
+1569
+01:08:11,400 --> 01:08:13,319
+that we want so
+
+1570
+01:08:13,319 --> 01:08:15,780
+let's do that so we have processing cost
+
+1571
+01:08:15,780 --> 01:08:19,799
+here and I have my list of values right
+
+1572
+01:08:19,799 --> 01:08:21,719
+here where is it
+
+1573
+01:08:21,719 --> 01:08:23,520
+here it is
+
+1574
+01:08:23,520 --> 01:08:25,859
+and this is their list of values that
+
+1575
+01:08:25,859 --> 01:08:28,620
+I'm going to be using
+
+1576
+01:08:28,620 --> 01:08:30,120
+there you go
+
+1577
+01:08:30,120 --> 01:08:33,179
+we go from radius to texture area and
+
+1578
+01:08:33,179 --> 01:08:36,960
+cavity fractal Dimension Etc
+
+1579
+01:08:36,960 --> 01:08:38,160
+there you go
+
+1580
+01:08:38,160 --> 01:08:41,219
+and now these are the categories and we
+
+1581
+01:08:41,219 --> 01:08:43,979
+have one two three four five six seven
+
+1582
+01:08:43,979 --> 01:08:46,500
+eight nine ten values right here
+
+1583
+01:08:46,500 --> 01:08:49,859
+that we have to assign in each one of
+
+1584
+01:08:49,859 --> 01:08:51,779
+these traces okay
+
+1585
+01:08:51,779 --> 01:08:54,299
+I forgot to mention the what this thing
+
+1586
+01:08:54,299 --> 01:08:55,859
+these two things are this is basically
+
+1587
+01:08:55,859 --> 01:08:58,259
+just the name of the trace here it is
+
+1588
+01:08:58,259 --> 01:09:00,779
+product a and product B and in our
+
+1589
+01:09:00,779 --> 01:09:02,819
+application they are going to be mean
+
+1590
+01:09:02,819 --> 01:09:06,479
+standard error and worst okay
+
+1591
+01:09:06,479 --> 01:09:10,259
+and the fail it just tells plotly that
+
+1592
+01:09:10,259 --> 01:09:12,299
+it wants the
+
+1593
+01:09:12,299 --> 01:09:14,580
+the figure to be filled with color okay
+
+1594
+01:09:14,580 --> 01:09:17,100
+so if I set this one to none for example
+
+1595
+01:09:17,100 --> 01:09:22,080
+we won't have a ready color here like a
+
+1596
+01:09:22,080 --> 01:09:24,299
+red color here we'll just have like an
+
+1597
+01:09:24,299 --> 01:09:30,060
+empty space with the line around it okay
+
+1598
+01:09:30,060 --> 01:09:32,399
+um so there you go
+
+1599
+01:09:32,399 --> 01:09:34,620
+um so let's just complete it here we
+
+1600
+01:09:34,620 --> 01:09:37,500
+have the categories and now let's use
+
+1601
+01:09:37,500 --> 01:09:40,859
+the data in our input data to complete
+
+1602
+01:09:40,859 --> 01:09:43,738
+the values inside of the chart
+
+1603
+01:09:43,738 --> 01:09:45,960
+and the right and the values come right
+
+1604
+01:09:45,960 --> 01:09:48,839
+here and I'm going to say
+
+1605
+01:09:48,839 --> 01:09:51,479
+nope it's not
+
+1606
+01:09:51,479 --> 01:09:53,819
+there you go
+
+1607
+01:09:53,819 --> 01:09:55,440
+there you go and right here I'm just
+
+1608
+01:09:55,440 --> 01:09:57,239
+going to add the values I already have
+
+1609
+01:09:57,239 --> 01:09:58,980
+them copied on the side but I'm just
+
+1610
+01:09:58,980 --> 01:10:01,080
+going to start typing them here so that
+
+1611
+01:10:01,080 --> 01:10:03,239
+you get an idea of what they refer to
+
+1612
+01:10:03,239 --> 01:10:04,980
+and then I'm just going to copy them
+
+1613
+01:10:04,980 --> 01:10:08,040
+from my code that I have on the side
+
+1614
+01:10:08,040 --> 01:10:09,420
+um the idea right here is that you're
+
+1615
+01:10:09,420 --> 01:10:12,000
+going to take the input data
+
+1616
+01:10:12,000 --> 01:10:15,179
+and remember what is input data the
+
+1617
+01:10:15,179 --> 01:10:16,739
+input data is the value that we're
+
+1618
+01:10:16,739 --> 01:10:19,920
+getting inside the function
+
+1619
+01:10:19,920 --> 01:10:22,380
+and the value that are we're getting
+
+1620
+01:10:22,380 --> 01:10:23,820
+inside the function comes from the
+
+1621
+01:10:23,820 --> 01:10:26,280
+sidebar and you remember what the
+
+1622
+01:10:26,280 --> 01:10:27,659
+sidebar returns
+
+1623
+01:10:27,659 --> 01:10:30,960
+decide by returns a dictionary a key
+
+1624
+01:10:30,960 --> 01:10:32,659
+value pair
+
+1625
+01:10:32,659 --> 01:10:36,360
+a dictionary of key value pairs remember
+
+1626
+01:10:36,360 --> 01:10:38,460
+that in the key it has the name of the
+
+1627
+01:10:38,460 --> 01:10:42,179
+column and in the value it has the value
+
+1628
+01:10:42,179 --> 01:10:43,739
+of the sidebar
+
+1629
+01:10:43,739 --> 01:10:47,130
+so what we want right here is to take
+
+1630
+01:10:47,130 --> 01:10:47,880
+[Music]
+
+1631
+01:10:47,880 --> 01:10:48,480
+um
+
+1632
+01:10:48,480 --> 01:10:52,320
+is to take the key that that is
+
+1633
+01:10:52,320 --> 01:10:55,800
+associated to the mean value here let's
+
+1634
+01:10:55,800 --> 01:10:58,800
+just update this one mean
+
+1635
+01:10:58,800 --> 01:11:02,400
+value the key that's associated to the
+
+1636
+01:11:02,400 --> 01:11:06,060
+mean value of the radius okay so it is
+
+1637
+01:11:06,060 --> 01:11:07,199
+the key
+
+1638
+01:11:07,199 --> 01:11:10,560
+that's associated to this slider right
+
+1639
+01:11:10,560 --> 01:11:12,900
+here this is the one that is going to be
+
+1640
+01:11:12,900 --> 01:11:15,560
+mapped onto
+
+1641
+01:11:15,560 --> 01:11:19,860
+the radius the radius part of the mean
+
+1642
+01:11:19,860 --> 01:11:21,840
+Trace okay
+
+1643
+01:11:21,840 --> 01:11:24,900
+stay with me there we go so here it's
+
+1644
+01:11:24,900 --> 01:11:29,159
+going to be radius mean like that
+
+1645
+01:11:29,159 --> 01:11:33,840
+the second one is going to be
+
+1646
+01:11:33,840 --> 01:11:36,719
+input data and it's going to be texture
+
+1647
+01:11:36,719 --> 01:11:39,179
+mean and what is the name the key of
+
+1648
+01:11:39,179 --> 01:11:42,420
+this value well it's very easy it comes
+
+1649
+01:11:42,420 --> 01:11:45,000
+from this array right here the first one
+
+1650
+01:11:45,000 --> 01:11:46,560
+is radius mean the second one is text
+
+1651
+01:11:46,560 --> 01:11:47,640
+Charming
+
+1652
+01:11:47,640 --> 01:11:49,679
+so we're going to take that one we're
+
+1653
+01:11:49,679 --> 01:11:51,780
+going to put it right here like that
+
+1654
+01:11:51,780 --> 01:11:54,000
+there you go and like that we're going
+
+1655
+01:11:54,000 --> 01:11:56,280
+to do like that for every single one of
+
+1656
+01:11:56,280 --> 01:11:57,179
+our
+
+1657
+01:11:57,179 --> 01:11:59,640
+input data
+
+1658
+01:11:59,640 --> 01:12:03,120
+um that the for our input data that
+
+1659
+01:12:03,120 --> 01:12:06,060
+comes from our sidebar that's about the
+
+1660
+01:12:06,060 --> 01:12:07,920
+mean okay because remember that we have
+
+1661
+01:12:07,920 --> 01:12:08,880
+the mean
+
+1662
+01:12:08,880 --> 01:12:10,620
+we have the standard there and we have
+
+1663
+01:12:10,620 --> 01:12:13,260
+the worst value so we're going to do
+
+1664
+01:12:13,260 --> 01:12:17,280
+that for all of them up until here all
+
+1665
+01:12:17,280 --> 01:12:18,060
+right
+
+1666
+01:12:18,060 --> 01:12:20,219
+so I have that
+
+1667
+01:12:20,219 --> 01:12:22,920
+right here
+
+1668
+01:12:22,920 --> 01:12:26,159
+let me just copy it and paste it here
+
+1669
+01:12:26,159 --> 01:12:28,320
+there you go so it's exactly what we
+
+1670
+01:12:28,320 --> 01:12:30,540
+were doing before
+
+1671
+01:12:30,540 --> 01:12:32,760
+this is a list
+
+1672
+01:12:32,760 --> 01:12:36,440
+with all of our elements
+
+1673
+01:12:39,840 --> 01:12:42,179
+there you go the first one is the radius
+
+1674
+01:12:42,179 --> 01:12:44,280
+main texture mean Etc all the way to
+
+1675
+01:12:44,280 --> 01:12:47,340
+fractal Dimension mean and this comes
+
+1676
+01:12:47,340 --> 01:12:49,620
+from the object that we exported from
+
+1677
+01:12:49,620 --> 01:12:51,420
+the sidebar all right
+
+1678
+01:12:51,420 --> 01:12:54,120
+the Theta is the same categories and
+
+1679
+01:12:54,120 --> 01:12:56,880
+there you go looking pretty good now
+
+1680
+01:12:56,880 --> 01:12:59,400
+same thing for the second one the second
+
+1681
+01:12:59,400 --> 01:13:01,500
+one is not going to be the mean value
+
+1682
+01:13:01,500 --> 01:13:05,719
+it's going to be the standard error
+
+1683
+01:13:08,699 --> 01:13:11,699
+and this one is going to take the values
+
+1684
+01:13:11,699 --> 01:13:13,580
+of
+
+1685
+01:13:13,580 --> 01:13:18,620
+this one radius standard error up until
+
+1686
+01:13:19,140 --> 01:13:21,600
+this one right here okay and it's
+
+1687
+01:13:21,600 --> 01:13:23,940
+basically just exactly the same thing as
+
+1688
+01:13:23,940 --> 01:13:26,460
+the same thing as the previous one
+
+1689
+01:13:26,460 --> 01:13:28,140
+we take
+
+1690
+01:13:28,140 --> 01:13:31,280
+the R value
+
+1691
+01:13:31,980 --> 01:13:37,879
+and we paste the input data like this
+
+1692
+01:13:38,460 --> 01:13:40,679
+um here I'm just going to do like that
+
+1693
+01:13:40,679 --> 01:13:43,260
+there you go
+
+1694
+01:13:43,260 --> 01:13:45,060
+I'm going to
+
+1695
+01:13:45,060 --> 01:13:49,739
+some spaces there you go oops
+
+1696
+01:13:49,739 --> 01:13:51,659
+just make this a little bit more
+
+1697
+01:13:51,659 --> 01:13:55,340
+beautiful and easier to read input data
+
+1698
+01:13:55,340 --> 01:13:59,340
+symmetry standard there and I'm missing
+
+1699
+01:13:59,340 --> 01:14:01,980
+fractal mean
+
+1700
+01:14:01,980 --> 01:14:04,080
+yep I mean which is not a mean it's
+
+1701
+01:14:04,080 --> 01:14:06,540
+actually the standard error so there you
+
+1702
+01:14:06,540 --> 01:14:11,480
+go here we have standard error like that
+
+1703
+01:14:11,480 --> 01:14:14,940
+and like that there you go so just as
+
+1704
+01:14:14,940 --> 01:14:18,300
+before we have the input data for each
+
+1705
+01:14:18,300 --> 01:14:20,040
+one of this
+
+1706
+01:14:20,040 --> 01:14:22,860
+and here instead of targeting the first
+
+1707
+01:14:22,860 --> 01:14:25,100
+the first 10 one we're going to Target
+
+1708
+01:14:25,100 --> 01:14:28,500
+the second from from the second ten one
+
+1709
+01:14:28,500 --> 01:14:32,219
+from the 11 to 20. that's that's which
+
+1710
+01:14:32,219 --> 01:14:34,260
+are the variables Associated to the
+
+1711
+01:14:34,260 --> 01:14:35,460
+standard error
+
+1712
+01:14:35,460 --> 01:14:38,360
+and we're going to do the same thing for
+
+1713
+01:14:38,360 --> 01:14:41,219
+the third Trace which is going to be the
+
+1714
+01:14:41,219 --> 01:14:43,739
+worst value for each one of this
+
+1715
+01:14:43,739 --> 01:14:48,120
+and here it's going to say worst
+
+1716
+01:14:48,120 --> 01:14:50,760
+worst value this is the name of the
+
+1717
+01:14:50,760 --> 01:14:51,600
+trace
+
+1718
+01:14:51,600 --> 01:14:55,080
+and here instead of radius SE it's going
+
+1719
+01:14:55,080 --> 01:14:59,159
+to be radius worst and the same for all
+
+1720
+01:14:59,159 --> 01:15:01,500
+of them just going to copy them from the
+
+1721
+01:15:01,500 --> 01:15:03,420
+side
+
+1722
+01:15:03,420 --> 01:15:04,440
+mm-hmm
+
+1723
+01:15:04,440 --> 01:15:05,580
+[Music]
+
+1724
+01:15:05,580 --> 01:15:08,780
+like this
+
+1725
+01:15:10,260 --> 01:15:12,610
+there you go so now we have
+
+1726
+01:15:12,610 --> 01:15:12,780
+[Music]
+
+1727
+01:15:12,780 --> 01:15:14,780
+um
+
+1728
+01:15:15,420 --> 01:15:17,760
+radius worse texture worst all the way
+
+1729
+01:15:17,760 --> 01:15:20,400
+to fractal Dimension worst and this are
+
+1730
+01:15:20,400 --> 01:15:24,060
+going to map to our categories okay
+
+1731
+01:15:24,060 --> 01:15:25,800
+so there we go
+
+1732
+01:15:25,800 --> 01:15:29,880
+now if we save this we should have a
+
+1733
+01:15:29,880 --> 01:15:32,719
+radar chart that looks a little bit
+
+1734
+01:15:32,719 --> 01:15:35,040
+correct but it's not going to be correct
+
+1735
+01:15:35,040 --> 01:15:36,540
+yet
+
+1736
+01:15:36,540 --> 01:15:39,540
+um yeah the thing is that
+
+1737
+01:15:39,540 --> 01:15:40,280
+um
+
+1738
+01:15:40,280 --> 01:15:41,760
+[Music]
+
+1739
+01:15:41,760 --> 01:15:44,580
+let's see if what if I do something like
+
+1740
+01:15:44,580 --> 01:15:46,820
+this
+
+1741
+01:15:47,340 --> 01:15:49,739
+there seems to be an error here
+
+1742
+01:15:49,739 --> 01:15:51,799
+um
+
+1743
+01:15:56,580 --> 01:15:59,640
+everything seems to be falling on 0.4
+
+1744
+01:15:59,640 --> 01:16:02,780
+for some reason
+
+1745
+01:16:02,880 --> 01:16:04,400
+um
+
+1746
+01:16:04,400 --> 01:16:07,440
+r r r
+
+1747
+01:16:07,440 --> 01:16:10,440
+categories to sell forced value
+
+1748
+01:16:10,440 --> 01:16:12,600
+the range
+
+1749
+01:16:12,600 --> 01:16:15,960
+return figure we're going to show
+
+1750
+01:16:15,960 --> 01:16:18,800
+the legend
+
+1751
+01:16:21,360 --> 01:16:24,799
+um what's going on here
+
+1752
+01:16:36,840 --> 01:16:39,000
+what do we have here
+
+1753
+01:16:39,000 --> 01:16:41,040
+we must have an error somewhere right
+
+1754
+01:16:41,040 --> 01:16:42,239
+here
+
+1755
+01:16:42,239 --> 01:16:45,120
+um maybe we're adding too many values
+
+1756
+01:16:45,120 --> 01:16:47,640
+here fractal them from radius to fractal
+
+1757
+01:16:47,640 --> 01:16:49,860
+Dimension one two three
+
+1758
+01:16:49,860 --> 01:16:51,179
+ten
+
+1759
+01:16:51,179 --> 01:16:54,260
+three though
+
+1760
+01:16:54,260 --> 01:16:58,380
+that's ten all right what's going on
+
+1761
+01:16:58,380 --> 01:17:00,739
+here
+
+1762
+01:17:02,699 --> 01:17:07,099
+um maybe this shouldn't have space here
+
+1763
+01:17:13,620 --> 01:17:18,559
+I don't think that's it let's see
+
+1764
+01:17:19,500 --> 01:17:21,239
+no
+
+1765
+01:17:21,239 --> 01:17:24,179
+all right give me a second
+
+1766
+01:17:24,179 --> 01:17:26,219
+all right sorry about that the air was
+
+1767
+01:17:26,219 --> 01:17:29,040
+this little thing right here okay so we
+
+1768
+01:17:29,040 --> 01:17:31,739
+were defining our categories but we had
+
+1769
+01:17:31,739 --> 01:17:34,080
+this coma right here so it didn't know
+
+1770
+01:17:34,080 --> 01:17:37,380
+what this was but now that we remove it
+
+1771
+01:17:37,380 --> 01:17:39,600
+and that we leave it like that it
+
+1772
+01:17:39,600 --> 01:17:42,000
+actually sees that every single one of
+
+1773
+01:17:42,000 --> 01:17:44,219
+this has a different
+
+1774
+01:17:44,219 --> 01:17:45,780
+um it's a different element from the
+
+1775
+01:17:45,780 --> 01:17:49,800
+list okay so there we go now our radar
+
+1776
+01:17:49,800 --> 01:17:51,239
+chart is looking
+
+1777
+01:17:51,239 --> 01:17:55,440
+pretty decent I mean not yet but it's
+
+1778
+01:17:55,440 --> 01:17:57,600
+getting closer to that
+
+1779
+01:17:57,600 --> 01:18:00,000
+so there we go we have different values
+
+1780
+01:18:00,000 --> 01:18:03,840
+for fractal Dimension concavity Etc
+
+1781
+01:18:03,840 --> 01:18:05,520
+um all right so now what we're going to
+
+1782
+01:18:05,520 --> 01:18:07,199
+want to do is we're going to have to
+
+1783
+01:18:07,199 --> 01:18:10,199
+scale all our values okay
+
+1784
+01:18:10,199 --> 01:18:12,300
+and how do we scale them
+
+1785
+01:18:12,300 --> 01:18:15,659
+um so the thing is that here you have
+
+1786
+01:18:15,659 --> 01:18:18,000
+for example the perimeter can go from
+
+1787
+01:18:18,000 --> 01:18:19,820
+zero
+
+1788
+01:18:19,820 --> 01:18:23,040
+to 188
+
+1789
+01:18:23,040 --> 01:18:25,199
+which is a ridiculous like a
+
+1790
+01:18:25,199 --> 01:18:28,320
+ridiculously high value compared to for
+
+1791
+01:18:28,320 --> 01:18:30,239
+example smoothness which can only go to
+
+1792
+01:18:30,239 --> 01:18:31,920
+0.16
+
+1793
+01:18:31,920 --> 01:18:33,960
+what we are going to do is we're going
+
+1794
+01:18:33,960 --> 01:18:38,699
+to scale all of these values to get them
+
+1795
+01:18:38,699 --> 01:18:43,080
+to get them between 0 and 1 that way we
+
+1796
+01:18:43,080 --> 01:18:46,460
+can have a range for our
+
+1797
+01:18:46,460 --> 01:18:50,340
+we can create a range for our for our
+
+1798
+01:18:50,340 --> 01:18:52,739
+radar chart so that if it's zero it's
+
+1799
+01:18:52,739 --> 01:18:54,719
+closer to here and if it's one it's
+
+1800
+01:18:54,719 --> 01:18:56,580
+closer to here
+
+1801
+01:18:56,580 --> 01:18:57,960
+um because I mean if we set it to a
+
+1802
+01:18:57,960 --> 01:19:00,620
+thousand for example
+
+1803
+01:19:00,620 --> 01:19:05,280
+let's set it to 2000 and 2500
+
+1804
+01:19:05,280 --> 01:19:07,860
+if we refresh this I mean it's going to
+
+1805
+01:19:07,860 --> 01:19:10,620
+be all right for them for the area value
+
+1806
+01:19:10,620 --> 01:19:12,900
+which is in the thousands but it's going
+
+1807
+01:19:12,900 --> 01:19:14,820
+to be too big for all of the others
+
+1808
+01:19:14,820 --> 01:19:16,739
+right so
+
+1809
+01:19:16,739 --> 01:19:19,080
+like if I put this one here I mean it
+
+1810
+01:19:19,080 --> 01:19:21,840
+will be able to detect it but let's just
+
+1811
+01:19:21,840 --> 01:19:23,760
+scale every single one of them between
+
+1812
+01:19:23,760 --> 01:19:27,000
+zero and one okay so let's do that right
+
+1813
+01:19:27,000 --> 01:19:29,640
+now in order to do that I'm just going
+
+1814
+01:19:29,640 --> 01:19:31,739
+to set the range to zero to in between 0
+
+1815
+01:19:31,739 --> 01:19:33,600
+and 1 I'm going to scale all of the
+
+1816
+01:19:33,600 --> 01:19:37,860
+values so that they be between 0 and 1.
+
+1817
+01:19:37,860 --> 01:19:39,840
+to do that let's create a new function
+
+1818
+01:19:39,840 --> 01:19:42,600
+that is going to be
+
+1819
+01:19:42,600 --> 01:19:44,640
+um
+
+1820
+01:19:44,640 --> 01:19:47,699
+um get
+
+1821
+01:19:47,699 --> 01:19:51,420
+scaled values I suppose you can also I
+
+1822
+01:19:51,420 --> 01:19:52,560
+mean and this is going to take a
+
+1823
+01:19:52,560 --> 01:19:57,179
+dictionary okay input dictionary
+
+1824
+01:19:57,480 --> 01:20:00,260
+I suppose you can also use scikit-learn
+
+1825
+01:20:00,260 --> 01:20:02,640
+for this I'm just going to do this by
+
+1826
+01:20:02,640 --> 01:20:06,060
+hand because I don't know it was just a
+
+1827
+01:20:06,060 --> 01:20:07,920
+little bit faster but I suppose you can
+
+1828
+01:20:07,920 --> 01:20:10,920
+do it with scikit-learn as well
+
+1829
+01:20:10,920 --> 01:20:13,260
+so what we're going to do to get the
+
+1830
+01:20:13,260 --> 01:20:15,120
+scaled values
+
+1831
+01:20:15,120 --> 01:20:18,659
+is we're going to we're going to get the
+
+1832
+01:20:18,659 --> 01:20:21,199
+data first
+
+1833
+01:20:23,340 --> 01:20:25,860
+um get clean data remember that is the
+
+1834
+01:20:25,860 --> 01:20:28,199
+function that we created before and with
+
+1835
+01:20:28,199 --> 01:20:30,659
+this data we're going to take also just
+
+1836
+01:20:30,659 --> 01:20:32,100
+the predictors
+
+1837
+01:20:32,100 --> 01:20:34,260
+so it's going we're going for to do that
+
+1838
+01:20:34,260 --> 01:20:38,300
+we're going to drop the diagnosis part
+
+1839
+01:20:38,699 --> 01:20:40,080
+um oops
+
+1840
+01:20:40,080 --> 01:20:42,590
+data dot drop
+
+1841
+01:20:42,590 --> 01:20:43,739
+[Music]
+
+1842
+01:20:43,739 --> 01:20:45,960
+diagnosis and we're going to drop it on
+
+1843
+01:20:45,960 --> 01:20:47,100
+axis
+
+1844
+01:20:47,100 --> 01:20:51,239
+axis 1 like that if I'm not mistaken
+
+1845
+01:20:51,239 --> 01:20:54,060
+and now we're going to create the scale
+
+1846
+01:20:54,060 --> 01:20:55,679
+dictionary which is the one that we're
+
+1847
+01:20:55,679 --> 01:20:58,320
+going to return okay
+
+1848
+01:20:58,320 --> 01:21:02,159
+and what we're going to do is that for
+
+1849
+01:21:02,159 --> 01:21:04,260
+we are taking the input dictionary right
+
+1850
+01:21:04,260 --> 01:21:06,659
+so for the key
+
+1851
+01:21:06,659 --> 01:21:08,460
+and the value pairs inside the
+
+1852
+01:21:08,460 --> 01:21:10,260
+dictionary
+
+1853
+01:21:10,260 --> 01:21:12,440
+uh
+
+1854
+01:21:12,440 --> 01:21:16,560
+input dictionary and for the items so
+
+1855
+01:21:16,560 --> 01:21:19,080
+that we are looping through the key
+
+1856
+01:21:19,080 --> 01:21:20,340
+value pairs
+
+1857
+01:21:20,340 --> 01:21:22,140
+what we're going to do is we're going to
+
+1858
+01:21:22,140 --> 01:21:25,699
+say that the maximum value
+
+1859
+01:21:25,920 --> 01:21:29,040
+is going to be equal to
+
+1860
+01:21:29,040 --> 01:21:31,020
+X
+
+1861
+01:21:31,020 --> 01:21:31,699
+X
+
+1862
+01:21:31,699 --> 01:21:35,100
+and then the key for this element in the
+
+1863
+01:21:35,100 --> 01:21:36,840
+value which I mean remember that we're
+
+1864
+01:21:36,840 --> 01:21:38,340
+dealing with our
+
+1865
+01:21:38,340 --> 01:21:41,880
+with the original dictionary of value
+
+1866
+01:21:41,880 --> 01:21:43,620
+key value pairs that we were working
+
+1867
+01:21:43,620 --> 01:21:47,699
+with before we're going to do Max
+
+1868
+01:21:47,699 --> 01:21:49,560
+and then the same thing but for the
+
+1869
+01:21:49,560 --> 01:21:51,239
+minimum one
+
+1870
+01:21:51,239 --> 01:21:53,699
+the minimum value is going to be equal
+
+1871
+01:21:53,699 --> 01:21:56,400
+to the minimum one and then the scaled
+
+1872
+01:21:56,400 --> 01:21:58,639
+value
+
+1873
+01:22:00,960 --> 01:22:02,640
+which is the one that is going to have
+
+1874
+01:22:02,640 --> 01:22:05,880
+like all right so this is a little bit
+
+1875
+01:22:05,880 --> 01:22:08,159
+more of mathematics but basically we are
+
+1876
+01:22:08,159 --> 01:22:12,060
+taking the maximum value in the in the
+
+1877
+01:22:12,060 --> 01:22:14,280
+given column and the minimum value in
+
+1878
+01:22:14,280 --> 01:22:17,219
+the given column and then we're we're
+
+1879
+01:22:17,219 --> 01:22:19,199
+getting the scaled value based of that
+
+1880
+01:22:19,199 --> 01:22:23,159
+taking the value of the actual
+
+1881
+01:22:23,159 --> 01:22:25,280
+um of the actual input
+
+1882
+01:22:25,280 --> 01:22:28,940
+minus the minimum value
+
+1883
+01:22:28,980 --> 01:22:33,019
+over the maximum value
+
+1884
+01:22:33,540 --> 01:22:34,679
+um
+
+1885
+01:22:34,679 --> 01:22:40,920
+minus the minimum value oops
+
+1886
+01:22:43,920 --> 01:22:45,780
+uh
+
+1887
+01:22:45,780 --> 01:22:48,600
+not mean value mean vowel like that
+
+1888
+01:22:48,600 --> 01:22:50,400
+and this is basically just going to give
+
+1889
+01:22:50,400 --> 01:22:53,100
+us a scaled value
+
+1890
+01:22:53,100 --> 01:22:56,400
+um a value between between 0 and 1 for
+
+1891
+01:22:56,400 --> 01:22:58,860
+every single value in our
+
+1892
+01:22:58,860 --> 01:23:01,500
+in our input dictionary okay I suppose
+
+1893
+01:23:01,500 --> 01:23:02,880
+you can also use
+
+1894
+01:23:02,880 --> 01:23:06,179
+a scalar from scikit-learn but I don't
+
+1895
+01:23:06,179 --> 01:23:07,920
+know I just found it faster to do it
+
+1896
+01:23:07,920 --> 01:23:12,060
+this way so now in the scale dictionary
+
+1897
+01:23:12,060 --> 01:23:15,060
+we're just going to replace the key
+
+1898
+01:23:15,060 --> 01:23:16,980
+um in the value of the key which is this
+
+1899
+01:23:16,980 --> 01:23:20,640
+one with our new scaled value
+
+1900
+01:23:20,640 --> 01:23:24,960
+there you go and then let's just return
+
+1901
+01:23:24,960 --> 01:23:28,920
+the scale dictionary like that okay I
+
+1902
+01:23:28,920 --> 01:23:30,480
+hope I didn't lose you there basically
+
+1903
+01:23:30,480 --> 01:23:33,420
+all that we're doing is taking I mean
+
+1904
+01:23:33,420 --> 01:23:35,400
+this function basically just takes the
+
+1905
+01:23:35,400 --> 01:23:38,699
+input dictionary with all the values
+
+1906
+01:23:38,699 --> 01:23:40,739
+from this input right here
+
+1907
+01:23:40,739 --> 01:23:43,440
+and it looks in the data for the maximum
+
+1908
+01:23:43,440 --> 01:23:44,699
+and the minimum
+
+1909
+01:23:44,699 --> 01:23:47,580
+possible value for this one and then it
+
+1910
+01:23:47,580 --> 01:23:50,580
+just performs some operations I mean
+
+1911
+01:23:50,580 --> 01:23:52,679
+this separation right here which will
+
+1912
+01:23:52,679 --> 01:23:55,679
+always be between zero and one okay so
+
+1913
+01:23:55,679 --> 01:23:58,140
+the low the closer it is to the minimum
+
+1914
+01:23:58,140 --> 01:24:00,179
+value the closer it will be to zero and
+
+1915
+01:24:00,179 --> 01:24:02,219
+the closer it is to the maximum value of
+
+1916
+01:24:02,219 --> 01:24:04,380
+the same column the closer it will be to
+
+1917
+01:24:04,380 --> 01:24:07,199
+one so it will the this function will
+
+1918
+01:24:07,199 --> 01:24:08,360
+return
+
+1919
+01:24:08,360 --> 01:24:11,580
+and in production a dictionary that
+
+1920
+01:24:11,580 --> 01:24:12,960
+looks exactly as the one that it's
+
+1921
+01:24:12,960 --> 01:24:15,300
+taking but with values between zero and
+
+1922
+01:24:15,300 --> 01:24:19,560
+one okay and this is the one that we're
+
+1923
+01:24:19,560 --> 01:24:22,500
+going to be using right here in our in
+
+1924
+01:24:22,500 --> 01:24:24,540
+our radar chart
+
+1925
+01:24:24,540 --> 01:24:27,120
+our input data
+
+1926
+01:24:27,120 --> 01:24:29,219
+so the input data is going to be equal
+
+1927
+01:24:29,219 --> 01:24:31,500
+to get Scaled values
+
+1928
+01:24:31,500 --> 01:24:34,280
+of itself
+
+1929
+01:24:34,320 --> 01:24:36,000
+and now
+
+1930
+01:24:36,000 --> 01:24:38,820
+it should all of the data that came
+
+1931
+01:24:38,820 --> 01:24:41,820
+right here will be treated as values
+
+1932
+01:24:41,820 --> 01:24:43,739
+that are between zero and one so let's
+
+1933
+01:24:43,739 --> 01:24:45,420
+see how this works
+
+1934
+01:24:45,420 --> 01:24:47,760
+now if we refresh this oh and remember
+
+1935
+01:24:47,760 --> 01:24:50,520
+that we have updated our range to be
+
+1936
+01:24:50,520 --> 01:24:53,040
+between 0 and 1 because now all of our
+
+1937
+01:24:53,040 --> 01:24:54,780
+values are going to be between 0 and 1
+
+1938
+01:24:54,780 --> 01:24:55,800
+right
+
+1939
+01:24:55,800 --> 01:24:58,140
+now if we refresh this there we have it
+
+1940
+01:24:58,140 --> 01:25:01,920
+now all of your values
+
+1941
+01:25:01,920 --> 01:25:04,739
+are going to be between
+
+1942
+01:25:04,739 --> 01:25:08,400
+0 and 1. even if it's 2500 if I get it
+
+1943
+01:25:08,400 --> 01:25:10,980
+to the maximum it's just going to be 1
+
+1944
+01:25:10,980 --> 01:25:13,199
+and if I get it to the minimum it's just
+
+1945
+01:25:13,199 --> 01:25:15,060
+going to be zero all right
+
+1946
+01:25:15,060 --> 01:25:17,840
+so there you go
+
+1947
+01:25:17,880 --> 01:25:19,860
+um now that we have scaled our values
+
+1948
+01:25:19,860 --> 01:25:22,560
+and our rated chart is ready we are
+
+1949
+01:25:22,560 --> 01:25:25,140
+ready to pass on to the prediction part
+
+1950
+01:25:25,140 --> 01:25:28,260
+of the application so there we go good
+
+1951
+01:25:28,260 --> 01:25:31,020
+job so good job to now
+
+1952
+01:25:31,020 --> 01:25:32,880
+there we go all right so now it is time
+
+1953
+01:25:32,880 --> 01:25:35,100
+to create this prediction part in our
+
+1954
+01:25:35,100 --> 01:25:38,159
+application okay I I just wanted to
+
+1955
+01:25:38,159 --> 01:25:41,219
+mention that congratulations for making
+
+1956
+01:25:41,219 --> 01:25:44,280
+it up to here to here this is a quite a
+
+1957
+01:25:44,280 --> 01:25:47,340
+long project so um and you have done a
+
+1958
+01:25:47,340 --> 01:25:49,980
+lot a lot of work so far so great job
+
+1959
+01:25:49,980 --> 01:25:52,020
+congratulations and let's just finish
+
+1960
+01:25:52,020 --> 01:25:53,640
+this application so that we can deploy
+
+1961
+01:25:53,640 --> 01:25:56,580
+it and show it in your portfolio all
+
+1962
+01:25:56,580 --> 01:25:58,620
+right so
+
+1963
+01:25:58,620 --> 01:26:00,179
+um what we're going to do now is we're
+
+1964
+01:26:00,179 --> 01:26:01,620
+going to build these predictions right
+
+1965
+01:26:01,620 --> 01:26:02,540
+here
+
+1966
+01:26:02,540 --> 01:26:05,400
+and we're going to do that replacing
+
+1967
+01:26:05,400 --> 01:26:07,260
+this function right here with a function
+
+1968
+01:26:07,260 --> 01:26:08,219
+called
+
+1969
+01:26:08,219 --> 01:26:12,080
+add predictions like that
+
+1970
+01:26:12,480 --> 01:26:14,100
+there you go and then we're just going
+
+1971
+01:26:14,100 --> 01:26:16,020
+to have to create the function up here
+
+1972
+01:26:16,020 --> 01:26:19,460
+add predictions
+
+1973
+01:26:19,920 --> 01:26:21,719
+and this function is going to take the
+
+1974
+01:26:21,719 --> 01:26:23,900
+input data right
+
+1975
+01:26:23,900 --> 01:26:25,679
+because we're going to make the
+
+1976
+01:26:25,679 --> 01:26:27,659
+predictions using the input data from
+
+1977
+01:26:27,659 --> 01:26:30,000
+the user and that input data comes from
+
+1978
+01:26:30,000 --> 01:26:31,860
+here there you go
+
+1979
+01:26:31,860 --> 01:26:34,080
+so now the first thing that you're going
+
+1980
+01:26:34,080 --> 01:26:36,860
+to want to do is to
+
+1981
+01:26:36,860 --> 01:26:39,900
+is to import the model and the scalar
+
+1982
+01:26:39,900 --> 01:26:43,320
+that we exported before from when we
+
+1983
+01:26:43,320 --> 01:26:45,000
+were creating the model okay do you
+
+1984
+01:26:45,000 --> 01:26:47,239
+remember that we are not
+
+1985
+01:26:47,239 --> 01:26:49,260
+training the model inside of the
+
+1986
+01:26:49,260 --> 01:26:51,000
+application but we're just importing it
+
+1987
+01:26:51,000 --> 01:26:53,699
+right so let's do that in order to do
+
+1988
+01:26:53,699 --> 01:26:55,500
+that we're going to first import the
+
+1989
+01:26:55,500 --> 01:26:58,800
+model from pickle remember that I had
+
+1990
+01:26:58,800 --> 01:27:01,320
+already imported piccolob here
+
+1991
+01:27:01,320 --> 01:27:04,320
+so we're going to do pickle
+
+1992
+01:27:04,320 --> 01:27:08,219
+dot load oops pickle.load
+
+1993
+01:27:08,219 --> 01:27:10,800
+and we're going to do open
+
+1994
+01:27:10,800 --> 01:27:12,900
+and the location of our model which is
+
+1995
+01:27:12,900 --> 01:27:16,260
+inside the model and model.pickle
+
+1996
+01:27:16,260 --> 01:27:20,820
+model oops model and model Dot
+
+1997
+01:27:20,820 --> 01:27:23,100
+pickle there you go
+
+1998
+01:27:23,100 --> 01:27:25,260
+and then we're just going to say that
+
+1999
+01:27:25,260 --> 01:27:28,159
+we're going to open it in read mode and
+
+2000
+01:27:28,159 --> 01:27:32,219
+it's a binary file yeah R is for read
+
+2001
+01:27:32,219 --> 01:27:35,460
+mode and R and B is for binary mode
+
+2002
+01:27:35,460 --> 01:27:37,920
+there you go and let's do the same thing
+
+2003
+01:27:37,920 --> 01:27:40,560
+for the scalar okay
+
+2004
+01:27:40,560 --> 01:27:43,020
+the scalar is also inside model but it's
+
+2005
+01:27:43,020 --> 01:27:45,179
+called scalar.pickle
+
+2006
+01:27:45,179 --> 01:27:47,219
+there we go
+
+2007
+01:27:47,219 --> 01:27:49,440
+um all right so now what we're going to
+
+2008
+01:27:49,440 --> 01:27:51,239
+want to do is we're going to convert
+
+2009
+01:27:51,239 --> 01:27:53,880
+this input data dictionary because
+
+2010
+01:27:53,880 --> 01:27:56,460
+remember that this is this is a
+
+2011
+01:27:56,460 --> 01:27:59,760
+dictionary with key value pairs in the
+
+2012
+01:27:59,760 --> 01:28:03,000
+key is the name of the of the parameter
+
+2013
+01:28:03,000 --> 01:28:07,440
+right so radius mean radius standard
+
+2014
+01:28:07,440 --> 01:28:09,239
+error texture mean texture standard
+
+2015
+01:28:09,239 --> 01:28:11,460
+error and the value is the actual value
+
+2016
+01:28:11,460 --> 01:28:15,540
+that the user input here right so what
+
+2017
+01:28:15,540 --> 01:28:17,280
+we're going to want to do is we're going
+
+2018
+01:28:17,280 --> 01:28:20,940
+to convert that into a single array with
+
+2019
+01:28:20,940 --> 01:28:21,600
+um
+
+2020
+01:28:21,600 --> 01:28:24,560
+a single array with the values right
+
+2021
+01:28:24,560 --> 01:28:27,659
+and in order to do that what we're going
+
+2022
+01:28:27,659 --> 01:28:31,320
+to do is we're going to use numpy all
+
+2023
+01:28:31,320 --> 01:28:34,560
+right so let's just import numpy
+
+2024
+01:28:34,560 --> 01:28:36,500
+import numpy
+
+2025
+01:28:36,500 --> 01:28:39,960
+SNP there you go and right here we're
+
+2026
+01:28:39,960 --> 01:28:44,219
+going to say that the in oops input
+
+2027
+01:28:44,219 --> 01:28:45,960
+array
+
+2028
+01:28:45,960 --> 01:28:48,239
+and we're going to convert all the
+
+2029
+01:28:48,239 --> 01:28:51,239
+values from our input data dictionary
+
+2030
+01:28:51,239 --> 01:28:54,480
+into a numpy array okay so we're going
+
+2031
+01:28:54,480 --> 01:28:57,120
+to say NP array
+
+2032
+01:28:57,120 --> 01:28:59,940
+we're going to select it as a list
+
+2033
+01:28:59,940 --> 01:29:02,159
+the input data
+
+2034
+01:29:02,159 --> 01:29:04,260
+and we're going to select only the
+
+2035
+01:29:04,260 --> 01:29:06,239
+values right
+
+2036
+01:29:06,239 --> 01:29:08,699
+now if we save this
+
+2037
+01:29:08,699 --> 01:29:13,040
+let's see let's do an st right
+
+2038
+01:29:13,040 --> 01:29:16,440
+and just pass in this input array all
+
+2039
+01:29:16,440 --> 01:29:21,480
+right so right now we should have
+
+2040
+01:29:21,480 --> 01:29:24,179
+we should be showing the input array of
+
+2041
+01:29:24,179 --> 01:29:25,860
+only the values
+
+2042
+01:29:25,860 --> 01:29:29,040
+of this one right here in our prediction
+
+2043
+01:29:29,040 --> 01:29:31,380
+side okay so let's see if that worked
+
+2044
+01:29:31,380 --> 01:29:33,780
+let's refresh and there you hope there
+
+2045
+01:29:33,780 --> 01:29:36,120
+you go you have this
+
+2046
+01:29:36,120 --> 01:29:40,860
+um 30 29 values no 30 values
+
+2047
+01:29:40,860 --> 01:29:43,620
+um and it's only it's just an array with
+
+2048
+01:29:43,620 --> 01:29:45,960
+um with all of this with the values that
+
+2049
+01:29:45,960 --> 01:29:48,360
+we input right so if we change this one
+
+2050
+01:29:48,360 --> 01:29:52,080
+for example to 138 this one is going to
+
+2051
+01:29:52,080 --> 01:29:54,480
+change there you go you can see that
+
+2052
+01:29:54,480 --> 01:29:57,480
+it's reactive right and that is that is
+
+2053
+01:29:57,480 --> 01:29:59,280
+exactly what we want because we want to
+
+2054
+01:29:59,280 --> 01:30:01,860
+make the predictions uh when chain when
+
+2055
+01:30:01,860 --> 01:30:05,520
+updating the inputs right so what we're
+
+2056
+01:30:05,520 --> 01:30:07,620
+going to do though is to reshape it
+
+2057
+01:30:07,620 --> 01:30:10,260
+because our model actually takes a two
+
+2058
+01:30:10,260 --> 01:30:12,420
+dimensional
+
+2059
+01:30:12,420 --> 01:30:15,540
+um array not a single Dimension array so
+
+2060
+01:30:15,540 --> 01:30:17,280
+we're going to do reshape
+
+2061
+01:30:17,280 --> 01:30:20,280
+one minus one like this then if we
+
+2062
+01:30:20,280 --> 01:30:23,280
+refresh it there you go that's how it
+
+2063
+01:30:23,280 --> 01:30:25,260
+that's how it that's how it's supposed
+
+2064
+01:30:25,260 --> 01:30:27,120
+to look right it's supposed to have like
+
+2065
+01:30:27,120 --> 01:30:29,100
+every single variable is supposed to be
+
+2066
+01:30:29,100 --> 01:30:32,239
+one single column
+
+2067
+01:30:32,400 --> 01:30:33,300
+um
+
+2068
+01:30:33,300 --> 01:30:36,060
+uh yeah so there you go now what we're
+
+2069
+01:30:36,060 --> 01:30:37,639
+going to want to do
+
+2070
+01:30:37,639 --> 01:30:40,500
+is scale it because as you can see right
+
+2071
+01:30:40,500 --> 01:30:44,520
+now the values are exactly what we set
+
+2072
+01:30:44,520 --> 01:30:47,159
+them here to so for example this one is
+
+2073
+01:30:47,159 --> 01:30:51,120
+14 13. and this one is 14. uh I mean 14
+
+2074
+01:30:51,120 --> 01:30:54,179
+27 12 7 right
+
+2075
+01:30:54,179 --> 01:30:56,820
+um and we want all of them to be scaled
+
+2076
+01:30:56,820 --> 01:30:59,340
+with the same scalar that we use to
+
+2077
+01:30:59,340 --> 01:31:01,620
+create our model because otherwise the
+
+2078
+01:31:01,620 --> 01:31:03,179
+model is not going to work
+
+2079
+01:31:03,179 --> 01:31:05,280
+so let's scale them with the model that
+
+2080
+01:31:05,280 --> 01:31:07,380
+we just imported that is why it was so
+
+2081
+01:31:07,380 --> 01:31:10,139
+important to you create and to export
+
+2082
+01:31:10,139 --> 01:31:13,860
+the scalar with the model when when we
+
+2083
+01:31:13,860 --> 01:31:15,300
+run on this spot
+
+2084
+01:31:15,300 --> 01:31:19,080
+so let's scale it in order to scale it
+
+2085
+01:31:19,080 --> 01:31:20,040
+I'm
+
+2086
+01:31:20,040 --> 01:31:23,480
+I'm going to say
+
+2087
+01:31:24,420 --> 01:31:25,800
+but
+
+2088
+01:31:25,800 --> 01:31:27,420
+array
+
+2089
+01:31:27,420 --> 01:31:29,580
+scaled
+
+2090
+01:31:29,580 --> 01:31:31,620
+and I'm going to use my scalar that I
+
+2091
+01:31:31,620 --> 01:31:34,500
+just imported like this scalar dot
+
+2092
+01:31:34,500 --> 01:31:36,980
+transform
+
+2093
+01:31:37,380 --> 01:31:39,480
+and I am going to say that I'm going to
+
+2094
+01:31:39,480 --> 01:31:41,880
+transform this input array right here
+
+2095
+01:31:41,880 --> 01:31:46,560
+and now if I write this one instead of
+
+2096
+01:31:46,560 --> 01:31:48,179
+the other one you can see that
+
+2097
+01:31:48,179 --> 01:31:51,480
+everything has a value of zero
+
+2098
+01:31:51,480 --> 01:31:54,900
+and why is that good question
+
+2099
+01:31:54,900 --> 01:31:56,960
+the thing is that
+
+2100
+01:31:56,960 --> 01:32:00,659
+remember that we set the default value
+
+2101
+01:32:00,659 --> 01:32:03,480
+of each one of our sliders to the mean
+
+2102
+01:32:03,480 --> 01:32:06,540
+value of the entire column
+
+2103
+01:32:06,540 --> 01:32:11,100
+we did that up here if I'm not mistaken
+
+2104
+01:32:11,100 --> 01:32:13,860
+um sidebar there you go so we set the
+
+2105
+01:32:13,860 --> 01:32:15,900
+value of each one I mean the default
+
+2106
+01:32:15,900 --> 01:32:18,719
+value of each one of our of our sliders
+
+2107
+01:32:18,719 --> 01:32:22,679
+to the mean value of the column so
+
+2108
+01:32:22,679 --> 01:32:26,520
+in the scalar since this what the scalar
+
+2109
+01:32:26,520 --> 01:32:30,000
+does is to take all of the values of the
+
+2110
+01:32:30,000 --> 01:32:33,080
+column and if it's very high
+
+2111
+01:32:33,080 --> 01:32:35,760
+make it closer to
+
+2112
+01:32:35,760 --> 01:32:37,380
+to
+
+2113
+01:32:37,380 --> 01:32:40,679
+to the mean and if it's very low bring
+
+2114
+01:32:40,679 --> 01:32:42,540
+it closer to the mean and then put
+
+2115
+01:32:42,540 --> 01:32:45,600
+everything in the same like in the same
+
+2116
+01:32:45,600 --> 01:32:48,780
+scale right if that makes any sense
+
+2117
+01:32:48,780 --> 01:32:50,820
+um so what's happening basically is that
+
+2118
+01:32:50,820 --> 01:32:52,199
+since everything is in the mean
+
+2119
+01:32:52,199 --> 01:32:55,080
+everything is at zero but when we move
+
+2120
+01:32:55,080 --> 01:32:57,000
+something a little bit let me just move
+
+2121
+01:32:57,000 --> 01:32:58,860
+the first one so that it's easier to see
+
+2122
+01:32:58,860 --> 01:33:02,040
+I move it below the mean then it's going
+
+2123
+01:33:02,040 --> 01:33:03,840
+to become negative and if I move it
+
+2124
+01:33:03,840 --> 01:33:05,699
+above the mean then it's going to become
+
+2125
+01:33:05,699 --> 01:33:08,520
+positive same with the second one Etc
+
+2126
+01:33:08,520 --> 01:33:11,699
+right so if you only see zeros at the
+
+2127
+01:33:11,699 --> 01:33:13,380
+beginning don't worry that's completely
+
+2128
+01:33:13,380 --> 01:33:14,820
+normal and that's how it's supposed to
+
+2129
+01:33:14,820 --> 01:33:16,980
+work all right
+
+2130
+01:33:16,980 --> 01:33:19,860
+so there we go now that we have this
+
+2131
+01:33:19,860 --> 01:33:22,620
+scaled values we can actually fit them
+
+2132
+01:33:22,620 --> 01:33:26,580
+to our to our prediction model to our
+
+2133
+01:33:26,580 --> 01:33:28,320
+model to make prediction sorry
+
+2134
+01:33:28,320 --> 01:33:31,980
+so let's see now we can say that the
+
+2135
+01:33:31,980 --> 01:33:34,320
+prediction
+
+2136
+01:33:34,320 --> 01:33:37,139
+is going to be we're going to use our
+
+2137
+01:33:37,139 --> 01:33:39,120
+model and we're going to say
+
+2138
+01:33:39,120 --> 01:33:42,120
+predict
+
+2139
+01:33:42,540 --> 01:33:44,460
+just as we did when we were testing the
+
+2140
+01:33:44,460 --> 01:33:45,960
+model we're just going to say predict
+
+2141
+01:33:45,960 --> 01:33:50,840
+and we're going to pass in the input
+
+2142
+01:33:51,000 --> 01:33:52,080
+hmm
+
+2143
+01:33:52,080 --> 01:33:53,400
+oops
+
+2144
+01:33:53,400 --> 01:33:57,600
+input array scaled there you go and now
+
+2145
+01:33:57,600 --> 01:34:00,239
+we can just export the prediction like
+
+2146
+01:34:00,239 --> 01:34:01,500
+that
+
+2147
+01:34:01,500 --> 01:34:04,500
+there you go now we can if we refresh it
+
+2148
+01:34:04,500 --> 01:34:06,120
+you can see that the prediction is zero
+
+2149
+01:34:06,120 --> 01:34:08,040
+which means that it is benign
+
+2150
+01:34:08,040 --> 01:34:10,199
+but if we move something a little bit
+
+2151
+01:34:10,199 --> 01:34:13,080
+too high then it's going to be 1 which
+
+2152
+01:34:13,080 --> 01:34:16,560
+is malicious all right so that's
+
+2153
+01:34:16,560 --> 01:34:19,080
+up to here we are already using machine
+
+2154
+01:34:19,080 --> 01:34:21,120
+learning to make a prediction in the
+
+2155
+01:34:21,120 --> 01:34:24,659
+model using our model and to show it in
+
+2156
+01:34:24,659 --> 01:34:26,520
+the front now let's just make it a
+
+2157
+01:34:26,520 --> 01:34:28,080
+little bit
+
+2158
+01:34:28,080 --> 01:34:30,780
+um like user friendly
+
+2159
+01:34:30,780 --> 01:34:32,760
+so instead of writing just a prediction
+
+2160
+01:34:32,760 --> 01:34:36,300
+we're going to say that if
+
+2161
+01:34:36,300 --> 01:34:38,719
+the prediction
+
+2162
+01:34:38,719 --> 01:34:41,280
+so the prediction is an array so if the
+
+2163
+01:34:41,280 --> 01:34:44,400
+prediction if the first and only element
+
+2164
+01:34:44,400 --> 01:34:46,980
+of the prediction is zero
+
+2165
+01:34:46,980 --> 01:34:51,199
+we're going to St right
+
+2166
+01:34:52,560 --> 01:34:54,960
+and I have it right here
+
+2167
+01:34:54,960 --> 01:34:59,040
+we're going to pop them right
+
+2168
+01:34:59,040 --> 01:35:01,199
+we're going to say
+
+2169
+01:35:01,199 --> 01:35:03,900
+benign
+
+2170
+01:35:03,900 --> 01:35:06,560
+benign
+
+2171
+01:35:06,560 --> 01:35:10,040
+and else
+
+2172
+01:35:12,120 --> 01:35:15,260
+we're going to say
+
+2173
+01:35:18,239 --> 01:35:20,159
+malicious
+
+2174
+01:35:20,159 --> 01:35:22,860
+there you go and now we don't need this
+
+2175
+01:35:22,860 --> 01:35:25,020
+part right here
+
+2176
+01:35:25,020 --> 01:35:26,880
+now if I refresh this
+
+2177
+01:35:26,880 --> 01:35:28,860
+there you go benign
+
+2178
+01:35:28,860 --> 01:35:30,900
+and then if I oh
+
+2179
+01:35:30,900 --> 01:35:33,239
+then it is malicious there you go it's
+
+2180
+01:35:33,239 --> 01:35:36,600
+looking pretty good and now let's just
+
+2181
+01:35:36,600 --> 01:35:38,940
+add another part right here which is
+
+2182
+01:35:38,940 --> 01:35:40,980
+going to be the probability of it being
+
+2183
+01:35:40,980 --> 01:35:44,040
+benign or not right so we're going to do
+
+2184
+01:35:44,040 --> 01:35:46,980
+as well St right
+
+2185
+01:35:46,980 --> 01:35:50,040
+and we're going to say the probability
+
+2186
+01:35:50,040 --> 01:35:54,300
+probability of being benign
+
+2187
+01:35:54,300 --> 01:35:55,739
+is
+
+2188
+01:35:55,739 --> 01:35:57,600
+and we're going to say that the model
+
+2189
+01:35:57,600 --> 01:36:00,719
+and we're going to say predict
+
+2190
+01:36:00,719 --> 01:36:03,480
+probe
+
+2191
+01:36:03,480 --> 01:36:05,820
+probability and we're going to say the
+
+2192
+01:36:05,820 --> 01:36:08,100
+input data
+
+2193
+01:36:08,100 --> 01:36:11,600
+input array scaled
+
+2194
+01:36:12,300 --> 01:36:13,040
+um
+
+2195
+01:36:13,040 --> 01:36:18,239
+zero and zero because this one returns
+
+2196
+01:36:18,239 --> 01:36:20,880
+all right so this one right one second
+
+2197
+01:36:20,880 --> 01:36:23,820
+so this right here predict probability
+
+2198
+01:36:23,820 --> 01:36:26,639
+returns an array with two with two
+
+2199
+01:36:26,639 --> 01:36:27,780
+elements the first one is the
+
+2200
+01:36:27,780 --> 01:36:29,900
+probability of it being
+
+2201
+01:36:29,900 --> 01:36:31,739
+zero and the second one is the
+
+2202
+01:36:31,739 --> 01:36:33,600
+probability of it being one if I'm not
+
+2203
+01:36:33,600 --> 01:36:35,400
+mistaken
+
+2204
+01:36:35,400 --> 01:36:37,500
+and then we're going to do exactly the
+
+2205
+01:36:37,500 --> 01:36:39,179
+same for the second one but instead of
+
+2206
+01:36:39,179 --> 01:36:40,980
+choosing the first element which is the
+
+2207
+01:36:40,980 --> 01:36:43,260
+probability of it being benign or it
+
+2208
+01:36:43,260 --> 01:36:45,900
+being zero we're going to take the
+
+2209
+01:36:45,900 --> 01:36:47,940
+probability of it being 1 which is
+
+2210
+01:36:47,940 --> 01:36:49,620
+malicious
+
+2211
+01:36:49,620 --> 01:36:53,340
+there you go then we will save it
+
+2212
+01:36:53,340 --> 01:36:56,940
+we should be able to see what's going on
+
+2213
+01:36:56,940 --> 01:36:58,679
+here there you go so we have benign
+
+2214
+01:36:58,679 --> 01:37:01,679
+probability of it being benign 0.50 I
+
+2215
+01:37:01,679 --> 01:37:05,040
+mean 50 58 and probability of it being
+
+2216
+01:37:05,040 --> 01:37:10,139
+malicious 41 it's looking pretty good
+
+2217
+01:37:10,139 --> 01:37:12,600
+um and now what we're going to do I'm
+
+2218
+01:37:12,600 --> 01:37:14,520
+just going to add another line right
+
+2219
+01:37:14,520 --> 01:37:18,239
+here at the bottom just to mention like
+
+2220
+01:37:18,239 --> 01:37:19,080
+um
+
+2221
+01:37:19,080 --> 01:37:21,420
+clarification that this app is
+
+2222
+01:37:21,420 --> 01:37:23,760
+only use only intended to assist
+
+2223
+01:37:23,760 --> 01:37:26,280
+Professionals in making a diagnosis but
+
+2224
+01:37:26,280 --> 01:37:28,620
+should not be a substitute for a
+
+2225
+01:37:28,620 --> 01:37:30,840
+professional diagnosis so there you go
+
+2226
+01:37:30,840 --> 01:37:33,780
+now if we save this we have we can
+
+2227
+01:37:33,780 --> 01:37:36,239
+refresh it and there you go now you have
+
+2228
+01:37:36,239 --> 01:37:40,020
+your application with this really nice
+
+2229
+01:37:40,020 --> 01:37:40,739
+um
+
+2230
+01:37:40,739 --> 01:37:43,699
+really nice
+
+2231
+01:37:43,739 --> 01:37:45,780
+um column right here which tells you if
+
+2232
+01:37:45,780 --> 01:37:46,800
+the
+
+2233
+01:37:46,800 --> 01:37:50,639
+if the if these cells are benign or
+
+2234
+01:37:50,639 --> 01:37:51,900
+malicious
+
+2235
+01:37:51,900 --> 01:37:54,420
+so there you go I'm just going to add a
+
+2236
+01:37:54,420 --> 01:37:55,980
+little sub header and header right here
+
+2237
+01:37:55,980 --> 01:37:59,280
+just to make it a little bit more
+
+2238
+01:37:59,280 --> 01:38:00,739
+um
+
+2239
+01:38:00,739 --> 01:38:03,719
+user friendly so I'm going to say SD
+
+2240
+01:38:03,719 --> 01:38:05,159
+subheader
+
+2241
+01:38:05,159 --> 01:38:07,739
+and I'm going to say cell cluster
+
+2242
+01:38:07,739 --> 01:38:10,339
+prediction
+
+2243
+01:38:10,620 --> 01:38:14,820
+and then I'm going to St
+
+2244
+01:38:14,820 --> 01:38:17,340
+right
+
+2245
+01:38:17,340 --> 01:38:23,219
+the cell cluster oops cluster s
+
+2246
+01:38:23,219 --> 01:38:26,520
+and then should there you go cell
+
+2247
+01:38:26,520 --> 01:38:28,139
+cluster prediction the cell cluster is
+
+2248
+01:38:28,139 --> 01:38:30,780
+B9 probability of being benign
+
+2249
+01:38:30,780 --> 01:38:32,520
+probability of it being malicious and
+
+2250
+01:38:32,520 --> 01:38:34,860
+then just our little text right here
+
+2251
+01:38:34,860 --> 01:38:36,540
+there you go
+
+2252
+01:38:36,540 --> 01:38:37,679
+um now
+
+2253
+01:38:37,679 --> 01:38:40,560
+there you have it now I mean
+
+2254
+01:38:40,560 --> 01:38:43,080
+your app could be finished right now I'm
+
+2255
+01:38:43,080 --> 01:38:44,580
+just going to add a little bit of styles
+
+2256
+01:38:44,580 --> 01:38:46,440
+right here but
+
+2257
+01:38:46,440 --> 01:38:49,139
+um for what we have been doing so far
+
+2258
+01:38:49,139 --> 01:38:51,360
+this should be
+
+2259
+01:38:51,360 --> 01:38:53,580
+um like already you have a very good app
+
+2260
+01:38:53,580 --> 01:38:54,900
+that is working
+
+2261
+01:38:54,900 --> 01:38:58,020
+I'm just going in the next part of the
+
+2262
+01:38:58,020 --> 01:38:59,159
+video I'm going to show you how to
+
+2263
+01:38:59,159 --> 01:39:01,020
+update a little bit these styles with
+
+2264
+01:39:01,020 --> 01:39:02,540
+some CSS
+
+2265
+01:39:02,540 --> 01:39:05,659
+and yeah and then I suppose we can
+
+2266
+01:39:05,659 --> 01:39:09,540
+deploy it so there we go
+
+2267
+01:39:09,540 --> 01:39:12,360
+awesome so now just for the record our
+
+2268
+01:39:12,360 --> 01:39:14,219
+application looks like this it looks
+
+2269
+01:39:14,219 --> 01:39:16,320
+pretty complete and the code looks
+
+2270
+01:39:16,320 --> 01:39:19,139
+something like this okay so we have our
+
+2271
+01:39:19,139 --> 01:39:21,360
+main function where we set up the page
+
+2272
+01:39:21,360 --> 01:39:24,540
+configuration using the streamlit
+
+2273
+01:39:24,540 --> 01:39:25,820
+configuration
+
+2274
+01:39:25,820 --> 01:39:29,880
+then we add the sidebar that Returns the
+
+2275
+01:39:29,880 --> 01:39:31,739
+input data in a dictionary
+
+2276
+01:39:31,739 --> 01:39:34,020
+then inside a container we added the
+
+2277
+01:39:34,020 --> 01:39:35,880
+title and some description of the
+
+2278
+01:39:35,880 --> 01:39:39,000
+application then we just added our two
+
+2279
+01:39:39,000 --> 01:39:42,300
+columns one of which is
+
+2280
+01:39:42,300 --> 01:39:45,000
+um four times as big as the second one
+
+2281
+01:39:45,000 --> 01:39:47,699
+and then for the First Column we added a
+
+2282
+01:39:47,699 --> 01:39:49,620
+radar chart with this function right
+
+2283
+01:39:49,620 --> 01:39:50,600
+here
+
+2284
+01:39:50,600 --> 01:39:54,480
+and we are displaying it using the
+
+2285
+01:39:54,480 --> 01:39:57,300
+streamlit function plotly chart and not
+
+2286
+01:39:57,300 --> 01:40:00,120
+just showing it right and then for the
+
+2287
+01:40:00,120 --> 01:40:01,440
+second column we're adding the
+
+2288
+01:40:01,440 --> 01:40:03,780
+predictions using the machine learning
+
+2289
+01:40:03,780 --> 01:40:06,719
+model and the scalar that we had
+
+2290
+01:40:06,719 --> 01:40:08,880
+previously created and that we exported
+
+2291
+01:40:08,880 --> 01:40:12,840
+using pickle right now what we are going
+
+2292
+01:40:12,840 --> 01:40:15,179
+to do is kind of an optional part of the
+
+2293
+01:40:15,179 --> 01:40:15,980
+video
+
+2294
+01:40:15,980 --> 01:40:18,600
+is to style it a little bit more with
+
+2295
+01:40:18,600 --> 01:40:23,780
+CSS right I know that streamlit is not
+
+2296
+01:40:23,780 --> 01:40:25,580
+thought of
+
+2297
+01:40:25,580 --> 01:40:29,699
+in order to I mean it's not made to use
+
+2298
+01:40:29,699 --> 01:40:33,420
+CSS on it but you can use okay it's
+
+2299
+01:40:33,420 --> 01:40:36,900
+unlike Dash it's kind of a little bit
+
+2300
+01:40:36,900 --> 01:40:39,480
+more complicated to do it but you can so
+
+2301
+01:40:39,480 --> 01:40:41,360
+I'm just going to show you how to do it
+
+2302
+01:40:41,360 --> 01:40:44,699
+but in general if you're using extremely
+
+2303
+01:40:44,699 --> 01:40:49,080
+to try to try to stay close to the
+
+2304
+01:40:49,080 --> 01:40:51,120
+default styles from from the framework
+
+2305
+01:40:51,120 --> 01:40:55,260
+all right so what we're going to do is
+
+2306
+01:40:55,260 --> 01:40:57,840
+we're going to create a new file in well
+
+2307
+01:40:57,840 --> 01:40:59,280
+first we're going to create a new folder
+
+2308
+01:40:59,280 --> 01:41:00,540
+called assets
+
+2309
+01:41:00,540 --> 01:41:02,400
+and inside assets we're going to create
+
+2310
+01:41:02,400 --> 01:41:04,139
+style that
+
+2311
+01:41:04,139 --> 01:41:07,199
+a file called style.css
+
+2312
+01:41:07,199 --> 01:41:09,960
+for my fellow well web developers this
+
+2313
+01:41:09,960 --> 01:41:11,699
+is probably where things are starting to
+
+2314
+01:41:11,699 --> 01:41:13,920
+get familiar
+
+2315
+01:41:13,920 --> 01:41:18,120
+so in order to actually just make some
+
+2316
+01:41:18,120 --> 01:41:21,480
+modifications and that's why why I meant
+
+2317
+01:41:21,480 --> 01:41:23,940
+that this is probably not the weight
+
+2318
+01:41:23,940 --> 01:41:25,139
+like
+
+2319
+01:41:25,139 --> 01:41:28,760
+streamlit is not thought oops it's not
+
+2320
+01:41:28,760 --> 01:41:33,239
+made to do this but you can see that we
+
+2321
+01:41:33,239 --> 01:41:34,699
+have
+
+2322
+01:41:34,699 --> 01:41:38,520
+I can just check right here inspect this
+
+2323
+01:41:38,520 --> 01:41:42,540
+element and try to find where my box is
+
+2324
+01:41:42,540 --> 01:41:45,719
+right here so it seems to be this one
+
+2325
+01:41:45,719 --> 01:41:49,100
+and I can just copy the class
+
+2326
+01:41:50,400 --> 01:41:51,960
+um chips
+
+2327
+01:41:51,960 --> 01:41:54,960
+there you go I copy the class then I
+
+2328
+01:41:54,960 --> 01:41:58,860
+then I use it to modify it right and
+
+2329
+01:41:58,860 --> 01:42:00,719
+basically what I'm going to do with this
+
+2330
+01:42:00,719 --> 01:42:02,880
+one is I'm just going to set a
+
+2331
+01:42:02,880 --> 01:42:06,719
+padding of one REM as I mentioned this
+
+2332
+01:42:06,719 --> 01:42:08,100
+is completely optional you don't
+
+2333
+01:42:08,100 --> 01:42:11,340
+necessarily need to know CSS but I mean
+
+2334
+01:42:11,340 --> 01:42:12,659
+it helps
+
+2335
+01:42:12,659 --> 01:42:15,300
+I'm just going to set a simple border
+
+2336
+01:42:15,300 --> 01:42:17,940
+radius oops
+
+2337
+01:42:17,940 --> 01:42:20,760
+for the radius of
+
+2338
+01:42:20,760 --> 01:42:22,800
+um half
+
+2339
+01:42:22,800 --> 01:42:24,900
+an RM
+
+2340
+01:42:24,900 --> 01:42:27,179
+and finally I am going to set a
+
+2341
+01:42:27,179 --> 01:42:30,600
+background color to
+
+2342
+01:42:30,600 --> 01:42:33,480
+to this color that I have right here
+
+2343
+01:42:33,480 --> 01:42:35,219
+which blends very well with the
+
+2344
+01:42:35,219 --> 01:42:36,420
+background
+
+2345
+01:42:36,420 --> 01:42:39,659
+so let's see how that looks like so far
+
+2346
+01:42:39,659 --> 01:42:41,699
+um well of course for now we're not
+
+2347
+01:42:41,699 --> 01:42:43,080
+going to see anything because we haven't
+
+2348
+01:42:43,080 --> 01:42:46,020
+imported it into our file okay and in
+
+2349
+01:42:46,020 --> 01:42:47,760
+order to import it into the application
+
+2350
+01:42:47,760 --> 01:42:50,760
+there's it's some sort of a hack
+
+2351
+01:42:50,760 --> 01:42:52,980
+because it's not I mean as I mentioned
+
+2352
+01:42:52,980 --> 01:42:55,199
+streamlit is not made for this
+
+2353
+01:42:55,199 --> 01:42:58,199
+but we are going to just hack around it
+
+2354
+01:42:58,199 --> 01:43:02,750
+a little bit to make it display our our
+
+2355
+01:43:02,750 --> 01:43:04,199
+[Music]
+
+2356
+01:43:04,199 --> 01:43:07,020
+to make it show our CSS okay and to do
+
+2357
+01:43:07,020 --> 01:43:08,960
+that we're going to
+
+2358
+01:43:08,960 --> 01:43:12,719
+add the CSS as though it was a markdown
+
+2359
+01:43:12,719 --> 01:43:16,619
+file okay so right here under the page
+
+2360
+01:43:16,619 --> 01:43:19,739
+configuration I'm going to say with open
+
+2361
+01:43:19,739 --> 01:43:22,260
+and I'm going to open my file
+
+2362
+01:43:22,260 --> 01:43:25,100
+which is
+
+2363
+01:43:25,139 --> 01:43:28,440
+which is inside assets
+
+2364
+01:43:28,440 --> 01:43:31,440
+style dot CSS
+
+2365
+01:43:31,440 --> 01:43:32,760
+as
+
+2366
+01:43:32,760 --> 01:43:35,340
+f for file
+
+2367
+01:43:35,340 --> 01:43:36,840
+and I'm going to say that I'm going to
+
+2368
+01:43:36,840 --> 01:43:38,880
+add some markdown
+
+2369
+01:43:38,880 --> 01:43:41,520
+okay as I mentioned this is a hack it
+
+2370
+01:43:41,520 --> 01:43:43,619
+basically just Imports the file into the
+
+2371
+01:43:43,619 --> 01:43:45,980
+website and
+
+2372
+01:43:45,980 --> 01:43:49,199
+and streamlit things that this is a
+
+2373
+01:43:49,199 --> 01:43:51,000
+markdown file but it actually contains
+
+2374
+01:43:51,000 --> 01:43:53,420
+CSS and it's going to modify
+
+2375
+01:43:53,420 --> 01:43:56,780
+the style of the of the web application
+
+2376
+01:43:56,780 --> 01:44:00,060
+but it's kind of not what it's intended
+
+2377
+01:44:00,060 --> 01:44:01,020
+to
+
+2378
+01:44:01,020 --> 01:44:03,840
+um with like this Magnum function right
+
+2379
+01:44:03,840 --> 01:44:06,119
+and inside of here we're going to add
+
+2380
+01:44:06,119 --> 01:44:09,119
+our style tags
+
+2381
+01:44:09,119 --> 01:44:11,900
+like this
+
+2382
+01:44:12,659 --> 01:44:15,239
+and inside the style text we're going to
+
+2383
+01:44:15,239 --> 01:44:19,679
+add our file and I'm going to say format
+
+2384
+01:44:19,679 --> 01:44:22,679
+we're going to say the F dot read to get
+
+2385
+01:44:22,679 --> 01:44:24,840
+the contents of our file
+
+2386
+01:44:24,840 --> 01:44:26,699
+and then we're just going to say that
+
+2387
+01:44:26,699 --> 01:44:28,020
+unsafe
+
+2388
+01:44:28,020 --> 01:44:31,860
+allow HTML to be able to parse it as
+
+2389
+01:44:31,860 --> 01:44:33,780
+HTML okay
+
+2390
+01:44:33,780 --> 01:44:38,420
+uh so there you go this should I think
+
+2391
+01:44:38,420 --> 01:44:40,980
+make us
+
+2392
+01:44:40,980 --> 01:44:42,980
+um format
+
+2393
+01:44:42,980 --> 01:44:45,960
+yeah I mean this should import our
+
+2394
+01:44:45,960 --> 01:44:48,360
+Styles file as a markdown file but not
+
+2395
+01:44:48,360 --> 01:44:52,199
+really into our into our file and it
+
+2396
+01:44:52,199 --> 01:44:54,659
+should update the style of this box
+
+2397
+01:44:54,659 --> 01:44:57,420
+right here which has this class so let's
+
+2398
+01:44:57,420 --> 01:44:59,940
+see if that worked
+
+2399
+01:44:59,940 --> 01:45:02,219
+there you go so it worked oh we just
+
+2400
+01:45:02,219 --> 01:45:04,800
+added a little bit of padding and just
+
+2401
+01:45:04,800 --> 01:45:06,119
+changed a little bit some of these
+
+2402
+01:45:06,119 --> 01:45:07,980
+things so to me that looks pretty
+
+2403
+01:45:07,980 --> 01:45:09,420
+alright
+
+2404
+01:45:09,420 --> 01:45:11,639
+um and the second thing that I'm going
+
+2405
+01:45:11,639 --> 01:45:15,719
+to do just to make it a little bit more
+
+2406
+01:45:15,719 --> 01:45:17,100
+um complete
+
+2407
+01:45:17,100 --> 01:45:22,880
+I am going to I'm going to add a few
+
+2408
+01:45:23,300 --> 01:45:26,639
+I'm going to make this one right here
+
+2409
+01:45:26,639 --> 01:45:30,480
+turn to red when it's benign and
+
+2410
+01:45:30,480 --> 01:45:33,060
+um sorry blue sorry green when it's
+
+2411
+01:45:33,060 --> 01:45:35,940
+benign and red when it's malicious all
+
+2412
+01:45:35,940 --> 01:45:38,699
+right so let's do that in order to do
+
+2413
+01:45:38,699 --> 01:45:41,760
+that we're going to have to modify the
+
+2414
+01:45:41,760 --> 01:45:45,440
+code that we added in the in the ad
+
+2415
+01:45:45,440 --> 01:45:47,580
+predictions right here so as you
+
+2416
+01:45:47,580 --> 01:45:49,619
+remember we added B9 and malicious
+
+2417
+01:45:49,619 --> 01:45:52,320
+depending on the prediction but here
+
+2418
+01:45:52,320 --> 01:45:54,900
+we're going to wrap it in a span element
+
+2419
+01:45:54,900 --> 01:45:57,840
+which is a HTML element
+
+2420
+01:45:57,840 --> 01:46:01,820
+and we're going to give it a class of
+
+2421
+01:46:01,920 --> 01:46:02,600
+um
+
+2422
+01:46:02,600 --> 01:46:05,219
+a class of
+
+2423
+01:46:05,219 --> 01:46:07,619
+diagnosis
+
+2424
+01:46:07,619 --> 01:46:10,339
+benign
+
+2425
+01:46:11,400 --> 01:46:13,739
+and then we have we're of course going
+
+2426
+01:46:13,739 --> 01:46:16,219
+to have to close the span there you go
+
+2427
+01:46:16,219 --> 01:46:18,780
+and if we save this like this actually
+
+2428
+01:46:18,780 --> 01:46:22,739
+and we refresh you can see that this
+
+2429
+01:46:22,739 --> 01:46:25,679
+span is actually not being parsed as
+
+2430
+01:46:25,679 --> 01:46:29,239
+part of the HTML in order to make the
+
+2431
+01:46:29,239 --> 01:46:32,280
+HTML elements that we put in into these
+
+2432
+01:46:32,280 --> 01:46:36,300
+strings to be passed we need to add this
+
+2433
+01:46:36,300 --> 01:46:37,740
+other
+
+2434
+01:46:37,740 --> 01:46:38,880
+[Music]
+
+2435
+01:46:38,880 --> 01:46:41,639
+um parameter right here which says on on
+
+2436
+01:46:41,639 --> 01:46:44,820
+safe allow HTML and set this one to true
+
+2437
+01:46:44,820 --> 01:46:48,119
+this one is going to allow us to parse
+
+2438
+01:46:48,119 --> 01:46:50,600
+the HTML inside of it and now if you see
+
+2439
+01:46:50,600 --> 01:46:54,300
+benign is actually
+
+2440
+01:46:54,300 --> 01:46:55,639
+um
+
+2441
+01:46:55,639 --> 01:46:58,920
+benign is actually
+
+2442
+01:46:58,920 --> 01:47:02,639
+inside a span with classes diagnosis and
+
+2443
+01:47:02,639 --> 01:47:04,380
+benign so now we can Target those
+
+2444
+01:47:04,380 --> 01:47:08,520
+classes in the CSS style sheet right and
+
+2445
+01:47:08,520 --> 01:47:10,020
+we're going to do pretty much the same
+
+2446
+01:47:10,020 --> 01:47:12,119
+thing for
+
+2447
+01:47:12,119 --> 01:47:17,340
+for our malicious one so let's copy this
+
+2448
+01:47:17,340 --> 01:47:20,159
+and let's paste it right here diagnosis
+
+2449
+01:47:20,159 --> 01:47:22,080
+malicious
+
+2450
+01:47:22,080 --> 01:47:25,760
+now let's just close this pen
+
+2451
+01:47:25,800 --> 01:47:28,619
+there you go and now we can Target that
+
+2452
+01:47:28,619 --> 01:47:30,060
+right here
+
+2453
+01:47:30,060 --> 01:47:33,260
+so diagnosis
+
+2454
+01:47:33,480 --> 01:47:36,719
+is going to have a
+
+2455
+01:47:36,719 --> 01:47:41,340
+second it's going to have a color
+
+2456
+01:47:41,340 --> 01:47:42,900
+oops
+
+2457
+01:47:42,900 --> 01:47:46,820
+color of white
+
+2458
+01:47:46,920 --> 01:47:49,679
+it's going to have a padding
+
+2459
+01:47:49,679 --> 01:47:54,480
+of 0.2 grams and
+
+2460
+01:47:54,480 --> 01:47:57,540
+0.5 you know what we're going to use EMS
+
+2461
+01:47:57,540 --> 01:47:59,540
+here 0.5
+
+2462
+01:47:59,540 --> 01:48:02,880
+Rems because we're dealing with uh with
+
+2463
+01:48:02,880 --> 01:48:05,580
+a yeah with this kind of button I don't
+
+2464
+01:48:05,580 --> 01:48:07,440
+remember how to call these things
+
+2465
+01:48:07,440 --> 01:48:08,880
+and then we're going to say that the
+
+2466
+01:48:08,880 --> 01:48:12,900
+Border radius is going to be 0.5 EMS
+
+2467
+01:48:12,900 --> 01:48:15,199
+there you go
+
+2468
+01:48:15,199 --> 01:48:18,360
+and now we're going to Target the
+
+2469
+01:48:18,360 --> 01:48:21,420
+background depending on whether it has a
+
+2470
+01:48:21,420 --> 01:48:24,260
+class of
+
+2471
+01:48:24,260 --> 01:48:28,560
+of malicious or benign okay so let's say
+
+2472
+01:48:28,560 --> 01:48:32,960
+the diagnosis dot benign
+
+2473
+01:48:34,199 --> 01:48:36,960
+is going to have a background color
+
+2474
+01:48:36,960 --> 01:48:40,440
+of this screen that I have right here I
+
+2475
+01:48:40,440 --> 01:48:42,540
+just looked up some nice looking green
+
+2476
+01:48:42,540 --> 01:48:43,739
+beforehand
+
+2477
+01:48:43,739 --> 01:48:47,179
+and then the same thing but for
+
+2478
+01:48:47,179 --> 01:48:50,600
+malicious okay
+
+2479
+01:48:51,560 --> 01:48:54,659
+and for malicious I'm going to use this
+
+2480
+01:48:54,659 --> 01:48:57,739
+red color right here
+
+2481
+01:48:58,860 --> 01:49:01,440
+um one second this red color right here
+
+2482
+01:49:01,440 --> 01:49:04,500
+I also checked it out before
+
+2483
+01:49:04,500 --> 01:49:08,760
+there we go so malicious like that
+
+2484
+01:49:08,760 --> 01:49:12,840
+benign like that and my classes they're
+
+2485
+01:49:12,840 --> 01:49:15,480
+supposed to be malicious and benign
+
+2486
+01:49:15,480 --> 01:49:19,440
+there you go so now if I refresh this
+
+2487
+01:49:19,440 --> 01:49:22,380
+benign there it is we should have um you
+
+2488
+01:49:22,380 --> 01:49:24,600
+know what let's yeah benign should have
+
+2489
+01:49:24,600 --> 01:49:28,860
+um green background and malicious
+
+2490
+01:49:28,860 --> 01:49:31,020
+um oh I forgot to add
+
+2491
+01:49:31,020 --> 01:49:36,060
+unsafe allow HTML here unsafe
+
+2492
+01:49:36,560 --> 01:49:39,960
+unsafe allowed HTML to true there you go
+
+2493
+01:49:39,960 --> 01:49:43,739
+now if I refresh benign has a green
+
+2494
+01:49:43,739 --> 01:49:46,380
+background and malicious
+
+2495
+01:49:46,380 --> 01:49:50,040
+hum what's going on here hmm
+
+2496
+01:49:50,040 --> 01:49:53,580
+apparently they're showing both
+
+2497
+01:49:53,580 --> 01:49:55,699
+um
+
+2498
+01:49:56,490 --> 01:49:59,990
+[Music]
+
+2499
+01:50:04,860 --> 01:50:06,719
+what's going on here
+
+2500
+01:50:06,719 --> 01:50:09,840
+why is why are both being shown
+
+2501
+01:50:09,840 --> 01:50:13,260
+it's only supposed to show one of them
+
+2502
+01:50:13,260 --> 01:50:15,540
+what's going on here let's see
+
+2503
+01:50:15,540 --> 01:50:17,760
+refresh
+
+2504
+01:50:17,760 --> 01:50:20,580
+benign and
+
+2505
+01:50:20,580 --> 01:50:22,739
+huh
+
+2506
+01:50:22,739 --> 01:50:26,639
+oh yeah sorry I guess I'm I'm blogging
+
+2507
+01:50:26,639 --> 01:50:30,800
+malicious here and benign by the side so
+
+2508
+01:50:30,800 --> 01:50:35,040
+malicious right here and then there you
+
+2509
+01:50:35,040 --> 01:50:36,360
+go like that
+
+2510
+01:50:36,360 --> 01:50:38,940
+now it's going to work now if we refresh
+
+2511
+01:50:38,940 --> 01:50:40,739
+there you help there you go now you have
+
+2512
+01:50:40,739 --> 01:50:42,360
+benign in green
+
+2513
+01:50:42,360 --> 01:50:46,500
+and if you turn into malicious oh
+
+2514
+01:50:46,500 --> 01:50:47,520
+foreign
+
+2515
+01:50:47,520 --> 01:50:50,639
+sorry about that
+
+2516
+01:50:50,639 --> 01:50:52,739
+um so now you have benign in green and
+
+2517
+01:50:52,739 --> 01:50:55,380
+malicious in red and you have the
+
+2518
+01:50:55,380 --> 01:50:57,540
+probabilities that are also being
+
+2519
+01:50:57,540 --> 01:50:59,400
+updated
+
+2520
+01:50:59,400 --> 01:51:02,340
+um reactively all right
+
+2521
+01:51:02,340 --> 01:51:03,960
+um so there you go now the application
+
+2522
+01:51:03,960 --> 01:51:06,600
+is pretty much complete I would say
+
+2523
+01:51:06,600 --> 01:51:07,920
+um
+
+2524
+01:51:07,920 --> 01:51:10,980
+and of course you can play around and
+
+2525
+01:51:10,980 --> 01:51:13,800
+add some other CSS code but I wouldn't
+
+2526
+01:51:13,800 --> 01:51:15,780
+recommend it I mean I just added some of
+
+2527
+01:51:15,780 --> 01:51:17,219
+it right here to make it look a little
+
+2528
+01:51:17,219 --> 01:51:18,600
+bit
+
+2529
+01:51:18,600 --> 01:51:21,719
+um more user friendly and just like I
+
+2530
+01:51:21,719 --> 01:51:23,659
+figure that the color is red and green
+
+2531
+01:51:23,659 --> 01:51:25,940
+looked very good
+
+2532
+01:51:25,940 --> 01:51:28,139
+there might be some options to do this
+
+2533
+01:51:28,139 --> 01:51:31,440
+extremely by default but since I just it
+
+2534
+01:51:31,440 --> 01:51:33,500
+was pretty easy to just do it with CSS
+
+2535
+01:51:33,500 --> 01:51:36,480
+so there you go I mean I hope this um
+
+2536
+01:51:36,480 --> 01:51:38,280
+now you have like your final application
+
+2537
+01:51:38,280 --> 01:51:41,340
+congratulations Bravo Now
+
+2538
+01:51:41,340 --> 01:51:43,739
+I hope this was cool for you now what
+
+2539
+01:51:43,739 --> 01:51:45,000
+we're going to do is we're going to
+
+2540
+01:51:45,000 --> 01:51:47,159
+deploy it so that you can share the link
+
+2541
+01:51:47,159 --> 01:51:49,320
+to our future employer or with your
+
+2542
+01:51:49,320 --> 01:51:52,560
+friends and to show them what you built
+
+2543
+01:51:52,560 --> 01:51:56,639
+and to get a job that pays you hundreds
+
+2544
+01:51:56,639 --> 01:51:58,500
+of thousands of dollars right
+
+2545
+01:51:58,500 --> 01:52:01,380
+so there you go let's do that all right
+
+2546
+01:52:01,380 --> 01:52:03,420
+awesome so the application is looking
+
+2547
+01:52:03,420 --> 01:52:07,020
+very good uh now we have this app that's
+
+2548
+01:52:07,020 --> 01:52:09,540
+looking like it works it works it looks
+
+2549
+01:52:09,540 --> 01:52:11,219
+perfectly and all now you're going to
+
+2550
+01:52:11,219 --> 01:52:14,159
+want to up and deploy it and in order to
+
+2551
+01:52:14,159 --> 01:52:17,400
+share a link and then your employer can
+
+2552
+01:52:17,400 --> 01:52:19,199
+visit it and your friends can visit it
+
+2553
+01:52:19,199 --> 01:52:21,179
+and you can just show off and feel very
+
+2554
+01:52:21,179 --> 01:52:23,460
+good about it okay
+
+2555
+01:52:23,460 --> 01:52:25,380
+um the idea is that we're going to be
+
+2556
+01:52:25,380 --> 01:52:29,460
+using a resource from like a service
+
+2557
+01:52:29,460 --> 01:52:32,219
+from streamlit called Community Cloud
+
+2558
+01:52:32,219 --> 01:52:34,199
+okay there are different ways to deploy
+
+2559
+01:52:34,199 --> 01:52:36,719
+to to this to deploy streamlined
+
+2560
+01:52:36,719 --> 01:52:38,460
+application as you can see it's just a
+
+2561
+01:52:38,460 --> 01:52:40,199
+regular application
+
+2562
+01:52:40,199 --> 01:52:43,440
+and you can deploy it in a like if you
+
+2563
+01:52:43,440 --> 01:52:45,840
+go to the documentation you can see that
+
+2564
+01:52:45,840 --> 01:52:48,060
+they offer
+
+2565
+01:52:48,060 --> 01:52:50,219
+um tutorials on how to deploy it on with
+
+2566
+01:52:50,219 --> 01:52:53,280
+Docker kubernetes and to to any to any
+
+2567
+01:52:53,280 --> 01:52:55,080
+hosting that you want but here we're
+
+2568
+01:52:55,080 --> 01:52:56,460
+going to be using streamlined Community
+
+2569
+01:52:56,460 --> 01:52:58,739
+Cloud it's the fastest and easiest way
+
+2570
+01:52:58,739 --> 01:53:01,920
+to do it and it's free so why not
+
+2571
+01:53:01,920 --> 01:53:03,960
+so what we're going to do is we're going
+
+2572
+01:53:03,960 --> 01:53:07,739
+to go to streamly.io slash cloud sorry
+
+2573
+01:53:07,739 --> 01:53:09,560
+like that
+
+2574
+01:53:09,560 --> 01:53:12,239
+and then we're going to sign sign up if
+
+2575
+01:53:12,239 --> 01:53:13,760
+you don't have an account of course
+
+2576
+01:53:13,760 --> 01:53:16,739
+and once you have signed up you're going
+
+2577
+01:53:16,739 --> 01:53:18,840
+to be able to sign in and to see a
+
+2578
+01:53:18,840 --> 01:53:21,480
+dashboard that looks like this one okay
+
+2579
+01:53:21,480 --> 01:53:23,340
+um this was just some tests that I had
+
+2580
+01:53:23,340 --> 01:53:25,920
+that I had started a moment ago just
+
+2581
+01:53:25,920 --> 01:53:27,719
+delete this
+
+2582
+01:53:27,719 --> 01:53:31,080
+up um oops not like that
+
+2583
+01:53:31,080 --> 01:53:33,540
+it's going to delete this
+
+2584
+01:53:33,540 --> 01:53:36,239
+there you go all right so your app your
+
+2585
+01:53:36,239 --> 01:53:37,380
+dashboard is going to look something
+
+2586
+01:53:37,380 --> 01:53:40,260
+like that okay what you're going to do
+
+2587
+01:53:40,260 --> 01:53:41,540
+right now
+
+2588
+01:53:41,540 --> 01:53:44,520
+is uh first of all you're going to have
+
+2589
+01:53:44,520 --> 01:53:46,699
+to connect your GitHub account okay
+
+2590
+01:53:46,699 --> 01:53:49,440
+and once you have connected your GitHub
+
+2591
+01:53:49,440 --> 01:53:50,940
+account you're going to want to create a
+
+2592
+01:53:50,940 --> 01:53:53,520
+new repository in this case I created a
+
+2593
+01:53:53,520 --> 01:53:55,139
+repository called streamlit cancer
+
+2594
+01:53:55,139 --> 01:53:56,699
+predict
+
+2595
+01:53:56,699 --> 01:53:58,800
+and once you have created that
+
+2596
+01:53:58,800 --> 01:54:00,600
+repository that is what you're going to
+
+2597
+01:54:00,600 --> 01:54:05,100
+be using to deploy to to streamlit Cloud
+
+2598
+01:54:05,100 --> 01:54:06,360
+okay
+
+2599
+01:54:06,360 --> 01:54:08,940
+so once you have done that we're going
+
+2600
+01:54:08,940 --> 01:54:11,940
+to come right here to our to our
+
+2601
+01:54:11,940 --> 01:54:14,820
+application and we're going to say get
+
+2602
+01:54:14,820 --> 01:54:17,280
+init if you haven't if you haven't been
+
+2603
+01:54:17,280 --> 01:54:18,840
+tracking your code which is a very bad
+
+2604
+01:54:18,840 --> 01:54:20,880
+practice by the way sorry about that
+
+2605
+01:54:20,880 --> 01:54:22,920
+sorry about that
+
+2606
+01:54:22,920 --> 01:54:25,199
+um and then just add everything right
+
+2607
+01:54:25,199 --> 01:54:27,900
+it's going to add everything and get
+
+2608
+01:54:27,900 --> 01:54:29,880
+commit oops
+
+2609
+01:54:29,880 --> 01:54:33,060
+git command and we're going to say
+
+2610
+01:54:33,060 --> 01:54:35,600
+first
+
+2611
+01:54:35,600 --> 01:54:38,940
+commit and
+
+2612
+01:54:38,940 --> 01:54:43,080
+first commit and finish app terrible way
+
+2613
+01:54:43,080 --> 01:54:46,800
+to make a commit but there you go
+
+2614
+01:54:46,800 --> 01:54:49,739
+um so now we have our app that is
+
+2615
+01:54:49,739 --> 01:54:53,520
+already tracked and get it has been it's
+
+2616
+01:54:53,520 --> 01:54:56,340
+now it's like the repository is complete
+
+2617
+01:54:56,340 --> 01:54:58,739
+now we have to upload it here what we're
+
+2618
+01:54:58,739 --> 01:55:00,540
+going to do is we're going to copy this
+
+2619
+01:55:00,540 --> 01:55:02,960
+one right here I'm going to add it
+
+2620
+01:55:02,960 --> 01:55:06,719
+to my git remote
+
+2621
+01:55:06,719 --> 01:55:09,300
+at origin if I'm not mistaken to add an
+
+2622
+01:55:09,300 --> 01:55:10,980
+origin for this one I'm just going to
+
+2623
+01:55:10,980 --> 01:55:13,860
+paste the URL and now you find that
+
+2624
+01:55:13,860 --> 01:55:15,239
+mistaken
+
+2625
+01:55:15,239 --> 01:55:17,940
+I should have it right here there you go
+
+2626
+01:55:17,940 --> 01:55:20,400
+now what I want to do is I'm going to
+
+2627
+01:55:20,400 --> 01:55:22,560
+push it to my remote repository in
+
+2628
+01:55:22,560 --> 01:55:25,679
+GitHub right what we're doing here is
+
+2629
+01:55:25,679 --> 01:55:27,600
+basically just push everything right
+
+2630
+01:55:27,600 --> 01:55:29,520
+here to GitHub
+
+2631
+01:55:29,520 --> 01:55:34,440
+so we're going to do git push U origin
+
+2632
+01:55:34,440 --> 01:55:35,480
+Main
+
+2633
+01:55:35,480 --> 01:55:38,699
+and now if we refresh this our GitHub
+
+2634
+01:55:38,699 --> 01:55:42,540
+should have the all our files good
+
+2635
+01:55:42,540 --> 01:55:45,540
+so there we go now what we're gonna have
+
+2636
+01:55:45,540 --> 01:55:47,940
+to do before actually deploying to
+
+2637
+01:55:47,940 --> 01:55:51,239
+streamlit is we're going to have to tell
+
+2638
+01:55:51,239 --> 01:55:54,960
+our application what are the modules and
+
+2639
+01:55:54,960 --> 01:55:56,400
+the packages that we're using right
+
+2640
+01:55:56,400 --> 01:55:57,659
+because
+
+2641
+01:55:57,659 --> 01:56:00,300
+remember that during our
+
+2642
+01:56:00,300 --> 01:56:03,060
+while developing our application we used
+
+2643
+01:56:03,060 --> 01:56:06,480
+several several several packages so we
+
+2644
+01:56:06,480 --> 01:56:08,639
+used pickle we used pandas which plus
+
+2645
+01:56:08,639 --> 01:56:12,840
+plotly we use numpy and what streamlit
+
+2646
+01:56:12,840 --> 01:56:15,659
+cloud does is it creates a virtualized
+
+2647
+01:56:15,659 --> 01:56:19,199
+server and once it's virtualized it
+
+2648
+01:56:19,199 --> 01:56:20,580
+doesn't necessarily have all these
+
+2649
+01:56:20,580 --> 01:56:21,960
+packages installed so we're going to
+
+2650
+01:56:21,960 --> 01:56:24,360
+have to tell it which packages you're
+
+2651
+01:56:24,360 --> 01:56:27,060
+going to need if you come from from
+
+2652
+01:56:27,060 --> 01:56:29,699
+JavaScript this is exactly the same as
+
+2653
+01:56:29,699 --> 01:56:32,600
+creating an npm
+
+2654
+01:56:32,600 --> 01:56:34,679
+package.json right
+
+2655
+01:56:34,679 --> 01:56:38,159
+so in order to create our package.json
+
+2656
+01:56:38,159 --> 01:56:42,239
+or our list of dependencies we're going
+
+2657
+01:56:42,239 --> 01:56:44,300
+to do we're going to need a new
+
+2658
+01:56:44,300 --> 01:56:47,040
+dependency from python called pip Rec
+
+2659
+01:56:47,040 --> 01:56:49,260
+okay so in order to do that we're going
+
+2660
+01:56:49,260 --> 01:56:50,639
+to have to install it first we're going
+
+2661
+01:56:50,639 --> 01:56:53,580
+to do pip install
+
+2662
+01:56:53,580 --> 01:56:58,460
+pip wreck if I'm not mistaken
+
+2663
+01:56:58,619 --> 01:57:02,639
+there you go and then in the origin of
+
+2664
+01:57:02,639 --> 01:57:05,520
+our file we're just going to do pip
+
+2665
+01:57:05,520 --> 01:57:06,960
+wreck
+
+2666
+01:57:06,960 --> 01:57:09,780
+and then usually you would you would
+
+2667
+01:57:09,780 --> 01:57:12,239
+write where you want your file to be but
+
+2668
+01:57:12,239 --> 01:57:15,780
+here I'm just going to say pip rack and
+
+2669
+01:57:15,780 --> 01:57:17,760
+it didn't work
+
+2670
+01:57:17,760 --> 01:57:22,699
+um pip wreck is probably
+
+2671
+01:57:22,860 --> 01:57:25,929
+[Music]
+
+2672
+01:57:26,400 --> 01:57:28,500
+wreck
+
+2673
+01:57:28,500 --> 01:57:32,099
+let's see does that work what's going on
+
+2674
+01:57:32,099 --> 01:57:34,280
+um
+
+2675
+01:57:35,699 --> 01:57:38,960
+one second
+
+2676
+01:57:39,640 --> 01:57:42,060
+[Music]
+
+2677
+01:57:42,060 --> 01:57:44,239
+um
+
+2678
+01:57:45,380 --> 01:57:47,940
+let's see
+
+2679
+01:57:47,940 --> 01:57:49,679
+what you're going to want to do oh sorry
+
+2680
+01:57:49,679 --> 01:57:52,080
+it's not peep wreck it's people Rex yeah
+
+2681
+01:57:52,080 --> 01:57:54,360
+sorry about that it's paper x with an S
+
+2682
+01:57:54,360 --> 01:57:56,280
+so there you go now I have to install
+
+2683
+01:57:56,280 --> 01:58:00,780
+this one and then I do pip Rex with an s
+
+2684
+01:58:00,780 --> 01:58:02,540
+there you go and now you have your
+
+2685
+01:58:02,540 --> 01:58:05,040
+requirements.txt right here there you go
+
+2686
+01:58:05,040 --> 01:58:07,800
+now as you can see this is a file that
+
+2687
+01:58:07,800 --> 01:58:09,599
+basically includes all of your
+
+2688
+01:58:09,599 --> 01:58:11,760
+dependencies I mean the packages that
+
+2689
+01:58:11,760 --> 01:58:14,159
+you installed so that streamlit cloud
+
+2690
+01:58:14,159 --> 01:58:16,560
+can install them
+
+2691
+01:58:16,560 --> 01:58:20,340
+um in in their own server and so that
+
+2692
+01:58:20,340 --> 01:58:22,739
+your application is able to run okay so
+
+2693
+01:58:22,739 --> 01:58:24,540
+now that we have this we're going to
+
+2694
+01:58:24,540 --> 01:58:29,760
+have to get at our requirements
+
+2695
+01:58:29,760 --> 01:58:31,110
+requirements.txt
+
+2696
+01:58:31,110 --> 01:58:33,000
+[Music]
+
+2697
+01:58:33,000 --> 01:58:34,679
+all right so I already added it so
+
+2698
+01:58:34,679 --> 01:58:36,179
+that's right and then we're going to
+
+2699
+01:58:36,179 --> 01:58:38,360
+have to commit it
+
+2700
+01:58:38,360 --> 01:58:43,440
+add requirements and that git push
+
+2701
+01:58:43,440 --> 01:58:45,179
+to our
+
+2702
+01:58:45,179 --> 01:58:49,980
+origin Main and now we should have our
+
+2703
+01:58:49,980 --> 01:58:51,360
+requirements
+
+2704
+01:58:51,360 --> 01:58:53,880
+right here there you go so that should
+
+2705
+01:58:53,880 --> 01:58:55,860
+be enough to tell our streamlit Cloud
+
+2706
+01:58:55,860 --> 01:58:59,520
+application service that we want to
+
+2707
+01:58:59,520 --> 01:59:02,820
+deploy using these requirements so now
+
+2708
+01:59:02,820 --> 01:59:05,219
+we go to our dashboard
+
+2709
+01:59:05,219 --> 01:59:07,679
+that's here we click on new app Remember
+
+2710
+01:59:07,679 --> 01:59:09,960
+to link your GitHub account
+
+2711
+01:59:09,960 --> 01:59:12,179
+and then you're going to say which is
+
+2712
+01:59:12,179 --> 01:59:13,860
+the repository that you're going to want
+
+2713
+01:59:13,860 --> 01:59:16,679
+to deploy it from which is the one that
+
+2714
+01:59:16,679 --> 01:59:19,320
+we just created streamlit cancer predict
+
+2715
+01:59:19,320 --> 01:59:21,480
+the branch is the main branch that we're
+
+2716
+01:59:21,480 --> 01:59:24,000
+using and the file the path to the file
+
+2717
+01:59:24,000 --> 01:59:26,340
+okay here it already detected that it's
+
+2718
+01:59:26,340 --> 01:59:29,699
+inside app and Main which is app and
+
+2719
+01:59:29,699 --> 01:59:31,619
+Main which is this file that we're going
+
+2720
+01:59:31,619 --> 01:59:34,320
+to want to to execute to load our
+
+2721
+01:59:34,320 --> 01:59:35,400
+application
+
+2722
+01:59:35,400 --> 01:59:38,580
+and now we can click on let's see do we
+
+2723
+01:59:38,580 --> 01:59:40,560
+have advanced settings I mean you can
+
+2724
+01:59:40,560 --> 01:59:43,139
+set up Secrets if you need to but I
+
+2725
+01:59:43,139 --> 01:59:46,260
+didn't add any so we can just deploy
+
+2726
+01:59:46,260 --> 01:59:49,199
+and it sometimes takes a little while
+
+2727
+01:59:49,199 --> 01:59:53,159
+because it needs to it needs to
+
+2728
+01:59:53,159 --> 01:59:56,280
+install all the dependencies and just to
+
+2729
+01:59:56,280 --> 01:59:58,520
+get your app up and running
+
+2730
+01:59:58,520 --> 02:00:01,920
+but it usually works very well and now
+
+2731
+02:00:01,920 --> 02:00:03,719
+as you can see we have deployed our
+
+2732
+02:00:03,719 --> 02:00:06,060
+application super quick
+
+2733
+02:00:06,060 --> 02:00:07,860
+um hopefully there will be no errors so
+
+2734
+02:00:07,860 --> 02:00:09,960
+if you got all the way to here thank you
+
+2735
+02:00:09,960 --> 02:00:12,780
+very much and congratulations you have
+
+2736
+02:00:12,780 --> 02:00:15,900
+um completed a a very very long course
+
+2737
+02:00:15,900 --> 02:00:18,239
+and you know now how to create
+
+2738
+02:00:18,239 --> 02:00:21,119
+streamlined applications that make
+
+2739
+02:00:21,119 --> 02:00:23,520
+um predictions with a machine learning
+
+2740
+02:00:23,520 --> 02:00:25,980
+model and you learned how to export that
+
+2741
+02:00:25,980 --> 02:00:28,320
+model that you created in Python and how
+
+2742
+02:00:28,320 --> 02:00:30,179
+to export it with pickle how to import
+
+2743
+02:00:30,179 --> 02:00:32,940
+it your application and how to use that
+
+2744
+02:00:32,940 --> 02:00:35,520
+to take some input from your user and to
+
+2745
+02:00:35,520 --> 02:00:38,280
+make predictions based on that input and
+
+2746
+02:00:38,280 --> 02:00:40,080
+we also learned how to make a really
+
+2747
+02:00:40,080 --> 02:00:42,679
+like a pretty sophisticated chart
+
+2748
+02:00:42,679 --> 02:00:46,500
+from the input that the user gives and
+
+2749
+02:00:46,500 --> 02:00:49,020
+to update the chart reactively
+
+2750
+02:00:49,020 --> 02:00:51,840
+so I would say that you have done an
+
+2751
+02:00:51,840 --> 02:00:54,179
+amazing job so congratulations and now
+
+2752
+02:00:54,179 --> 02:00:56,820
+here you go now your application is up
+
+2753
+02:00:56,820 --> 02:01:00,780
+and running and it's in the and it's in
+
+2754
+02:01:00,780 --> 02:01:01,679
+the web
+
+2755
+02:01:01,679 --> 02:01:04,920
+so you can just copy this URL and share
+
+2756
+02:01:04,920 --> 02:01:07,920
+it with your friends with your with your
+
+2757
+02:01:07,920 --> 02:01:11,520
+employers and to show how amazing your
+
+2758
+02:01:11,520 --> 02:01:16,080
+skills are at at machine learning and at
+
+2759
+02:01:16,080 --> 02:01:18,060
+creating web applications using machine
+
+2760
+02:01:18,060 --> 02:01:20,580
+learning Technologies okay as a reminder
+
+2761
+02:01:20,580 --> 02:01:23,219
+that you can use pretty much any machine
+
+2762
+02:01:23,219 --> 02:01:24,840
+learning
+
+2763
+02:01:24,840 --> 02:01:26,460
+um I mean any model it doesn't have to
+
+2764
+02:01:26,460 --> 02:01:28,739
+be like a logistic regression which is
+
+2765
+02:01:28,739 --> 02:01:31,619
+super simple you can be loading um like
+
+2766
+02:01:31,619 --> 02:01:35,159
+a neural network behind it and it will
+
+2767
+02:01:35,159 --> 02:01:37,500
+totally work so
+
+2768
+02:01:37,500 --> 02:01:39,420
+there you go I hope you found it useful
+
+2769
+02:01:39,420 --> 02:01:41,520
+I hope that you learned a lot and be
+
+2770
+02:01:41,520 --> 02:01:43,380
+sure to subscribe for more videos like
+
+2771
+02:01:43,380 --> 02:01:45,300
+this and be sure to leave a like and
+
+2772
+02:01:45,300 --> 02:01:47,280
+don't forget to write a comment as well
+
+2773
+02:01:47,280 --> 02:01:50,460
+if you liked it and to tell me if you
+
+2774
+02:01:50,460 --> 02:01:53,040
+had any questions also if you have if
+
+2775
+02:01:53,040 --> 02:01:55,440
+you find a comment that you know the
+
+2776
+02:01:55,440 --> 02:01:57,000
+answer to of someone I mean if someone
+
+2777
+02:01:57,000 --> 02:01:59,099
+if you see someone asking a question and
+
+2778
+02:01:59,099 --> 02:02:00,239
+you know the answer to that question
+
+2779
+02:02:00,239 --> 02:02:04,020
+don't hesitate to to answer it's a good
+
+2780
+02:02:04,020 --> 02:02:07,619
+way to to to learn when you explain uh
+
+2781
+02:02:07,619 --> 02:02:09,719
+what is going on uh so thank you very
+
+2782
+02:02:09,719 --> 02:02:12,060
+much again for watching and I will see
+
+2783
+02:02:12,060 --> 02:02:15,020
+you in the next one
+
+2784
+02:02:15,220 --> 02:02:20,370
+[Music]
+
+2785
+02:02:24,430 --> 02:02:31,040
+[Music]
+
+2786
+02:02:31,040 --> 02:02:32,590
+thank you
+
+2787
+02:02:32,590 --> 02:02:39,819
+[Music]
+

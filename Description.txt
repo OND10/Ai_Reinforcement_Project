@@ -1,0 +1,35 @@
+
+🚀 What you'll learn in this tutorial:
+
+How to create a Streamlit dashboard
+Training a logistic regression model for machine learning
+Visualizing data using Plotly
+Displaying predictions based on user input
+Creating an AI full-stack app using Python
+
+In this video tutorial, we train a logistic regression model using machine learning in Python. We will be using a dataset to predict whether a cell cluster is 
+benign or malignant. Once our model is ready, we will integrate it into a Streamlit application that runs in the web browser. 
+You'll see how easy it is to create an interactive dashboard using Streamlit and Python! Next, we will visualize our data using Plotly to create informative and interactive 
+charts.These visualizations will help users understand the predictions made by our machine-learning model. We'll then display the predictions based on the user's input, 
+making our dashboard not only visually appealing but also highly functional.Throughout the tutorial, we'll explore various techniques and best practices used by experts 
+like Nicholas Renotte and Patrick Loeber. This Streamlit tutorial is an excellent resource for data science dashboard projects 
+and a great way to learn how to create a machine learning app.By the end of this course, you will have created an AI full-stack app using Python, 
+Streamlit, and machine learning. You'll be ready to tackle your own machine-learning projects and create amazing data science dashboards!
+Don't forget to like, comment, and subscribe to stay updated with more tutorials and projects in machine learning, data science, and web app development!
+
+⏰ Timestamps
+0:00 Intro *
+2:56 Download the data
+6:23 Project setup
+8:21 Clean the data
+14:00 Train the model
+21:06 Test the model
+26:39 Export the model and scaler *
+32:33 Create the Streamlit app
+38:48 Create the layout
+44:18 Add the sidebar inputs *
+58:52 Create the chart
+1:17:22 Scale the values for chart *
+1:25:30 Display the predictions
+1:39:08 Add custom CSS *
+1:52:00 Deploy your app
